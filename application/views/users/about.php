@@ -2,13 +2,13 @@
 <html lang="az">
 
 <head>
-    <?php $this->load->view("users/includes/HeadData"); ?>
+    <?php $this->load->view("users/includes/HeaderLinks"); ?>
 </head>
 
 <body>
-    <?php $this->load->view("users/includes/Preloader"); ?>
-    <?php $this->load->view("users/includes/NavBar"); ?>
 
+    <?php $this->load->view("users/includes/Preloader"); ?>
+    <?php $this->load->view("users/includes/Navbar"); ?>
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -33,7 +33,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="<?php echo base_url('public/img/about.jpg');?>" alt="">
+                        <img class="img-fluid w-75 align-self-end" src="<?php echo base_url('public/assets/user/img/about.jpg'); ?>" alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
                             <center>
                                 <h1 style="color: #D7B56D !important;" class="text-primary mb-3">VIP</h1>
@@ -63,8 +63,6 @@
     </div>
     <!-- About End -->
 
-
-
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -76,7 +74,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url('public/img/team-1.jpg');?>" alt="">
+                            <img class="img-fluid" src="<?php echo base_url('public/assets/user/img/team-1.jpg'); ?>" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i style="color: #D7B56D !important" class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href="https://www.youtube.com/channel/UCI2uZseSfDPpzY2N5Pi1DeA"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
@@ -93,7 +91,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url('public/img/team-2.jpg');?>" alt="">
+                            <img class="img-fluid" src="<?php echo base_url('public/assets/user/img/team-2.jpg'); ?>" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i style="color: #D7B56D !important" class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href="https://www.youtube.com/channel/UCI2uZseSfDPpzY2N5Pi1DeA"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
@@ -109,7 +107,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url('public/img/team-3.jpg');?>" alt="">
+                            <img class="img-fluid" src="<?php echo base_url('public/assets/user/img/team-3.jpg'); ?>" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i style="color: #D7B56D !important" class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href="https://www.youtube.com/channel/UCI2uZseSfDPpzY2N5Pi1DeA"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
@@ -127,9 +125,9 @@
     </div>
     <!-- Team End -->
 
-
     <?php $this->load->view("users/includes/Footer"); ?>
     <?php $this->load->view("users/includes/FooterScripts"); ?>
+
 </body>
 
 </html>

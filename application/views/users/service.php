@@ -2,13 +2,13 @@
 <html lang="az">
 
 <head>
-    <?php $this->load->view("users/includes/HeadData"); ?>
+    <?php $this->load->view("users/includes/HeaderLinks"); ?>
 </head>
 
 <body>
-    <?php $this->load->view("users/includes/Preloader"); ?>
-    <?php $this->load->view("users/includes/NavBar"); ?>
 
+    <?php $this->load->view("users/includes/Preloader"); ?>
+    <?php $this->load->view("users/includes/Navbar"); ?>
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -23,7 +23,6 @@
         </div>
     </div>
     <!-- Page Header End -->
-
 
     <!-- Service Start -->
     <div class="container-xxl py-5">
@@ -126,13 +125,12 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <img class="img-fluid h-100" src="<?php echo base_url('public/img/price.jpg');?>" alt="">
+                        <img class="img-fluid h-100" src="<?php echo base_url('public/assets/user/img/price.jpg'); ?>" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5">
@@ -142,17 +140,17 @@
                 <h1>Müştərilərimiz nə düşünür?</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/img/testimonial-1.jpg");?>' alt=''>">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/assets/user/img/testimonial-1.jpg"); ?>' alt=''>">
                     <h4>Nail bəy</h4>
                     <p style="color: #D7B56D !important" class="text-primary">Mühasib</p>
                     <span class="fs-5">Bizə doğma insan, mehriban, pozitiv bərbərimiz İbrahim usta, əlləriniz var olsun, dəyərli sənətkar!</span>
                 </div>
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/img/testimonial-2.jpg");?>' alt=''>">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/assets/user/img/testimonial-2.jpg"); ?>' alt=''>">
                     <h4>Fərid bəy</h4>
                     <p style="color: #D7B56D !important" class="text-primary">Pediatr</p>
                     <span class="fs-5">Öz dərin təşəkkürümü bildirirəm ki, ailəvi olaraq bizə layiqli xidmət göstərirsiniz və biz də daima sizə sadiq qalırıq.</span>
                 </div>
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/img/testimonial-3.jpg");?>' alt=''>">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/assets/user/img/testimonial-3.jpg"); ?>' alt=''>">
                     <h4>Ayaz bəy</h4>
                     <p style="color: #D7B56D !important" class="text-primary">Zərgər</p>
                     <span class="fs-5">Peşəkar bərbərlikdən savayı, əsl dost, sevimli, pozitiv və gülərüz insan, sənə ən əsası can sağlığı, uzun ömür və gələcək işlərində hər zaman uğur əldə etməyi arzulayıram. </span>
@@ -164,6 +162,7 @@
 
     <?php $this->load->view("users/includes/Footer"); ?>
     <?php $this->load->view("users/includes/FooterScripts"); ?>
+
 </body>
 
 </html>

@@ -2,13 +2,12 @@
 <html lang="az">
 
 <head>
-    <?php $this->load->view("users/includes/HeadData"); ?>
+    <?php $this->load->view("users/includes/HeaderLinks"); ?>
 </head>
 
 <body>
     <?php $this->load->view("users/includes/Preloader"); ?>
-    <?php $this->load->view("users/includes/NavBar"); ?>
-
+    <?php $this->load->view("users/includes/Navbar"); ?>
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -40,9 +39,9 @@
     </div>
     <!-- Contact End -->
 
-
     <?php $this->load->view("users/includes/Footer"); ?>
     <?php $this->load->view("users/includes/FooterScripts"); ?>
+
 </body>
 
 </html>

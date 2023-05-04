@@ -2,15 +2,12 @@
 <html lang="az">
 
 <head>
-
-    <?php $this->load->view("users/includes/HeadData"); ?>
-    
+    <?php $this->load->view("users/includes/HeaderLinks"); ?>
 </head>
 
 <body>
-
     <?php $this->load->view("users/includes/Preloader"); ?>
-    <?php $this->load->view("users/includes/NavBar"); ?>
+    <?php $this->load->view("users/includes/Navbar"); ?>
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -18,7 +15,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <video autoplay muted loop id="myVideo">
-                        <source src="<?php echo base_url('public/video/video.mp4');?>" type="video/mp4">
+                        <source src="<?php echo base_url('public/assets/user/video/video.mp4'); ?>" type="video/mp4">
                     </video>
                     <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
                         <div class="mx-sm-5 px-5" style="max-width: 900px;">
@@ -39,7 +36,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column">
-                        <img class="img-fluid w-75 align-self-end" src="<?php echo base_url('public/img/about.jpg');?>" alt="">
+                        <img class="img-fluid w-75 align-self-end" src="<?php echo base_url('public/assets/user/img/about.jpg'); ?>" alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
                             <center>
                                 <h1 style="color: #D7B56D !important;" class="text-primary mb-3">VIP</h1>
@@ -172,7 +169,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <img class="img-fluid h-100" src="<?php echo base_url('public/img/price.jpg');?>" alt="">
+                        <img class="img-fluid h-100" src="<?php echo base_url('public/assets/user/img/price.jpg'); ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -191,7 +188,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url('public/img/team-1.jpg');?>" alt="">
+                            <img class="img-fluid" src="<?php echo base_url('public/assets/user/img/team-1.jpg'); ?>" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i style="color: #D7B56D !important" class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href="https://www.youtube.com/channel/UCI2uZseSfDPpzY2N5Pi1DeA"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
@@ -208,7 +205,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url('public/img/team-2.jpg');?>" alt="">
+                            <img class="img-fluid" src="<?php echo base_url('public/assets/user/img/team-2.jpg'); ?>" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i style="color: #D7B56D !important" class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href="https://www.youtube.com/channel/UCI2uZseSfDPpzY2N5Pi1DeA"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
@@ -224,7 +221,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="<?php echo base_url('public/img/team-3.jpg');?>" alt="">
+                            <img class="img-fluid" src="<?php echo base_url('public/assets/user/img/team-3.jpg'); ?>" alt="">
                             <div class="team-social">
                                 <a class="btn btn-square" href=""><i style="color: #D7B56D !important" class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-square" href="https://www.youtube.com/channel/UCI2uZseSfDPpzY2N5Pi1DeA"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
@@ -248,7 +245,7 @@
             <div class="row g-0">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100">
-                        <img class="img-fluid h-100" src="<?php echo base_url('public/img/open.jpg');?>" alt="">
+                        <img class="img-fluid h-100" src="<?php echo base_url('public/assets/user/img/open.jpg'); ?>" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -296,17 +293,17 @@
                 <h1>Müştərilərimiz nə düşünür?</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/img/testimonial-1.jpg");?>' alt=''>">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/assets/user/img/testimonial-1.jpg"); ?>' alt=''>">
                     <h4>Nail bəy</h4>
                     <p style="color: #D7B56D !important" class="text-primary">Mühasib</p>
                     <span class="fs-5">Bizə doğma insan, mehriban, pozitiv bərbərimiz İbrahim usta, əlləriniz var olsun, dəyərli sənətkar!</span>
                 </div>
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/img/testimonial-2.jpg");?>' alt=''>">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/assets/user/img/testimonial-2.jpg"); ?>' alt=''>">
                     <h4>Fərid bəy</h4>
                     <p style="color: #D7B56D !important" class="text-primary">Pediatr</p>
                     <span class="fs-5">Öz dərin təşəkkürümü bildirirəm ki, ailəvi olaraq bizə layiqli xidmət göstərirsiniz və biz də daima sizə sadiq qalırıq.</span>
                 </div>
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/img/testimonial-3.jpg");?>' alt=''>">
+                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='<?php echo base_url("public/assets/user/img/testimonial-3.jpg"); ?>' alt=''>">
                     <h4>Ayaz bəy</h4>
                     <p style="color: #D7B56D !important" class="text-primary">Zərgər</p>
                     <span class="fs-5">Peşəkar bərbərlikdən savayı, əsl dost, sevimli, pozitiv və gülərüz insan, sənə ən əsası can sağlığı, uzun ömür və gələcək işlərində hər zaman uğur əldə etməyi arzulayıram. </span>
@@ -319,4 +316,5 @@
     <?php $this->load->view("users/includes/FooterScripts"); ?>
 
 </body>
+
 </html>
