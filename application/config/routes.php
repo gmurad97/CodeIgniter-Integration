@@ -59,6 +59,10 @@ $route["gallery"] = "UserController/gallery";
 $route["contact"] = "UserController/contact";
 
 /*ADMIN CONTROLLER*/
+$route["adm_login"] = "AdminController/login";
+$route["adm_dashboard"] = "AdminController/index";
+$route["adm_list"] = "AdminController/list";
+$route["adm_create"] = "AdminController/create";
 
 
 
