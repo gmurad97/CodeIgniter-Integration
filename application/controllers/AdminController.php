@@ -7,7 +7,6 @@ class AdminController extends CI_Controller{
     public function index(){
         $this->load->view("admins/index");
     }
-
     public function list(){
         $this->load->view("admins/product/list");
     }
