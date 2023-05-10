@@ -63,6 +63,8 @@ $route["adm_login"] = "AdminController/login";
 $route["adm_dashboard"] = "AdminController/index";
 $route["adm_list"] = "AdminController/list";
 $route["adm_create"] = "AdminController/create";
+$route["adm_create_act"] = "AdminController/create_act";
+
 
 /*OTHER*/
 $route['404_override'] = '';
