@@ -33,16 +33,26 @@ class AdminController extends CI_Controller
         $telegram = $_POST["telegram"];
         $youtube = $_POST["youtube"];
         $acc_status = $_POST["acc_status"];
+        $created_timestamp = time();
         /* $acc_photo = $_POST["acc_photo"]; */
 
-        //echo $firstName;
-        //echo $lastName;
-        //echo $email;
-        //echo $description;
-        //echo $position;
-
         if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($description) && !empty($position)) {
-            echo $firstName;
+            $data = [
+                "firstName" => $firstName,
+                "lastName" => $lastName,
+                "email" => $email,
+                "description" => $description,
+                "mobile" => $mobile,
+                "whatsapp" => $whatsapp,
+                "facebook" => $facebook,
+                "instagram" => $instagram,
+                "telegram" => $telegram,
+                "youtube" => $youtube,
+                "acc_status" => $acc_status,
+                "created_date" => $created_timestamp
+            ];
+            $this->db->insert("user", $data);
+            redirect(base_url("adm_create"));
         } else {
             redirect($_SERVER["HTTP_REFERER"]);
         }
