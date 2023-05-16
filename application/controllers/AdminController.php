@@ -34,9 +34,15 @@ class AdminController extends CI_Controller
         $youtube = $_POST["youtube"];
         $acc_status = $_POST["acc_status"];
         $created_timestamp = time();
-        /* $acc_photo = $_POST["acc_photo"]; */
 
-        if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($description) && !empty($position)) {
+
+        $files_feature_configs["upload_path"] = "./uploads";
+        $files_feature_configs["allowed_types"] = "gif|jpg|jpeg|png|PNG|JPG|JPEG";
+
+        $this->load->library("upload", $files_feature_configs);
+
+        if ($this->upload->do_upload("acc_photo")) {
+            $pic = $this->upload->data();
             $data = [
                 "firstName" => $firstName,
                 "lastName" => $lastName,
@@ -51,10 +57,23 @@ class AdminController extends CI_Controller
                 "acc_status" => $acc_status,
                 "created_date" => $created_timestamp
             ];
-            $this->db->insert("user", $data);
-            redirect(base_url("adm_create"));
+            print_r("<pre>");
+            print_r($pic);
         } else {
-            redirect($_SERVER["HTTP_REFERER"]);
+            $data = [
+                "firstName" => $firstName,
+                "lastName" => $lastName,
+                "email" => $email,
+                "description" => $description,
+                "mobile" => $mobile,
+                "whatsapp" => $whatsapp,
+                "facebook" => $facebook,
+                "instagram" => $instagram,
+                "telegram" => $telegram,
+                "youtube" => $youtube,
+                "acc_status" => $acc_status,
+                "created_date" => $created_timestamp
+            ];
         }
     }
 }
