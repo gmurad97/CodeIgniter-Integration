@@ -100,9 +100,15 @@
                     </div>
                 </div>
             </div>
-            <h3 class="bg-primary text-center text-white mt-3 mb-3 py-2 rounded"><b>Exta Information</b></h3>
+            <h3 class="bg-primary text-center text-white mt-3 mb-3 py-2 rounded"><b>Extra Information</b></h3>
 
             <div class="row">
+            <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="experience"><b>Experience</b></label>
+                        <input name="experience" type="text" id="experience" class="form-control">
+                    </div>
+                </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="acc_status"><b>Account Status</b></label>
@@ -113,7 +119,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="acc_photo"><b>Account Photo</b></label>
                         <input name="acc_photo" type="file" id="acc_photo" class="form-control input_file_cstyle">

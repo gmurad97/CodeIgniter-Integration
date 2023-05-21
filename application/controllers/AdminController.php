@@ -6,14 +6,17 @@ class AdminController extends CI_Controller
     {
         $this->load->view("admins/login");
     }
+
     public function index()
     {
         $this->load->view("admins/index");
     }
+
     public function list()
     {
         $this->load->view("admins/staff/list");
     }
+
     public function create()
     {
         $this->load->view("admins/staff/create");
@@ -21,33 +24,61 @@ class AdminController extends CI_Controller
 
     public function create_act()
     {
-        $firstName = $_POST["first_name"];
-        $lastName = $_POST["last_name"];
-        $email = $_POST["email"];
-        $description = $_POST["description"];
-        $position = $_POST["position"];
-        $mobile = $_POST["mobile"];
-        $whatsapp = $_POST["whatsapp"];
-        $facebook = $_POST["facebook"];
-        $instagram = $_POST["instagram"];
-        $telegram = $_POST["telegram"];
-        $youtube = $_POST["youtube"];
-        $acc_status = $_POST["acc_status"];
+        /*GET INPUT POST ELEMENTS*/
+        $firstName         = $_POST["first_name"];
+        $lastName          = $_POST["last_name"];
+        $position          = $_POST["position"];
+        $email             = $_POST["email"];
+        $description       = $_POST["description"];
+        $experience        = $_POST["experience"];
+        $mobile            = $_POST["mobile"];
+        $whatsapp          = $_POST["whatsapp"];
+        $facebook          = $_POST["facebook"];
+        $instagram         = $_POST["instagram"];
+        $telegram          = $_POST["telegram"];
+        $youtube           = $_POST["youtube"];
+        $acc_status        = $_POST["acc_status"];
         $created_timestamp = time();
 
+        /*SETTING FILE UPLOADS*/
+        $files_feature_configs["upload_path"] = "./uploads"; //File upload path -> Dir...
+        $files_feature_configs["allowed_types"] = "gif|jpg|jpeg|png|PNG|JPG|JPEG|GIF"; //Allowed upload types
+        $files_feature_configs["encrypt_name"] = true; //myimage.jpg -> a6a5e76984ac38726b09f825c31374c7.jpg
+        $files_feature_configs["remove_spaces"] = true; //MY TEST IMAGE.jpg -> MYTESTIMAGE.jpg or MY_TEST_IMAGE.jpg
+        $files_feature_configs["file_ext_tolower"] = true; //PNG -> png || JPG -> jpg
+        $this->load->library("upload", $files_feature_configs); // Loading config & initialize
 
-        $files_feature_configs["upload_path"] = "./uploads";
-        $files_feature_configs["allowed_types"] = "gif|jpg|jpeg|png|PNG|JPG|JPEG";
-
-        $this->load->library("upload", $files_feature_configs);
-
-        if ($this->upload->do_upload("acc_photo")) {
-            $pic = $this->upload->data();
-            $data = [
+        if ($this->upload->do_upload("acc_photo")) { //acc_photo = input[name=acc_photo ; type="file"]
+            $uploaded_acc_photo = $this->upload->data();
+            $db_collection = [
+                "firstName"     => $firstName,
+                "lastName"      => $lastName,
+                "position"      => $position,
+                "email"         => $email,
+                "description"   => $description,
+                "experience"    => $experience,
+                "mobile"        => $mobile,
+                "whatsapp"      => $whatsapp,
+                "facebook"      => $facebook,
+                "instagram"     => $instagram,
+                "telegram"      => $telegram,
+                "youtube"       => $youtube,
+                "acc_status"    => $acc_status,
+                "created_date"  => $created_timestamp,
+                "user_img"      => $uploaded_acc_photo["file_name"]
+            ];
+            $this->db->insert("user", $db_collection);
+            redirect(base_url("adm_list"));
+        } 
+        else 
+        {
+            $db_collection = [
                 "firstName" => $firstName,
                 "lastName" => $lastName,
+                "position" => $position,
                 "email" => $email,
                 "description" => $description,
+                "experience" => $experience,
                 "mobile" => $mobile,
                 "whatsapp" => $whatsapp,
                 "facebook" => $facebook,
@@ -57,23 +88,8 @@ class AdminController extends CI_Controller
                 "acc_status" => $acc_status,
                 "created_date" => $created_timestamp
             ];
-            print_r("<pre>");
-            print_r($pic);
-        } else {
-            $data = [
-                "firstName" => $firstName,
-                "lastName" => $lastName,
-                "email" => $email,
-                "description" => $description,
-                "mobile" => $mobile,
-                "whatsapp" => $whatsapp,
-                "facebook" => $facebook,
-                "instagram" => $instagram,
-                "telegram" => $telegram,
-                "youtube" => $youtube,
-                "acc_status" => $acc_status,
-                "created_date" => $created_timestamp
-            ];
+            $this->db->insert("user", $db_collection);
+            redirect(base_url("adm_list"));
         }
     }
 }
