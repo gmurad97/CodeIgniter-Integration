@@ -66,6 +66,10 @@ $route["adm_create"] = "AdminController/create";
 $route["adm_create_act"] = "AdminController/create_act";
 
 
+
+
+
+
 /*OTHER*/
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

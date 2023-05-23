@@ -2,6 +2,12 @@
 
 class AdminController extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("AdminModel");
+    }
+
     public function login()
     {
         $this->load->view("admins/login");
@@ -14,7 +20,8 @@ class AdminController extends CI_Controller
 
     public function list()
     {
-        $this->load->view("admins/staff/list");
+        $data["get_all_data"] = $this->AdminModel->staff_db_get_all(true);
+        $this->load->view("admins/staff/list",$data);
     }
 
     public function create()
@@ -67,7 +74,7 @@ class AdminController extends CI_Controller
                 "created_date"  => $created_timestamp,
                 "user_img"      => $uploaded_acc_photo["file_name"]
             ];
-            $this->db->insert("user", $db_collection);
+            $this->AdminModel->staff_db_insert($db_collection);
             redirect(base_url("adm_list"));
         } 
         else 
@@ -88,7 +95,7 @@ class AdminController extends CI_Controller
                 "acc_status" => $acc_status,
                 "created_date" => $created_timestamp
             ];
-            $this->db->insert("user", $db_collection);
+            $this->AdminModel->staff_db_insert($db_collection);
             redirect(base_url("adm_list"));
         }
     }
