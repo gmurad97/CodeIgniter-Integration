@@ -21,7 +21,7 @@ class AdminController extends CI_Controller
     public function list()
     {
         $data["get_all_data"] = $this->AdminModel->staff_db_get_all(true);
-        $this->load->view("admins/staff/list",$data);
+        $this->load->view("admins/staff/list", $data);
     }
 
     public function create()
@@ -76,9 +76,7 @@ class AdminController extends CI_Controller
             ];
             $this->AdminModel->staff_db_insert($db_collection);
             redirect(base_url("adm_list"));
-        } 
-        else 
-        {
+        } else {
             $db_collection = [
                 "firstName" => $firstName,
                 "lastName" => $lastName,
@@ -98,5 +96,17 @@ class AdminController extends CI_Controller
             $this->AdminModel->staff_db_insert($db_collection);
             redirect(base_url("adm_list"));
         }
+    }
+
+    public function viewDetail($id)
+    {
+        $data["detail"] = $this->AdminModel->staff_db_get_id($id);
+        $this->load->view("admins/staff/detail", $data);
+    }
+
+    public function delStaff($id)
+    {
+        $this->AdminModel->staff_db_del_id($id);
+        redirect(base_url("adm_list"));
     }
 }

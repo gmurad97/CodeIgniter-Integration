@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -66,6 +66,9 @@ $route["adm_create"] = "AdminController/create";
 $route["adm_create_act"] = "AdminController/create_act";
 
 
+
+$route["adm_details/(.*)"] = "AdminController/viewDetail/$1";
+$route["adm_deleteStaff/(.*)"] = "AdminController/delStaff/$1";
 
 
 

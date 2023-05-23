@@ -22,7 +22,7 @@ class AdminModel extends CI_Model
     public function staff_db_get_id($uid)
     {
         //where uid db == $uid get first match data
-        return $this->db->where("uid", $uid)->get->row_array();
+        return $this->db->where("uid", $uid)->get("user")->row_array();
     }
 
     public function staff_db_del_id($uid)

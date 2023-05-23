@@ -50,13 +50,13 @@
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="#" class="mr-1">
+                                    <a href="<?php echo base_url("adm_details/") . $get_all_data_element["uid"]; ?>" class="mr-1">
                                         <button title="View" class="btn btn-primary" type="button"><i class="fas fa-fw fa-eye"></i></button>
                                     </a>
                                     <a href="#" class="mr-1">
                                         <button title="Edit" class="btn btn-warning" type="button"><i class="fas fa-fw fa-pen"></i></button>
                                     </a>
-                                    <a href="#">
+                                    <a onclick="return confirm('Are you sure???О.о')" href="<?php echo base_url("adm_deleteStaff/") . $get_all_data_element["uid"]; ?>">
                                         <button title="Delete" class="btn btn-danger" type="button"><i class="fas fa-fw fa-trash"></i></button>
                                     </a>
                                 </div>
