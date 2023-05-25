@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -50,29 +50,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-/*USER CONTROLLER*/
-$route['default_controller'] = 'UserController';
-$route["index"] = "UserController/index";
-$route["about"] = "UserController/about";
-$route["service"] = "UserController/service";
-$route["gallery"] = "UserController/gallery";
-$route["contact"] = "UserController/contact";
 
-/*ADMIN CONTROLLER*/
-$route["adm_login"] = "AdminController/login";
-$route["adm_dashboard"] = "AdminController/index";
-$route["adm_list"] = "AdminController/list";
-$route["adm_create"] = "AdminController/create";
-$route["adm_create_act"] = "AdminController/create_act";
+
+$route["default_controller"] = "UserController";
 
 
 
-$route["adm_details/(.*)"] = "AdminController/viewDetail/$1";
-$route["adm_deleteStaff/(.*)"] = "AdminController/delStaff/$1";
+$route["index"]     = "UserController/xlb_user_index";
+$route["service"]   = "UserController/xlb_user_service";
+$route["gallery"]   = "UserController/xlb_user_gallery";
+$route["contact"]   = "UserController/xlb_user_contact";
+$route["about"]     = "UserController/xlb_user_about";
 
 
 
+$route["dashboard"] = "AdminController/xlb_admin_dashboard";
 
-/*OTHER*/
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+
+
+$route["404_override"] = "";
+$route["translate_uri_dashes"] = FALSE;
