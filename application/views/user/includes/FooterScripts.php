@@ -7,4 +7,5 @@
 <script src="<?php echo base_url('public/user/assets/lib/owlcarousel/owl.carousel.min.js'); ?>"></script>
 <script src="<?php echo base_url('public/user/assets/js/main.js'); ?>"></script>
 </body>
+
 </html>

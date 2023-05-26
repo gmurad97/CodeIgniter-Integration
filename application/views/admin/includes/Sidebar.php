@@ -20,10 +20,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center" href="buttons.html">
+                <a href="<?php echo base_url('team_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
                     <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
                 </a>
-                <a style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center" href="buttons.html">
+                <a href="<?php echo base_url('team_list'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
                     <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>List
                 </a>
             </div>

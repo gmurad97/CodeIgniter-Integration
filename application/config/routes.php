@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -52,21 +52,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-$route["default_controller"] = "UserController";
+/*USER CONTROLLER*/
+$route["default_controller"]    = "UserController/xlb_user_index";
+$route["index"]                 = "UserController/xlb_user_index";
+$route["service"]               = "UserController/xlb_user_service";
+$route["gallery"]               = "UserController/xlb_user_gallery";
+$route["contact"]               = "UserController/xlb_user_contact";
+$route["about"]                 = "UserController/xlb_user_about";
 
+/*ADMIN CONTROLLER*/
+$route["admin_auth"]            = "AdminController/xlb_admin_login";
+$route["dashboard"]             = "AdminController/xlb_admin_dashboard";
 
+/*TEAM CRUD*/
+$route["team_create"]           = "AdminController/xlb_admin_team_create";
+$route["team_create_action"]    = "AdminController/xlb_admin_team_create_action";
+$route["team_list"]             = "AdminController/xlb_admin_team_list";
+$route["team_detail_view/(.*)"] = "AdminController/xlb_admin_team_detail_view/$1";
+$route["team_delete/(.*)"]      = "AdminController/xlb_admin_team_delete/$1";
+$route["team_edit/(.*)"]        = "AdminController/xlb_admin_team_edit/$1";
+$route["team_edit_action/(.*)"] = "AdminController/xlb_admin_team_edit_action/$1";
 
-$route["index"]     = "UserController/xlb_user_index";
-$route["service"]   = "UserController/xlb_user_service";
-$route["gallery"]   = "UserController/xlb_user_gallery";
-$route["contact"]   = "UserController/xlb_user_contact";
-$route["about"]     = "UserController/xlb_user_about";
-
-
-
-$route["dashboard"] = "AdminController/xlb_admin_dashboard";
-
-
-
+//OTHER
 $route["404_override"] = "";
 $route["translate_uri_dashes"] = FALSE;

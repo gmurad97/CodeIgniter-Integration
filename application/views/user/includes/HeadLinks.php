@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="az">
+
 <head>
     <meta charset="utf-8">
-    <title>XL-Barbershop</title>
+    <title>XL Barbershop</title>
     <link rel="shortcut icon" href="<?php echo base_url('public/user/assets/img/favicon.png'); ?>">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">

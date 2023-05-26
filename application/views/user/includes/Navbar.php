@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <?php $segmentControl = $this->uri->segment(1); ?>
-            <a href="<?php echo base_url('index'); ?>" class="nav-item nav-link <?php if ($segmentControl == 'index') { ?> active <?php } ?>">Ana səhifə</a>
+            <a href="<?php echo base_url('index'); ?>" class="nav-item nav-link <?php if ($segmentControl == 'index' || $segmentControl == '') { ?> active <?php } ?>">Ana səhifə</a>
             <a href="<?php echo base_url('about'); ?>" class="nav-item nav-link <?php if ($segmentControl == 'about') { ?> active <?php } ?>">Haqqımızda</a>
             <a href="<?php echo base_url('service'); ?>" class="nav-item nav-link <?php if ($segmentControl == 'service') { ?> active <?php } ?>">Xidmətlər</a>
             <a href="<?php echo base_url('gallery'); ?>" class="nav-item nav-link <?php if ($segmentControl == 'gallery') { ?> active <?php } ?>">Qalereya</a>
