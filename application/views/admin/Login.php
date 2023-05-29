@@ -22,18 +22,44 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-12">
+                                <div class="full-wh"></div>
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h3 text-gray-800 mb-3">XLBarbeshop Admin Panel</h1>
+                                        <h1 class="h3 text-uppercase text-gray-800 mb-4">XLBarbeshop Admin Panel</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="<?php echo base_url('admin_auth_action'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
                                         <div class="form-group">
-                                            <input type="admin_email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Enter Username...">
+                                            <label for="label_admin_username">Username</label>
+                                            <input type="text" name="input_admin_username" class="form-control" id="label_admin_username" placeholder="Enter username...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="admin_password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Enter Password...">
+                                            <label for="label_admin_password">Password</label>
+                                            <input type="password" name="input_admin_password" class="form-control" id="label_admin_password" placeholder="Enter password...">
                                         </div>
-                                        <a href="<?php echo base_url('dashboard'); ?>" class="btn btn-primary btn-user btn-block">Login</a>
+                                        <button type="submit" class="btn btn-primary btn-block mt-4">Authentication</button>
+
+                                        <style>
+                                            .h1-err-message {
+                                                background-color: rgba(255, 0, 0, 0.24);
+                                                color: red;
+                                            }
+
+                                            .h1-success-message {
+                                                background-color: rgba(0, 255, 0, 0.24);
+                                                color: green;
+                                            }
+                                        </style>
+
+                                        <?php if ($this->session->flashdata("adm_auth_error")) { ?>
+                                            <h1 class="h1-err-message h6 text-center rounded p-3 mt-4">
+                                                <?php echo $this->session->flashdata("adm_auth_error") ?>
+                                            </h1>
+                                        <?php } ?>
+                                        <?php if ($this->session->flashdata("adm_logout_success")) { ?>
+                                            <h1 class="h1-success-message h6 text-center rounded p-3 mt-4">
+                                                <?php echo $this->session->flashdata("adm_logout_success") ?>
+                                            </h1>
+                                        <?php } ?>
                                     </form>
                                 </div>
                             </div>

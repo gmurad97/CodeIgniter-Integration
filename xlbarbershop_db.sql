@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 03:46 PM
+-- Generation Time: May 29, 2023 at 05:04 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -28,13 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
+  `a_uid` int(11) NOT NULL,
   `a_firstname` varchar(255) NOT NULL,
   `a_lastname` varchar(255) NOT NULL,
+  `a_email` varchar(255) NOT NULL,
   `a_username` varchar(255) NOT NULL,
   `a_password` varchar(255) NOT NULL,
   `a_img` varchar(255) NOT NULL,
   `a_created_date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`a_uid`, `a_firstname`, `a_lastname`, `a_email`, `a_username`, `a_password`, `a_img`, `a_created_date`) VALUES
+(1, 'Murad', 'Gazymagomedov', 'murad.dev@bk.ru', 'gmurad97', 'efadf28344ff0ac5361fe1bd9e5d56fb65ff1f4e0ebd3d8e1a5ae14bd2ff8330', 'c841a172fef2255dbf06f43d7808382f.jpg', '1685237803'),
+(2, 'Sophia', 'Ramos', 'sophiaramos@email.com', 'sophia', 'efadf28344ff0ac5361fe1bd9e5d56fb65ff1f4e0ebd3d8e1a5ae14bd2ff8330', '267556477627fb3f1ae0eff29cd8a770.jpg', '1685237803');
 
 -- --------------------------------------------------------
 
@@ -76,6 +86,12 @@ INSERT INTO `team` (`t_uid`, `t_firstname`, `t_lastname`, `t_description`, `t_ex
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`a_uid`);
+
+--
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
@@ -84,6 +100,12 @@ ALTER TABLE `team`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `a_uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `team`

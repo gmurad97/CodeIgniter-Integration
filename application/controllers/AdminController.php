@@ -13,6 +13,40 @@ class AdminController extends CI_Controller
         $this->load->view("admin/Login");
     }
 
+    public function xlb_admin_login_action()
+    {
+        $input_admin_username = $_POST["input_admin_username"];
+        $input_admin_password = $_POST["input_admin_password"];
+        if (!empty($input_admin_username) && !empty($input_admin_password)) {
+            $data = [
+                "a_username" => $input_admin_username,
+                "a_password" => hash("SHA256", hash("MD5", $input_admin_password))
+            ];
+            $admin_db_row = $this->AdminModel->admin_get_db_row($data);
+            if ($admin_db_row) {
+                $this->session->set_userdata("adm_firstname", $admin_db_row["a_firstname"]);
+                $this->session->set_userdata("adm_lastname", $admin_db_row["a_lastname"]);
+                $this->session->set_userdata("adm_img", $admin_db_row["a_img"]);
+                redirect(base_url('dashboard'));
+            } else {
+                $this->session->set_flashdata("adm_auth_error", "Error! Wrong \"Username\" or \"Password\"");
+                redirect($_SERVER["HTTP_REFERER"]);
+            }
+        } else {
+            $this->session->set_flashdata("adm_auth_error", "Error! Empty \"Username\" or \"Password\"");
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    public function xlb_admin_logout()
+    {
+        $this->session->unset_userdata("adm_firstname");
+        $this->session->unset_userdata("adm_lastname");
+        $this->session->unset_userdata("adm_img");
+        $this->session->set_flashdata("adm_logout_success", "The session ended successfully!");
+        redirect(base_url('admin_auth'));
+    }
+
     public function xlb_admin_dashboard()
     {
         $this->load->view("admin/Dashboard");

@@ -1,3 +1,10 @@
+<?php
+if (!($this->session->userdata("adm_firstname")) && !($this->session->userdata("adm_firstname")) && !($this->session->userdata("adm_img"))) {
+    $this->session->set_flashdata("adm_auth_error", "Error! Your are not logged in system");
+    redirect(base_url("admin_auth"));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

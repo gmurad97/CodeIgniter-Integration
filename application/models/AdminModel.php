@@ -30,4 +30,9 @@ class AdminModel extends CI_Model
     {
         $this->db->where("t_uid", $t_uid)->update("team", $data);
     }
+
+    public function admin_get_db_row($data)
+    {
+        return $this->db->where($data)->get("admin")->row_array();
+    }
 }
