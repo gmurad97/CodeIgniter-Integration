@@ -2,9 +2,16 @@
 
 class UserController extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("UserModel");
+    }
+
     public function xlb_user_index()
     {
-        $this->load->view("user/Index");
+        $data["team_get_db"] = $this->UserModel->team_get_db();
+        $this->load->view("user/Index", $data);
     }
 
     public function xlb_user_service()

@@ -214,6 +214,10 @@
 
 
 /*** Team ***/
+.team-item{
+    width: calc(100% + 1px) !important;
+}
+
 .team-item .team-img::before,
 .team-item .team-img::after {
     position: absolute;
