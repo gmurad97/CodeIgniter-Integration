@@ -3,16 +3,14 @@
 <?php $this->load->view("admin/includes/Navbar"); ?>
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Team &RightArrow; Create
-            <a style="float:right;" href="<?php echo base_url('team_list'); ?>" class="btn btn-primary btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-arrow-left"></i>
-                </span>
-                <span class="text">Back to list</span>
-            </a>
-        </h6>
-
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Team &RightArrow; Create </h6>
+        <a href="<?php echo base_url('team_list'); ?>" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Go to list</span>
+        </a>
     </div>
     <div class="card-body">
         <form action="<?php echo base_url('team_create_action'); ?>" method="POST" enctype="multipart/form-data">

@@ -35,4 +35,8 @@ class AdminModel extends CI_Model
     {
         return $this->db->select("a_firstname,a_lastname,a_img")->where($data)->get("admin")->row_array();
     }
+
+    public function about_us_db_row(){
+        $this->db->select("au_id")->get("about_us")->row_array();
+    }
 }

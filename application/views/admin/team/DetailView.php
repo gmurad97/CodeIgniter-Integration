@@ -4,17 +4,16 @@
 
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">
-            Team &RightArrow; Detail View &RightArrow; <?php echo $get_db_team_row["t_firstname"] . " " . $get_db_team_row["t_lastname"] ?>
-            <a style="float:right;" href="<?php echo base_url('team_list'); ?>" class="btn btn-primary btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-arrow-left"></i>
-                </span>
-                <span class="text">Back to list</span>
-            </a>
-        </h6>
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Team &RightArrow; Detail View &RightArrow; <?php echo $get_db_team_row["t_firstname"] . " " . $get_db_team_row["t_lastname"]; ?></h6>
+        <a href="<?php echo base_url('team_list'); ?>" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Back to list</span>
+        </a>
     </div>
+
     <div class="card-body">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <a target="_blank" href="<?php echo base_url('file_manager/team_profile_img/') . $get_db_team_row["t_img"]; ?>">

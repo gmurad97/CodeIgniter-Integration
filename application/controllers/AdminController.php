@@ -213,6 +213,7 @@ class AdminController extends CI_Controller
     }
 
     public function xlb_admin_create_about_us(){
-        $this->load->view("admin/about_us/Create.php");
+        $data["get_db_au_row"] = $this->AdminModel->about_us_db_row();
+        $this->load->view("admin/about_us/Create.php",$data);
     }
 }
