@@ -24,9 +24,7 @@ class AdminController extends CI_Controller
             ];
             $admin_db_row = $this->AdminModel->admin_get_db_row($data);
             if ($admin_db_row) {
-                $this->session->set_userdata("adm_firstname", $admin_db_row["a_firstname"]);
-                $this->session->set_userdata("adm_lastname", $admin_db_row["a_lastname"]);
-                $this->session->set_userdata("adm_img", $admin_db_row["a_img"]);
+                $this->session->set_userdata("adm_login", $admin_db_row);
                 redirect(base_url('dashboard'));
             } else {
                 $this->session->set_flashdata("adm_auth_error", "Error! Wrong \"Username\" or \"Password\"");
@@ -40,9 +38,7 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_logout()
     {
-        $this->session->unset_userdata("adm_firstname");
-        $this->session->unset_userdata("adm_lastname");
-        $this->session->unset_userdata("adm_img");
+        $this->session->unset_userdata("adm_login");
         $this->session->set_flashdata("adm_logout_success", "The session ended successfully!");
         redirect(base_url('admin_auth'));
     }
@@ -214,5 +210,9 @@ class AdminController extends CI_Controller
             $this->AdminModel->team_edit_db_row($t_uid, $data);
             redirect(base_url("team_list"));
         }
+    }
+
+    public function xlb_admin_create_about_us(){
+        $this->load->view("admin/about_us/Create.php");
     }
 }

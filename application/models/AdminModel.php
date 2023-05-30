@@ -33,6 +33,6 @@ class AdminModel extends CI_Model
 
     public function admin_get_db_row($data)
     {
-        return $this->db->where($data)->get("admin")->row_array();
+        return $this->db->select("a_firstname,a_lastname,a_img")->where($data)->get("admin")->row_array();
     }
 }

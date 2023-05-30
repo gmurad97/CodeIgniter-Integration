@@ -1,5 +1,5 @@
 <?php
-if (!($this->session->userdata("adm_firstname")) && !($this->session->userdata("adm_firstname")) && !($this->session->userdata("adm_img"))) {
+if (!($this->session->userdata("adm_login"))) {
     $this->session->set_flashdata("adm_auth_error", "Error! Your are not logged in system");
     redirect(base_url("admin_auth"));
 }

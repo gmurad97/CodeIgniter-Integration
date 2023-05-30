@@ -66,6 +66,9 @@ $route["admin_auth_action"]     = "AdminController/xlb_admin_login_action";
 $route["dashboard"]             = "AdminController/xlb_admin_dashboard";
 $route["admin_logout"]          = "AdminController/xlb_admin_logout";
 
+/*ABOUT US CRUD*/
+$route["about_us_create"]       = "AdminController/xlb_admin_create_about_us";
+
 /*TEAM CRUD*/
 $route["team_create"]           = "AdminController/xlb_admin_team_create";
 $route["team_create_action"]    = "AdminController/xlb_admin_team_create_action";
