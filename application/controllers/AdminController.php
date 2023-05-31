@@ -212,8 +212,61 @@ class AdminController extends CI_Controller
         }
     }
 
-    public function xlb_admin_create_about_us(){
-        $data["get_db_au_row"] = $this->AdminModel->about_us_db_row();
-        $this->load->view("admin/about_us/Create.php",$data);
+    public function xlb_admin_create_about_us()
+    {
+        $data["get_db_au_row"] = $this->AdminModel->about_us_get_db();
+        $this->load->view("admin/about_us/Create.php", $data);
+    }
+
+    public function xlb_admin_create_about_us_action()
+    {
+        $input_au_img_first_text        = $_POST["input_au_img_first_text"];
+        $input_au_img_second_text       = $_POST["input_au_img_second_text"];
+        $input_au_desc_base_h1_text     = $_POST["input_au_desc_base_h1_text"];
+        $input_au_desc_base_p_text      = $_POST["input_au_desc_base_p_text"];
+        $input_au_desc_left_h1_text     = $_POST["input_au_desc_left_h1_text"];
+        $input_au_desc_left_p_text      = $_POST["input_au_desc_left_p_text"];
+        $input_au_desc_right_h1_text    = $_POST["input_au_desc_right_h1_text"];
+        $input_au_desc_right_p_text     = $_POST["input_au_desc_right_p_text"];
+
+        $file_au_config["upload_path"]              = "./file_manager/about_us";
+        $file_au_config["allowed_types"]            = "jpg|jpeg|png|JPG|JPEG|PNG";
+        $file_au_config["file_ext_tolowe"]          = true;
+        $file_au_config["remove_spaces"]            = true;
+        $file_au_config["encrypt_name"]             = true;
+
+        $this->load->library("upload", $file_au_config);
+
+        if ($this->upload->do_upload("input_au_img")) {
+            $img_au_var = $this->upload->data();
+            $data = [
+                "au_img"                    => $img_au_var["file_name"],
+                "au_img_first_text"         => $input_au_img_first_text,
+                "au_img_second_text"        => $input_au_img_second_text,
+                "au_desc_base_h1_text"      => $input_au_desc_base_h1_text,
+                "au_desc_base_p_text"       => $input_au_desc_base_p_text,
+                "au_desc_left_h1_text"      => $input_au_desc_left_h1_text,
+                "au_desc_left_p_text"       => $input_au_desc_left_p_text,
+                "au_desc_right_h1_text"     => $input_au_desc_right_h1_text,
+                "au_desc_right_p_text"      => $input_au_desc_right_p_text
+            ];
+
+            $this->AdminModel->about_us_insert_db($data);
+            redirect(base_url("about_us_create"));
+        } else {
+            $data = [
+                "au_img_first_text"         => $input_au_img_first_text,
+                "au_img_second_text"        => $input_au_img_second_text,
+                "au_desc_base_h1_text"      => $input_au_desc_base_h1_text,
+                "au_desc_base_p_text"       => $input_au_desc_base_p_text,
+                "au_desc_left_h1_text"      => $input_au_desc_left_h1_text,
+                "au_desc_left_p_text"       => $input_au_desc_left_p_text,
+                "au_desc_right_h1_text"     => $input_au_desc_right_h1_text,
+                "au_desc_right_p_text"      => $input_au_desc_right_p_text
+            ];
+
+            $this->AdminModel->about_us_insert_db($data);
+            redirect(base_url("about_us_create"));
+        }
     }
 }

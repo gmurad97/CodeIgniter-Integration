@@ -11,6 +11,7 @@ class UserController extends CI_Controller
     public function xlb_user_index()
     {
         $data["team_get_db"] = $this->UserModel->team_get_db();
+        $data["about_us_get_db"] = $this->UserModel->about_us_get_db();
         $this->load->view("user/Index", $data);
     }
 
