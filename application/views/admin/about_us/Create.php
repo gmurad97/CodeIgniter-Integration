@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label for="about_us_desc_base_p_text"><b>Description base P text</b></label>
-                            <input name="input_au_desc_base_p_text" type="text" id="about_us_desc_base_p_text" class="form-control" placeholder="Enter description base P text...">
+                            <textarea name="input_au_desc_base_p_text" id="about_us_desc_base_p_text" cols="30" rows="5" class="form-control" placeholder="Enter description base P text..."></textarea>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -43,22 +43,22 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="about_desc_left_p_text"><b>Description left P text</b></label>
-                                    <input name="input_au_desc_left_p_text" type="text" id="about_desc_left_p_text" class="form-control" placeholder="Enter description left P text...">
+                                    <label for="about_desc_right_h1_text"><b>Description right H1 text</b></label>
+                                    <input name="input_au_desc_right_h1_text" type="text" id="about_desc_right_h1_text" class="form-control" placeholder="Enter description right H1 text...">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="about_desc_right_h1_text"><b>Description right H1 text</b></label>
-                                    <input name="input_au_desc_right_h1_text" type="text" id="about_desc_right_h1_text" class="form-control" placeholder="Enter description right H1 text...">
+                                    <label for="about_desc_left_p_text"><b>Description left P text</b></label>
+                                    <textarea name="input_au_desc_left_p_text" id="about_desc_left_p_text" cols="30" rows="3" class="form-control" placeholder="Enter description left P text..."></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="about_desc_right_p_text"><b>Description right P text</b></label>
-                                    <input name="input_au_desc_right_p_text" type="text" id="about_desc_right_p_text" class="form-control" placeholder="Enter description right P text...">
+                                    <textarea name="input_au_desc_right_p_text" id="about_desc_right_p_text" cols="30" rows="3" class="form-control" placeholder="Enter description right P text..."></textarea>
                                 </div>
                             </div>
                         </div>
