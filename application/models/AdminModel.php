@@ -35,20 +35,24 @@ class AdminModel extends CI_Model
     {
         return $this->db->select("a_firstname,a_lastname,a_img")->where($data)->get("admin")->row_array();
     }
-    
-    public function about_us_get_db(){
+
+    public function about_us_get_db()
+    {
         return $this->db->get("about_us")->row_array();
     }
 
-    public function about_us_insert_db($data){
+    public function about_us_insert_db($data)
+    {
         $this->db->insert("about_us", $data);
     }
 
-    public function about_us_update_db($data){
-        $this->db->update("about_us",$data);
+    public function about_us_update_db($data, $id)
+    {
+        $this->db->where("au_id", $id)->update("about_us", $data);
     }
 
-    public function about_us_delete_db(){
+    public function about_us_delete_db()
+    {
         $this->db->empty_table("about_us");
     }
 }

@@ -44,17 +44,13 @@
         <div id="collapseAboutUs" class="collapse" aria-labelledby="headingAboutUs" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a href="<?php echo base_url('about_us_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
+                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create / Delete
                 </a>
                 <a href="<?php echo base_url('about_us_edit'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
                     <i style="font-size:16px;" class="fas fa-fw fa-pen mr-3"></i>Edit
                 </a>
-                <a href="<?php echo base_url('about_us_delete'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-trash mr-3"></i>Delete
-                </a>
             </div>
         </div>
-
     </li>
     <hr class="sidebar-divider d-none d-md-block">
 

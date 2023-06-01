@@ -276,7 +276,8 @@ class AdminController extends CI_Controller
         $this->load->view("admin/about_us/Edit", $data);
     }
 
-    public function xlb_admin_about_us_edit_action(){
+    public function xlb_admin_about_us_edit_action($id)
+    {
         $input_au_img_first_text        = $_POST["input_au_img_first_text"];
         $input_au_img_second_text       = $_POST["input_au_img_second_text"];
         $input_au_desc_base_h1_text     = $_POST["input_au_desc_base_h1_text"];
@@ -308,7 +309,7 @@ class AdminController extends CI_Controller
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
 
-            $this->AdminModel->about_us_update_db($data);
+            $this->AdminModel->about_us_update_db($data, $id);
             redirect(base_url("about_us_edit"));
         } else {
             $data = [
@@ -322,12 +323,13 @@ class AdminController extends CI_Controller
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
 
-            $this->AdminModel->about_us_update_db($data);
+            $this->AdminModel->about_us_update_db($data, $id);
             redirect(base_url("about_us_edit"));
         }
     }
 
-    public function xlb_admin_about_us_delete(){
+    public function xlb_admin_about_us_delete()
+    {
         $this->AdminModel->about_us_delete_db();
         redirect(base_url("about_us_create"));
     }

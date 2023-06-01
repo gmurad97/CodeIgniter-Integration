@@ -8,7 +8,7 @@
     </div>
     <?php if (!empty($about_us_get_db)) { ?>
         <div class="card-body">
-            <form action="<?php echo base_url('about_us_edit_action'); ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url('about_us_edit_action/'.$about_us_get_db["au_id"]); ?>" method="POST" enctype="multipart/form-data">
                 <h3 class="bg-gradient-warning text-center text-white mb-3 py-2 rounded"><b>About Us</b></h3>
                 <div class="row">
                     <div class="col-sm-4">
@@ -66,27 +66,6 @@
                     <button type="submit" class="btn btn-block btn-warning mt-3"><b>Edit</b></button>
             </form>
         </div>
-    <?php } else { ?>
-        <style>
-            .h1-err-message {
-                background-color: rgba(255, 0, 0, 0.16);
-                color: #000000;
-                font-weight: bold;
-            }
-        </style>
-        <h1 class="h6 h1-err-message rounded px-3 py-4 m-3 d-flex flex-column">
-            Error! There is no record in the database, there is nothing to edit.
-            <div class="col-lg-6 mt-3">
-                <div class="row">
-                    <a href="<?php echo base_url('about_us_create'); ?>" class="btn btn-success btn-icon-split mr-3">
-                        <span class="icon text-white-50">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <span class="text">Create About Us</span>
-                    </a>
-                </div>
-            </div>
-        </h1>
     <?php } ?>
 </div>
 

@@ -4,7 +4,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
-        <h6 class="m-0 font-weight-bold text-primary">About &RightArrow; Create </h6>
+        <h6 class="m-0 font-weight-bold text-primary">About &RightArrow; Create / Delete</h6>
     </div>
     <?php if (empty($get_db_au_row)) { ?>
         <div class="card-body">
@@ -75,7 +75,7 @@
             }
         </style>
         <h1 class="h6 h1-err-message rounded px-3 py-4 m-3 d-flex flex-column">
-            Error! You already have a record in the database. Please delete the record or edit it.
+            Error! You already have a record in the database. Please edit the record or delete it.
             <div class="col-lg-6 mt-3">
                 <div class="row">
                     <a href="<?php echo base_url('about_us_edit'); ?>" class="btn btn-warning btn-icon-split mr-3">
@@ -84,7 +84,7 @@
                         </span>
                         <span class="text">Edit About Us</span>
                     </a>
-                    <a onclick="return confirm('Are you sure?');" href="<?php echo base_url('about_us_delete'); ?>" class="btn btn-danger btn-icon-split">
+                    <a onclick="return confirm('Are you sure you want to delete about us?');" href="<?php echo base_url('about_us_delete'); ?>" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>
