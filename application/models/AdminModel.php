@@ -43,4 +43,12 @@ class AdminModel extends CI_Model
     public function about_us_insert_db($data){
         $this->db->insert("about_us", $data);
     }
+
+    public function about_us_update_db($data){
+        $this->db->update("about_us",$data);
+    }
+
+    public function about_us_delete_db(){
+        $this->db->empty_table("about_us");
+    }
 }

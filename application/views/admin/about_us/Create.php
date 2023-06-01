@@ -78,13 +78,13 @@
             Error! You already have a record in the database. Please delete the record or edit it.
             <div class="col-lg-6 mt-3">
                 <div class="row">
-                    <a href="#" class="btn btn-warning btn-icon-split mr-3">
+                    <a href="<?php echo base_url('about_us_edit'); ?>" class="btn btn-warning btn-icon-split mr-3">
                         <span class="icon text-white-50">
-                            <i class="fas fa-plus"></i>
+                            <i class="fas fa-pen"></i>
                         </span>
                         <span class="text">Edit About Us</span>
                     </a>
-                    <a onclick="return confirm('Are you sure?');" href="#" class="btn btn-danger btn-icon-split">
+                    <a onclick="return confirm('Are you sure?');" href="<?php echo base_url('about_us_delete'); ?>" class="btn btn-danger btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-trash"></i>
                         </span>
