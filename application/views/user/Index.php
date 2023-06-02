@@ -23,6 +23,10 @@
 </div>
 <!-- Carousel End -->
 
+
+
+
+
 <!-- About Start -->
 <?php if ($about_us_get_db) { ?>
     <div class="container-xxl py-5">
@@ -59,6 +63,12 @@
     </div>
 <?php } ?>
 <!-- About End -->
+
+
+
+
+
+
 
 <!-- Service Start -->
 <div class="container-xxl py-5">
@@ -172,7 +182,8 @@
 <!-- Price End -->
 
 <!-- Team Start -->
-<div class="container-xxl py-5">
+<?php if ($team_get_db) { ?>
+    <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <p style="color: #D7B56D !important" class="d-inline-block bg-secondary text-primary py-1 px-4">Ustalarımız</p>
@@ -218,6 +229,7 @@
         </div>
     </div>
 </div>
+<?php } ?>
 <!-- Team End -->
 
 <!-- Working Hours Start -->
