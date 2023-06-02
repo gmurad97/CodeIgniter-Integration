@@ -212,6 +212,10 @@ class AdminController extends CI_Controller
         }
     }
 
+
+
+
+    
     public function xlb_admin_create_about_us()
     {
         $data["get_db_au_row"] = $this->AdminModel->about_us_get_db();
@@ -270,11 +274,15 @@ class AdminController extends CI_Controller
         }
     }
 
-    public function xlb_admin_about_us_edit()
+    public function xlb_admin_about_us_edit($id)
     {
-        $data["about_us_get_db"] = $this->AdminModel->about_us_get_db();
+        $data["about_us_get_db"] = $this->AdminModel->about_us_get_db($id);
         $this->load->view("admin/about_us/Edit", $data);
     }
+
+
+
+
 
     public function xlb_admin_about_us_edit_action($id)
     {
@@ -328,9 +336,9 @@ class AdminController extends CI_Controller
         }
     }
 
-    public function xlb_admin_about_us_delete()
+    public function xlb_admin_about_us_delete($id)
     {
-        $this->AdminModel->about_us_delete_db();
+        $this->AdminModel->about_us_delete_db($id);
         redirect(base_url("about_us_create"));
     }
 }

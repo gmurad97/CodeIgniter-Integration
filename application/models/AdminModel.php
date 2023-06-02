@@ -2,6 +2,11 @@
 
 class AdminModel extends CI_Model
 {
+    public function admin_get_db_row($data)
+    {
+        return $this->db->select("a_firstname,a_lastname,a_img")->where($data)->get("admin")->row_array();
+    }
+
     public function team_insert_db($data)
     {
         $this->db->insert("team", $data);
@@ -31,28 +36,26 @@ class AdminModel extends CI_Model
         $this->db->where("t_uid", $t_uid)->update("team", $data);
     }
 
-    public function admin_get_db_row($data)
-    {
-        return $this->db->select("a_firstname,a_lastname,a_img")->where($data)->get("admin")->row_array();
-    }
-
-    public function about_us_get_db()
-    {
-        return $this->db->get("about_us")->row_array();
-    }
-
     public function about_us_insert_db($data)
     {
         $this->db->insert("about_us", $data);
     }
 
-    public function about_us_update_db($data, $id)
+
+
+
+    public function about_us_get_db($au_id)
     {
-        $this->db->where("au_id", $id)->update("about_us", $data);
+        return $this->db->where("au_id", $au_id)->get("about_us")->row_array();
     }
 
-    public function about_us_delete_db()
+    public function about_us_update_db($au_id, $data)
     {
-        $this->db->empty_table("about_us");
+        $this->db->where("au_id", $au_id)->update("about_us", $data);
+    }
+
+    public function about_us_delete_db($id)
+    {
+        $this->db->where("au_id", $id)->delete("about_us");
     }
 }
