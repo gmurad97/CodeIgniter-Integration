@@ -129,7 +129,7 @@
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                             <?php echo $this->session->userdata("adm_login")["a_firstname"] . " " . $this->session->userdata("adm_login")["a_lastname"]; ?>
                         </span>
-                        <img class="img-profile rounded-circle" src="<?php echo base_url("file_manager/team_profile_img/") . $this->session->userdata("adm_login")["a_img"]; ?>">
+                        <img class="img-profile rounded-circle" src="<?php echo base_url("file_manager/admin_profile_img/") . $this->session->userdata("adm_login")["a_img"]; ?>">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">

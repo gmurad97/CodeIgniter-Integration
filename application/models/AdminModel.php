@@ -41,21 +41,18 @@ class AdminModel extends CI_Model
         $this->db->insert("about_us", $data);
     }
 
-
-
-
-    public function about_us_get_db($au_id)
+    public function about_us_get_db()
     {
-        return $this->db->where("au_id", $au_id)->get("about_us")->row_array();
+        return $this->db->order_by("au_id", "DESC")->limit(1)->get("about_us")->row_array();
     }
 
-    public function about_us_update_db($au_id, $data)
+    public function about_us_update_db($data)
     {
-        $this->db->where("au_id", $au_id)->update("about_us", $data);
+        $this->db->update("about_us", $data);
     }
 
-    public function about_us_delete_db($id)
+    public function about_us_delete_db()
     {
-        $this->db->where("au_id", $id)->delete("about_us");
+        $this->db->empty_table("about_us");
     }
 }

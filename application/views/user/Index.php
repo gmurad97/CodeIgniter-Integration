@@ -30,7 +30,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column">
-                        <img style="width: 460px !important; height: 620px !important; object-fit: cover;" class="img-fluid w-75 align-self-end" src="<?php echo base_url('file_manager/about_us/') . $about_us_get_db["au_img"]; ?>" alt="">
+                        <img style="" class="img-fluid w-75 align-self-end" src="<?php echo base_url('file_manager/about_us/') . $about_us_get_db["au_img"]; ?>" alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
                             <div style="text-align:center;">
                                 <h1 style="color: #D7B56D !important;" class="text-primary mb-3"><?php echo $about_us_get_db["au_img_first_text"]; ?></h1>
@@ -42,7 +42,7 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <p style="color: #D7B56D !important" class="d-inline-block bg-secondary text-primary py-1 px-4">Haqqımızda</p>
                     <h2 class="mb-4"><?php echo $about_us_get_db["au_desc_base_h1_text"]; ?></h2>
-                    <p><?php echo $about_us_get_db["au_desc_base_p_text"]; ?></p>
+                    <p style="white-space: pre-wrap;"><?php echo $about_us_get_db["au_desc_base_p_text"]; ?></p>
                     <div class="row g-4">
                         <div class="col-md-6">
                             <h3 class="mb-3"><?php echo $about_us_get_db["au_desc_left_h1_text"]; ?></h3>
