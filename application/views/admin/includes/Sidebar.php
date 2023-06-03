@@ -52,6 +52,24 @@
             </div>
         </div>
     </li>
+
+        <!-- SERVICES MENU -->
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseServices" aria-expanded="true" aria-controls="collapseServices">
+            <i class="fas fa-fw fa-box"></i>
+            <span>Services</span>
+        </a>
+        <div id="collapseServices" class="collapse" aria-labelledby="headingServices" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a href="<?php echo base_url('services_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
+                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
+                </a>
+                <a href="<?php echo base_url('services_list'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
+                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>List
+                </a>
+            </div>
+        </div>
+    </li>
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- SIDEBAR TOGGLE -->

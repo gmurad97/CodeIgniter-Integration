@@ -55,4 +55,29 @@ class AdminModel extends CI_Model
     {
         $this->db->empty_table("about_us");
     }
+
+    public function services_insert_db($data)
+    {
+        $this->db->insert("services", $data);
+    }
+
+    public function services_get_db()
+    {
+        return $this->db->order_by("s_id", "DESC")->get("services")->result_array();
+    }
+
+    public function services_get_db_row($s_id)
+    {
+        return $this->db->where("s_id", $s_id)->get("services")->row_array();
+    }
+
+    public function services_update_db($s_id, $data)
+    {
+        $this->db->where("s_id", $s_id)->update("services", $data);
+    }
+
+    public function services_delete_db($s_id)
+    {
+        $this->db->where("s_id", $s_id)->delete("services");
+    }
 }

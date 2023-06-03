@@ -14,4 +14,9 @@ class UserModel extends CI_Model
     {
         return $this->db->order_by("au_id", "desc")->limit(1)->get("about_us")->row_array();
     }
+
+    public function services_get_db()
+    {
+        return $this->db->order_by("s_id", "DESC")->get("services")->result_array();
+    }
 }

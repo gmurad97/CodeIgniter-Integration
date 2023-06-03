@@ -12,6 +12,7 @@ class UserController extends CI_Controller
     {
         $data["team_get_db"] = $this->UserModel->team_get_db();
         $data["about_us_get_db"] = $this->UserModel->about_us_get_db();
+        $data["services_get_db"] = $this->UserModel->services_get_db();
         $this->load->view("user/Index", $data);
     }
 

@@ -71,65 +71,38 @@
 
 
 <!-- Service Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p style="color: #D7B56D !important" class="d-inline-block bg-secondary text-primary py-1 px-4">Xidmətlərimiz</p>
-            <h2>Biz nələr edirik?</h2>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="ps-4">
-                        <h3 style="color: #D7B56D !important" class="mb-3">Saç kəsimi</h3>
-                        <p>Hər üz quruluşuna uyğun xüsusi saç kəsim formaları. Həmçinin anatomik saç kəsimi.</p>
-                    </div>
-                </div>
+<?php if ($services_get_db) { ?>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p style="color: #D7B56D !important" class="d-inline-block bg-secondary text-primary py-1 px-4">Xidmətlərimiz</p>
+                <h2>Biz nələr edirik?</h2>
             </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="ps-4">
-                        <h3 style="color: #D7B56D !important" class="mb-3">Saqqal kəsimi</h3>
-                        <p>Seyrək saqqallara forma verilməsi. Özəl buxar vasitəsiylə saqqalın ülgüc ilə təraş edilməsi.</p>
+            <div class="row g-4">
+
+                <?php foreach ($services_get_db as $services_get_db_item) { ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
+                            <div class="ps-4">
+                                <h3 style="color: #D7B56D !important" class="mb-3"><?php echo $services_get_db_item["s_h1_text"]; ?></h3>
+                                <p><?php echo $services_get_db_item["s_p_text"]; ?></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="ps-4">
-                        <h3 style="color: #D7B56D !important" class="mb-3">Saç darama</h3>
-                        <p>Gedəcəyiniz tədbirə uyğun saçların daranması. Seyrək saçların topik vasitəsylə örtülməsi.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="ps-4">
-                        <h3 style="color: #D7B56D !important" class="mb-3">Saç boyama</h3>
-                        <p>Hər növ saçların peşəkar boyanması. Ağ saçların mikro boya ilə örtünməsi.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="ps-4">
-                        <h3 style="color: #D7B56D !important" class="mb-3">Keratin + Perma</h3>
-                        <p>Orijinal schwarzkopf məhsulları ilə saçların düzləşdirilməsi və həmçinin burulması</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
-                    <div class="ps-4">
-                        <h3 style="color: #D7B56D !important" class="mb-3">Üz təmizlənməsi</h3>
-                        <p>Hydrafacial aparatında, xüsusi serumlar, birdəfəlik başlıqlar və pilinqlərdən istifadə edilməklə üzün təmizlənməsi.</p>
-                    </div>
-                </div>
+                <?php } ?>
+
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 <!-- Service End -->
+
+
+
+
+
+
+
 
 <!-- Price Start -->
 <div class="container-xxl py-5">
@@ -184,51 +157,51 @@
 <!-- Team Start -->
 <?php if ($team_get_db) { ?>
     <div class="container-xxl py-5">
-    <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <p style="color: #D7B56D !important" class="d-inline-block bg-secondary text-primary py-1 px-4">Ustalarımız</p>
-            <h2>Ustalarımızla tanış olun:</h2>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <?php foreach ($team_get_db as $team_get_db_key) { ?>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img style="height: 400px !important; width:100% !important; object-fit: cover;" class="img-fluid" src="<?php echo base_url("file_manager/team_profile_img/") . $team_get_db_key["t_img"]; ?>" alt="">
-                            <div class="team-social">
-                                <?php if ($team_get_db_key["t_email"]) { ?>
-                                    <a class="btn btn-square" href="mailto:<?php echo $team_get_db_key["t_email"]; ?>"><i style="color: #D7B56D !important" class="fas fa-envelope"></i></a>
-                                <?php } ?>
-                                <?php if ($team_get_db_key["t_mobile"]) { ?>
-                                    <a class="btn btn-square" href="tel:<?php echo $team_get_db_key["t_mobile"]; ?>"><i style="color: #D7B56D !important" class="fas fa-mobile"></i></a>
-                                <?php } ?>
-                                <?php if ($team_get_db_key["t_whatsapp"]) { ?>
-                                    <a class="btn btn-square" href="https://api.whatsapp.com/send?phone=<?php echo $team_get_db_key["t_whatsapp"]; ?>"><i style="color: #D7B56D !important" class="fab fa-whatsapp"></i></a>
-                                <?php } ?>
-                                <?php if ($team_get_db_key["t_facebook"]) { ?>
-                                    <a class="btn btn-square" href="<?php echo $team_get_db_key["t_facebook"]; ?>"><i style="color: #D7B56D !important" class="fab fa-facebook"></i></a>
-                                <?php } ?>
-                                <?php if ($team_get_db_key["t_instagram"]) { ?>
-                                    <a class="btn btn-square" href="<?php echo $team_get_db_key["t_instagram"]; ?>"><i style="color: #D7B56D !important" class="fab fa-instagram"></i></a>
-                                <?php } ?>
-                                <?php if ($team_get_db_key["t_telegram"]) { ?>
-                                    <a class="btn btn-square" href="<?php echo $team_get_db_key["t_telegram"]; ?>"><i style="color: #D7B56D !important" class="fab fa-telegram"></i></a>
-                                <?php } ?>
-                                <?php if ($team_get_db_key["t_youtube"]) { ?>
-                                    <a class="btn btn-square" href="<?php echo $team_get_db_key["t_youtube"]; ?>"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
-                                <?php } ?>
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p style="color: #D7B56D !important" class="d-inline-block bg-secondary text-primary py-1 px-4">Ustalarımız</p>
+                <h2>Ustalarımızla tanış olun:</h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <?php foreach ($team_get_db as $team_get_db_key) { ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item">
+                            <div class="team-img position-relative overflow-hidden">
+                                <img style="height: 400px !important; width:100% !important; object-fit: cover;" class="img-fluid" src="<?php echo base_url("file_manager/team_profile_img/") . $team_get_db_key["t_img"]; ?>" alt="">
+                                <div class="team-social">
+                                    <?php if ($team_get_db_key["t_email"]) { ?>
+                                        <a class="btn btn-square" href="mailto:<?php echo $team_get_db_key["t_email"]; ?>"><i style="color: #D7B56D !important" class="fas fa-envelope"></i></a>
+                                    <?php } ?>
+                                    <?php if ($team_get_db_key["t_mobile"]) { ?>
+                                        <a class="btn btn-square" href="tel:<?php echo $team_get_db_key["t_mobile"]; ?>"><i style="color: #D7B56D !important" class="fas fa-mobile"></i></a>
+                                    <?php } ?>
+                                    <?php if ($team_get_db_key["t_whatsapp"]) { ?>
+                                        <a class="btn btn-square" href="https://api.whatsapp.com/send?phone=<?php echo $team_get_db_key["t_whatsapp"]; ?>"><i style="color: #D7B56D !important" class="fab fa-whatsapp"></i></a>
+                                    <?php } ?>
+                                    <?php if ($team_get_db_key["t_facebook"]) { ?>
+                                        <a class="btn btn-square" href="<?php echo $team_get_db_key["t_facebook"]; ?>"><i style="color: #D7B56D !important" class="fab fa-facebook"></i></a>
+                                    <?php } ?>
+                                    <?php if ($team_get_db_key["t_instagram"]) { ?>
+                                        <a class="btn btn-square" href="<?php echo $team_get_db_key["t_instagram"]; ?>"><i style="color: #D7B56D !important" class="fab fa-instagram"></i></a>
+                                    <?php } ?>
+                                    <?php if ($team_get_db_key["t_telegram"]) { ?>
+                                        <a class="btn btn-square" href="<?php echo $team_get_db_key["t_telegram"]; ?>"><i style="color: #D7B56D !important" class="fab fa-telegram"></i></a>
+                                    <?php } ?>
+                                    <?php if ($team_get_db_key["t_youtube"]) { ?>
+                                        <a class="btn btn-square" href="<?php echo $team_get_db_key["t_youtube"]; ?>"><i style="color: #D7B56D !important" class="fab fa-youtube"></i></a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="bg-secondary text-center p-4">
+                                <h5><?php echo $team_get_db_key["t_firstname"]; ?></h5>
+                                <span style="color: #D7B56D !important" class="text-primary text-capitalize"><?php echo $team_get_db_key["t_position"]; ?></span>
                             </div>
                         </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h5><?php echo $team_get_db_key["t_firstname"]; ?></h5>
-                            <span style="color: #D7B56D !important" class="text-primary text-capitalize"><?php echo $team_get_db_key["t_position"]; ?></span>
-                        </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
     </div>
-</div>
 <?php } ?>
 <!-- Team End -->
 

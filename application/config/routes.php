@@ -82,6 +82,14 @@ $route["team_delete/(.*)"]          = "AdminController/xlb_admin_team_delete/$1"
 $route["team_edit/(.*)"]            = "AdminController/xlb_admin_team_edit/$1";
 $route["team_edit_action/(.*)"]     = "AdminController/xlb_admin_team_edit_action/$1";
 
+/*SERVICES CRUD*/
+$route["services_create"]           = "AdminController/xlb_admin_services_create";
+$route["services_create_action"]    = "AdminController/xlb_admin_services_create_action";
+$route["services_list"]             = "AdminController/xlb_admin_services_list";
+$route["services_edit/(.*)"]        = "AdminController/xlb_admin_services_edit/$1";
+$route["services_edit_action/(.*)"] = "AdminController/xlb_admin_services_edit_action/$1";
+$route["services_delete/(.*)"]      = "AdminController/xlb_admin_services_delete/$1";
+
 //OTHER
 $route["404_override"]              = "";
 $route["translate_uri_dashes"]      = FALSE;

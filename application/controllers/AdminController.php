@@ -212,10 +212,6 @@ class AdminController extends CI_Controller
         }
     }
 
-
-
-
-
     public function xlb_admin_create_about_us()
     {
         $data["get_db_au_row"] = $this->AdminModel->about_us_get_db();
@@ -336,5 +332,56 @@ class AdminController extends CI_Controller
     {
         $this->AdminModel->about_us_delete_db();
         redirect(base_url("about_us_create"));
+    }
+
+    public function xlb_admin_services_create()
+    {
+        $this->load->view("admin/services/Create");
+    }
+
+    public function xlb_admin_services_create_action()
+    {
+        $input_services_h1_text = $_POST["input_services_h1_text"];
+        $input_services_p_text = $_POST["input_services_p_text"];
+
+        $data = [
+            "s_h1_text"     => $input_services_h1_text,
+            "s_p_text"      => $input_services_p_text
+        ];
+
+        $this->AdminModel->services_insert_db($data);
+        redirect(base_url("services_list"));
+    }
+
+    public function xlb_admin_services_list()
+    {
+        $data["services_get_db"] = $this->AdminModel->services_get_db();
+        $this->load->view("admin/services/List", $data);
+    }
+
+    public function xlb_admin_services_edit($s_id)
+    {
+        $data["services_get_db_row"] = $this->AdminModel->services_get_db_row($s_id);
+        $this->load->view("admin/services/Edit", $data);
+    }
+
+    public function xlb_admin_services_edit_action($s_id)
+    {
+        $input_services_h1_text = $_POST["input_services_h1_text"];
+        $input_services_p_text = $_POST["input_services_p_text"];
+
+        $data = [
+            "s_h1_text" => $input_services_h1_text,
+            "s_p_text" => $input_services_p_text
+        ];
+
+        $this->AdminModel->services_update_db($s_id, $data);
+        redirect(base_url("services_list"));
+    }
+
+    public function xlb_admin_services_delete($s_id)
+    {
+        $this->AdminModel->services_delete_db($s_id);
+        redirect(base_url("services_list"));
     }
 }
