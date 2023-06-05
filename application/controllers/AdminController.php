@@ -212,6 +212,13 @@ class AdminController extends CI_Controller
         }
     }
 
+
+
+
+
+
+
+    
     public function xlb_admin_create_about_us()
     {
         $data["get_db_au_row"] = $this->AdminModel->about_us_get_db();
@@ -334,6 +341,12 @@ class AdminController extends CI_Controller
         redirect(base_url("about_us_create"));
     }
 
+
+
+
+
+
+
     public function xlb_admin_services_create()
     {
         $this->load->view("admin/services/Create");
@@ -383,5 +396,9 @@ class AdminController extends CI_Controller
     {
         $this->AdminModel->services_delete_db($s_id);
         redirect(base_url("services_list"));
+    }
+
+    public function xlb_admin_logo_create(){
+        $this->load->view("admin/logo/Create");
     }
 }

@@ -15,7 +15,15 @@
         </a>
     </li>
     <hr class="sidebar-divider my-0 mb-3">
-    <div style="font-size:12px;" class="sidebar-heading">Edit section</div>
+    <div style="font-size:12px;" class="sidebar-heading">Content</div>
+
+    <!-- Logo -->
+    <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-star"></i>
+            <span>Logo</span>
+        </a>
+    </li>
 
     <!-- TEAM MENU -->
     <li class="nav-item">
@@ -53,8 +61,8 @@
         </div>
     </li>
 
-        <!-- SERVICES MENU -->
-        <li class="nav-item">
+    <!-- SERVICES MENU -->
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseServices" aria-expanded="true" aria-controls="collapseServices">
             <i class="fas fa-fw fa-box"></i>
             <span>Services</span>

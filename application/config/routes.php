@@ -90,6 +90,9 @@ $route["services_edit/(.*)"]        = "AdminController/xlb_admin_services_edit/$
 $route["services_edit_action/(.*)"] = "AdminController/xlb_admin_services_edit_action/$1";
 $route["services_delete/(.*)"]      = "AdminController/xlb_admin_services_delete/$1";
 
+/*LOGO CRUD*/
+$route["logo_create"]               = "AdminController/xlb_admin_logo_create";
+
 //OTHER
 $route["404_override"]              = "";
 $route["translate_uri_dashes"]      = FALSE;
