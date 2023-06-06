@@ -45,20 +45,10 @@
 
     <!-- ABOUT_US MENU -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAboutUs" aria-expanded="true" aria-controls="collapseAboutUs">
+        <a class="nav-link collapsed" href="<?php echo base_url('about_us_create') ?>">
             <i class="fas fa-fw fa-address-card"></i>
             <span>About Us</span>
         </a>
-        <div id="collapseAboutUs" class="collapse" aria-labelledby="headingAboutUs" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a href="<?php echo base_url('about_us_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create / Delete
-                </a>
-                <a href="<?php echo base_url('about_us_edit'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-pen mr-3"></i>Edit
-                </a>
-            </div>
-        </div>
     </li>
 
     <!-- SERVICES MENU -->

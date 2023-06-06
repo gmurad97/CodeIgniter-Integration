@@ -214,21 +214,16 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_create_about_us()
     {
-        $isCreateAccess = $this->AdminModel->xl_rows_control("about_us","au_id");
-        if($isCreateAccess > 0){
-            redirect(base_url("about_us_edit"));
-        }
-        else {
+        $isCreateAccess = $this->AdminModel->xl_rows_control("about_us", "au_id");
+        if ($isCreateAccess == (-1)) {
             $this->load->view("admin/about_us/Create");
+        } else {
+            redirect(base_url("about_us_edit"));
         }
     }
 
-
-
-
     public function xlb_admin_create_about_us_action()
     {
-
         $input_au_img_first_text        = $_POST["input_au_img_first_text"];
         $input_au_img_second_text       = $_POST["input_au_img_second_text"];
         $input_au_desc_base_h1_text     = $_POST["input_au_desc_base_h1_text"];
@@ -240,7 +235,7 @@ class AdminController extends CI_Controller
 
         $file_au_config["upload_path"]              = "./file_manager/about_us";
         $file_au_config["allowed_types"]            = "jpg|jpeg|png|JPG|JPEG|PNG";
-        $file_au_config["file_ext_tolowe"]          = true;
+        $file_au_config["file_ext_tolower"]         = true;
         $file_au_config["remove_spaces"]            = true;
         $file_au_config["encrypt_name"]             = true;
 
@@ -279,10 +274,21 @@ class AdminController extends CI_Controller
         }
     }
 
+
+
+
+
+
+
     public function xlb_admin_about_us_edit()
     {
-        $data["about_us_get_db"] = $this->AdminModel->about_us_get_db($this->AdminModel->xl_rows_control("about_us","au_id"));
-        $this->load->view("admin/about_us/Edit", $data);
+        $isCreateAccess = $this->AdminModel->xl_rows_control("about_us", "au_id");
+        if ($isCreateAccess == (-1)) {
+            redirect(base_url("about_us_create"));
+        } else {
+            $data["about_us_get_db"] = $this->AdminModel->about_us_get_db($this->AdminModel->xl_rows_control("about_us", "au_id"));
+            $this->load->view("admin/about_us/Edit", $data);
+        }
     }
 
     public function xlb_admin_about_us_edit_action()
@@ -298,7 +304,7 @@ class AdminController extends CI_Controller
 
         $file_au_config["upload_path"]              = "./file_manager/about_us";
         $file_au_config["allowed_types"]            = "jpg|jpeg|png|JPG|JPEG|PNG";
-        $file_au_config["file_ext_tolowe"]          = true;
+        $file_au_config["file_ext_tolower"]         = true;
         $file_au_config["remove_spaces"]            = true;
         $file_au_config["encrypt_name"]             = true;
 
@@ -318,7 +324,7 @@ class AdminController extends CI_Controller
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
 
-            $this->AdminModel->about_us_update_db($data);
+            $this->AdminModel->about_us_update_db($data, $this->AdminModel->xl_rows_control("about_us", "au_id"));
             redirect(base_url("about_us_edit"));
         } else {
             $data = [
@@ -332,26 +338,16 @@ class AdminController extends CI_Controller
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
 
-            $this->AdminModel->about_us_update_db($data);
+            $this->AdminModel->about_us_update_db($data, $this->AdminModel->xl_rows_control("about_us", "au_id"));
             redirect(base_url("about_us_edit"));
         }
     }
 
-
-
-
     public function xlb_admin_about_us_delete()
     {
-
-        $this->AdminModel->about_us_delete_db();
+        $this->AdminModel->about_us_delete_db($this->AdminModel->xl_rows_control("about_us", "au_id"));
         redirect(base_url("about_us_create"));
     }
-
-
-
-
-
-
 
     public function xlb_admin_services_create()
     {
@@ -404,7 +400,8 @@ class AdminController extends CI_Controller
         redirect(base_url("services_list"));
     }
 
-    public function xlb_admin_logo_create(){
+    public function xlb_admin_logo_create()
+    {
         $this->load->view("admin/logo/Create");
     }
 }
