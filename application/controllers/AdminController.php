@@ -212,21 +212,23 @@ class AdminController extends CI_Controller
         }
     }
 
-
-
-
-
-
-
-    
     public function xlb_admin_create_about_us()
     {
-        $data["get_db_au_row"] = $this->AdminModel->about_us_get_db();
-        $this->load->view("admin/about_us/Create.php", $data);
+        $isCreateAccess = $this->AdminModel->xl_rows_control("about_us","au_id");
+        if($isCreateAccess > 0){
+            redirect(base_url("about_us_edit"));
+        }
+        else {
+            $this->load->view("admin/about_us/Create");
+        }
     }
+
+
+
 
     public function xlb_admin_create_about_us_action()
     {
+
         $input_au_img_first_text        = $_POST["input_au_img_first_text"];
         $input_au_img_second_text       = $_POST["input_au_img_second_text"];
         $input_au_desc_base_h1_text     = $_POST["input_au_desc_base_h1_text"];
@@ -279,7 +281,7 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_about_us_edit()
     {
-        $data["about_us_get_db"] = $this->AdminModel->about_us_get_db();
+        $data["about_us_get_db"] = $this->AdminModel->about_us_get_db($this->AdminModel->xl_rows_control("about_us","au_id"));
         $this->load->view("admin/about_us/Edit", $data);
     }
 
@@ -335,8 +337,12 @@ class AdminController extends CI_Controller
         }
     }
 
+
+
+
     public function xlb_admin_about_us_delete()
     {
+
         $this->AdminModel->about_us_delete_db();
         redirect(base_url("about_us_create"));
     }

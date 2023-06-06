@@ -36,24 +36,41 @@ class AdminModel extends CI_Model
         $this->db->where("t_uid", $t_uid)->update("team", $data);
     }
 
+    /*BEGIN - DB ROWS CONTROL*/
+    public function xl_rows_control($tableName, $idDbName)
+    {
+        $about_us_rows_count = $this->db->from($tableName)->count_all_results();
+        if ($about_us_rows_count == 1) {
+            return $this->db->get($tableName)->row_array()[$idDbName];
+        } else if ($about_us_rows_count > 1) {
+            return $this->db->order_by($idDbName, "DESC")->limit(1)->get($tableName)->row_array()[$idDbName];
+        } else {
+            return -1;
+        }
+    }
+    /*ENDED - DB ROWS CONTROL*/
+
     public function about_us_insert_db($data)
     {
         $this->db->insert("about_us", $data);
     }
 
-    public function about_us_get_db()
+    public function about_us_get_db($id)
     {
-        return $this->db->order_by("au_id", "DESC")->limit(1)->get("about_us")->row_array();
+        //$id = $this->xl_rows_control("about_us","au_id");
+        return $this->db->where("au_id", $id)->get("about_us")->row_array();
     }
 
-    public function about_us_update_db($data)
+    public function about_us_update_db($data, $id)
     {
-        $this->db->update("about_us", $data);
+        //$id = $this->xl_rows_control("about_us","au_id");
+        $this->db->where("au_id", $id)->update("about_us", $data);
     }
 
-    public function about_us_delete_db()
+    public function about_us_delete_db($id)
     {
-        $this->db->empty_table("about_us");
+        //$id = $this->xl_rows_control("about_us","au_id");
+        $this->db->where("au_id", $id)->delete();
     }
 
     public function services_insert_db($data)
@@ -89,6 +106,4 @@ class AdminModel extends CI_Model
     {
         $this->db->insert("logo", $data);
     }
-
-    
 }
