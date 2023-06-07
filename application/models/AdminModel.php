@@ -70,7 +70,7 @@ class AdminModel extends CI_Model
     public function about_us_delete_db($id)
     {
         //$id = $this->xl_rows_control("about_us","au_id");
-        $this->db->where("au_id", $id)->delete();
+        $this->db->where("au_id", $id)->delete("about_us");
     }
 
     public function services_insert_db($data)
