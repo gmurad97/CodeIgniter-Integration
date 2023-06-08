@@ -5,7 +5,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between align-items-center">
         <h6 class="m-0 font-weight-bold text-primary">About &RightArrow; Edit </h6>
-        <a href="<?php echo base_url('about_us_delete'); ?>" class="btn btn-danger btn-icon-split">
+        <a onclick="return confirm('Do you really want to delete about us?');" href="<?php echo base_url('about_us_delete'); ?>" class="btn btn-danger btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-trash"></i>
             </span>

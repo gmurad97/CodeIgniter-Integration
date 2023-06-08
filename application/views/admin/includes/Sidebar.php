@@ -19,7 +19,7 @@
 
     <!-- Logo -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url('logo_create'); ?>">
             <i class="fas fa-fw fa-star"></i>
             <span>Logo</span>
         </a>

@@ -92,6 +92,10 @@ $route["services_delete/(.*)"]      = "AdminController/xlb_admin_services_delete
 
 /*LOGO CRUD*/
 $route["logo_create"]               = "AdminController/xlb_admin_logo_create";
+$route["logo_create_action"]        = "AdminController/xlb_admin_logo_create_action";
+$route["logo_edit"]                 = "AdminController/xlb_admin_logo_edit";
+$route["logo_edit_action"]          = "AdminController/xlb_admin_logo_edit_action";
+$route["logo_delete"]               = "AdminController/xlb_admin_logo_delete";
 
 //OTHER
 $route["404_override"]              = "";

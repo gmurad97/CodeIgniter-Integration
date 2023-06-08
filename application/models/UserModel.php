@@ -12,11 +12,16 @@ class UserModel extends CI_Model
     }
     public function about_us_get_db()
     {
-        return $this->db->order_by("au_id", "desc")->limit(1)->get("about_us")->row_array();
+        return $this->db->order_by("au_id", "DESC")->limit(1)->get("about_us")->row_array();
     }
 
     public function services_get_db()
     {
         return $this->db->order_by("s_id", "DESC")->get("services")->result_array();
+    }
+
+    public function logo_get_db()
+    {
+        return $this->db->order_by("l_id", "DESC")->get("logo")->row_array();
     }
 }

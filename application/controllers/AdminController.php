@@ -274,12 +274,6 @@ class AdminController extends CI_Controller
         }
     }
 
-
-
-
-
-
-
     public function xlb_admin_about_us_edit()
     {
         $isCreateAccess = $this->AdminModel->xl_rows_control("about_us", "au_id");
@@ -402,6 +396,74 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_logo_create()
     {
-        $this->load->view("admin/logo/Create");
+        $checkRowsLogo = $this->AdminModel->xl_rows_control("logo", "l_id");
+        if ($checkRowsLogo == (-1)) {
+            $this->load->view("admin/logo/Create");
+        } else {
+            redirect(base_url('logo_edit'));
+        }
+    }
+
+    public function xlb_admin_logo_create_action()
+    {
+        $config_logo["upload_path"]                 = "./file_manager/logo";
+        $config_logo["allowed_types"]               = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $config_logo["file_ext_tolower"]            = true;
+        $config_logo["remove_spaces"]               = true;
+        $config_logo["encrypt_name"]                = true;
+
+        $this->load->library("upload", $config_logo);
+
+        if ($this->upload->do_upload("input_logo_img")) {
+            $logo_img = $this->upload->data();
+            $data = [
+                "logo_img" => $logo_img["file_name"]
+            ];
+            $this->AdminModel->logo_insert_db($data);
+            redirect(base_url('logo_edit'));
+        } else {
+            $this->session->set_flashdata("adm_logo_img_error", "Error.The image is not selected.Please select image...");
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    public function xlb_admin_logo_edit()
+    {
+        $checkRowsLogo = $this->AdminModel->xl_rows_control("logo", "l_id");
+        if ($checkRowsLogo == (-1)) {
+            redirect(base_url('logo_create'));
+        } else {
+            $data["logo_db"] = $this->AdminModel->logo_get_db($checkRowsLogo);
+            $this->load->view("admin/logo/Edit", $data);
+        }
+    }
+
+    public function xlb_admin_logo_edit_action()
+    {
+        $config_logo["upload_path"]                 = "./file_manager/logo";
+        $config_logo["allowed_types"]               = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $config_logo["file_ext_tolower"]            = true;
+        $config_logo["remove_spaces"]               = true;
+        $config_logo["encrypt_name"]                = true;
+
+        $this->load->library("upload", $config_logo);
+
+        if ($this->upload->do_upload("input_logo_img")) {
+            $logo_img = $this->upload->data();
+            $data = [
+                "logo_img" => $logo_img["file_name"]
+            ];
+            $this->AdminModel->logo_update_db($this->AdminModel->xl_rows_control("logo", "l_id"), $data);
+            redirect(base_url('logo_edit'));
+        } else {
+            $this->session->set_flashdata("adm_logo_img_error", "Error.The image is not selected.Please select image...");
+            redirect($_SERVER["HTTP_REFERER"]);
+        }
+    }
+
+    public function xlb_admin_logo_delete()
+    {
+        $this->AdminModel->logo_delete_db($this->AdminModel->xl_rows_control("logo", "l_id"));
+        redirect(base_url("logo_create"));
     }
 }

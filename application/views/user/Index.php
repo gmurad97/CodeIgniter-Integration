@@ -24,9 +24,6 @@
 <!-- Carousel End -->
 
 
-
-
-
 <!-- About Start -->
 <?php if ($about_us_get_db) { ?>
     <div class="container-xxl py-5">

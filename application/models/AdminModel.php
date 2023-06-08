@@ -98,12 +98,23 @@ class AdminModel extends CI_Model
         $this->db->where("s_id", $s_id)->delete("services");
     }
 
-
-
-
-
     public function logo_insert_db($data)
     {
         $this->db->insert("logo", $data);
+    }
+
+    public function logo_get_db($id)
+    {
+        return $this->db->where("l_id", $id)->get("logo")->row_array();
+    }
+
+    public function logo_update_db($id, $data)
+    {
+        $this->db->where("l_id", $id)->update("logo", $data);
+    }
+
+    public function logo_delete_db($id)
+    {
+        $this->db->where("l_id", $id)->delete("logo");
     }
 }
