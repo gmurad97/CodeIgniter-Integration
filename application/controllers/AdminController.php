@@ -466,4 +466,8 @@ class AdminController extends CI_Controller
         $this->AdminModel->logo_delete_db($this->AdminModel->xl_rows_control("logo", "l_id"));
         redirect(base_url("logo_create"));
     }
+
+    public function xlb_admin_header_lending(){
+        $this->load->view("admin/header_lending/Create");
+    }
 }

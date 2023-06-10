@@ -97,6 +97,9 @@ $route["logo_edit"]                 = "AdminController/xlb_admin_logo_edit";
 $route["logo_edit_action"]          = "AdminController/xlb_admin_logo_edit_action";
 $route["logo_delete"]               = "AdminController/xlb_admin_logo_delete";
 
+/*HEADER LENDING*/
+$route["header_lending_create"]     = "AdminController/xlb_admin_header_lending";
+
 //OTHER
 $route["404_override"]              = "";
 $route["translate_uri_dashes"]      = FALSE;

@@ -17,11 +17,19 @@
     <hr class="sidebar-divider my-0 mb-3">
     <div style="font-size:12px;" class="sidebar-heading">Content</div>
 
-    <!-- Logo -->
+    <!-- LOGO -->
     <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('logo_create'); ?>">
             <i class="fas fa-fw fa-star"></i>
             <span>Logo</span>
+        </a>
+    </li>
+
+    <!-- HEADER VIDEO -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('header_lending_create'); ?>">
+            <i class="fas fa-fw fa-image"></i>
+            <span>Header Lending</span>
         </a>
     </li>
 
