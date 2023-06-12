@@ -467,7 +467,116 @@ class AdminController extends CI_Controller
         redirect(base_url("logo_create"));
     }
 
-    public function xlb_admin_header_lending(){
-        $this->load->view("admin/header_lending/Create");
+    public function xlb_admin_header_lending_create()
+    {
+        $checkRowsHeaderLending = $this->AdminModel->xl_rows_control("header_lending", "hl_id");
+        if ($checkRowsHeaderLending == (-1)) {
+            $this->load->view("admin/header_lending/Create");
+        } else {
+            redirect(base_url("header_lending_edit"));
+        }
+    }
+
+    public function xlb_admin_header_lending_create_action()
+    {
+        $input_hl_base_h1_text          = $_POST["input_hl_base_h1_text"];
+        $input_hl_first_select_icon     = $_POST["input_hl_first_select_icon"];
+        $input_hl_first_p_text          = $_POST["input_hl_first_p_text"];
+        $input_hl_second_select_icon    = $_POST["input_hl_second_select_icon"];
+        $input_hl_second_p_text         = $_POST["input_hl_second_p_text"];
+
+        $videoConfig["upload_path"]         = "./file_manager/header_lending";
+        $videoConfig["allowed_types"]       = "mp4|ogv|webm";
+        $videoConfig["file_ext_tolower"]    = true;
+        $videoConfig["remove_spaces"]       = true;
+        $videoConfig["encrypt_name"]        = true;
+
+        $this->load->library("upload", $videoConfig);
+
+        if ($this->upload->do_upload("input_hl_video")) {
+            $videoName = $this->upload->data();
+
+            $data = [
+                "hl_video"              => $videoName["file_name"],
+                "hl_base_h1_text"       => $input_hl_base_h1_text,
+                "hl_first_select_icon"  => $input_hl_first_select_icon,
+                "hl_first_p_text"       => $input_hl_first_p_text,
+                "hl_second_select_icon" => $input_hl_second_select_icon,
+                "hl_second_p_text"      => $input_hl_second_p_text
+            ];
+
+            $this->AdminModel->header_lending_create_db($data);
+            redirect(base_url('header_lending_edit'));
+        } else {
+            $data = [
+                "hl_base_h1_text"       => $input_hl_base_h1_text,
+                "hl_first_select_icon"  => $input_hl_first_select_icon,
+                "hl_first_p_text"       => $input_hl_first_p_text,
+                "hl_second_select_icon" => $input_hl_second_select_icon,
+                "hl_second_p_text"      => $input_hl_second_p_text
+            ];
+            $this->AdminModel->header_lending_create_db($data);
+            redirect(base_url('header_lending_edit'));
+        }
+    }
+
+    public function xlb_admin_header_lending_edit()
+    {
+        $checkRowsHeaderLending = $this->AdminModel->xl_rows_control("header_lending", "hl_id");
+        if ($checkRowsHeaderLending == (-1)) {
+            redirect(base_url("header_lending_create"));
+        } else {
+            $data["header_lending_db"] = $this->AdminModel->header_lending_get_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"));
+            $this->load->view("admin/header_lending/Edit", $data);
+        }
+    }
+
+    public function xlb_admin_header_lending_edit_action()
+    {
+        $input_hl_base_h1_text          = $_POST["input_hl_base_h1_text"];
+        $input_hl_first_select_icon     = $_POST["input_hl_first_select_icon"];
+        $input_hl_first_p_text          = $_POST["input_hl_first_p_text"];
+        $input_hl_second_select_icon    = $_POST["input_hl_second_select_icon"];
+        $input_hl_second_p_text         = $_POST["input_hl_second_p_text"];
+
+        $videoConfig["upload_path"]         = "./file_manager/header_lending";
+        $videoConfig["allowed_types"]       = "mp4|ogv|webm";
+        $videoConfig["file_ext_tolower"]    = true;
+        $videoConfig["remove_spaces"]       = true;
+        $videoConfig["encrypt_name"]        = true;
+
+        $this->load->library("upload", $videoConfig);
+
+        if ($this->upload->do_upload("input_hl_video")) {
+            $videoName = $this->upload->data();
+
+            $data = [
+                "hl_video"              => $videoName["file_name"],
+                "hl_base_h1_text"       => $input_hl_base_h1_text,
+                "hl_first_select_icon"  => $input_hl_first_select_icon,
+                "hl_first_p_text"       => $input_hl_first_p_text,
+                "hl_second_select_icon" => $input_hl_second_select_icon,
+                "hl_second_p_text"      => $input_hl_second_p_text
+            ];
+
+            $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
+            redirect(base_url('header_lending_edit'));
+        } else {
+            $data = [
+                "hl_base_h1_text"       => $input_hl_base_h1_text,
+                "hl_first_select_icon"  => $input_hl_first_select_icon,
+                "hl_first_p_text"       => $input_hl_first_p_text,
+                "hl_second_select_icon" => $input_hl_second_select_icon,
+                "hl_second_p_text"      => $input_hl_second_p_text
+            ];
+            $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
+            redirect(base_url('header_lending_edit'));
+        }
+    }
+
+    public function xlb_admin_header_lending_delete()
+    {
+        $this->AdminModel->header_lending_delete_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"));
+        redirect(base_url("header_lending_create"));
     }
 }

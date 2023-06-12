@@ -3,25 +3,26 @@
 <?php $this->load->view("user/includes/Navbar"); ?>
 
 <!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <video autoplay muted loop id="myVideo" style="width:100%;">
-                    <source src="<?php echo base_url('public/user/assets/video/video.mp4') ?>" type="video/mp4">
-                </video>
-                <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
-                    <div class="mx-sm-5 px-5" style="max-width: 900px;">
-                        <h1 style="color: #D7B56D !important" class="mb-3">Peşəkar xidmətin tək ünvanı!</h1><br><br><br><br>
-                        <h3 style="font-size: 17px !important" class="text-white  mb-4 animated slideInDown"><i style="color: #D7B56D !important" class="fa fa-map-marker-alt text-primary me-3"></i>Bakı şəh., Nizami ray., M. Muxtarova küç 145, Nizami M/S arxası</h3>
-                        <h3 style="font-size: 17px !important" class="text-white mb-4 animated slideInDown"><i style="color: #D7B56D !important" class="fa fa-phone-alt text-primary me-3"></i>+99455/70 329 47 37</h3>
+<?php if ($header_lending_get_db) { ?>
+    <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <video autoplay muted loop id="myVideo" style="width:100%;" src="<?php echo base_url('file_manager/header_lending/').$header_lending_get_db["hl_video"]; ?>"></video>
+                    <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
+                        <div class="mx-sm-5 px-5" style="max-width: 900px;">
+                            <h1 style="color: #D7B56D !important" class="text-center mb-3"><?php echo $header_lending_get_db["hl_base_h1_text"]; ?></h1><br><br><br><br>
+                            <h3 style="font-size: 17px !important" class="text-white mb-4 animated slideInDown"><i style="color: #D7B56D !important" class="<?php echo $header_lending_get_db["hl_first_select_icon"]; ?> text-primary me-3"></i><?php echo $header_lending_get_db["hl_first_p_text"]; ?></h3>
+                            <h3 style="font-size: 17px !important" class="text-white mb-4 animated slideInDown"><i style="color: #D7B56D !important" class="<?php echo $header_lending_get_db["hl_second_select_icon"]; ?> text-primary me-3"></i><?php echo $header_lending_get_db["hl_second_p_text"]; ?></h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 <!-- Carousel End -->
+
 
 
 <!-- About Start -->
@@ -60,10 +61,6 @@
     </div>
 <?php } ?>
 <!-- About End -->
-
-
-
-
 
 
 

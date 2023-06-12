@@ -22,6 +22,11 @@ class UserModel extends CI_Model
 
     public function logo_get_db()
     {
-        return $this->db->order_by("l_id", "DESC")->get("logo")->row_array();
+        return $this->db->order_by("l_id", "DESC")->limit(1)->get("logo")->row_array();
+    }
+
+    public function header_lending_get_db()
+    {
+        return $this->db->order_by("hl_id", "DESC")->limit(1)->get("header_lending")->row_array();
     }
 }

@@ -117,4 +117,24 @@ class AdminModel extends CI_Model
     {
         $this->db->where("l_id", $id)->delete("logo");
     }
+
+    public function header_lending_create_db($data)
+    {
+        $this->db->insert("header_lending", $data);
+    }
+
+    public function header_lending_get_db($id)
+    {
+        return $this->db->where("hl_id", $id)->get("header_lending")->row_array();
+    }
+
+    public function header_lending_update_db($id, $data)
+    {
+        $this->db->where("hl_id", $id)->update("header_lending", $data);
+    }
+
+    public function header_lending_delete_db($id)
+    {
+        $this->db->where("hl_id", $id)->delete("header_lending");
+    }
 }
