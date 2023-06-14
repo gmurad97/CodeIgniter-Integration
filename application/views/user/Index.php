@@ -148,6 +148,8 @@
 </div>
 <!-- Price End -->
 
+
+
 <!-- Team Start -->
 <?php if ($team_get_db) { ?>
     <div class="container-xxl py-5">
@@ -198,6 +200,8 @@
     </div>
 <?php } ?>
 <!-- Team End -->
+
+
 
 <!-- Working Hours Start -->
 <div class="container-xxl py-5">
