@@ -579,4 +579,50 @@ class AdminController extends CI_Controller
         $this->AdminModel->header_lending_delete_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"));
         redirect(base_url("header_lending_create"));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function xlb_admin_price_create()
+    {
+        $checkRowsPrice = $this->AdminModel->xl_rows_control("price", "p_id");
+        if ($checkRowsPrice == (-1)) {
+            $this->load->view("admin/price/Create");
+        } else {
+            redirect(base_url("price_edit"));
+        }
+    }
+
+    public function xlb_admin_price_create_action()
+    {
+        
+    }
+
+    public function xlb_admin_price_edit()
+    {
+        $checkRowsPrice = $this->AdminModel->xl_rows_control("price", "p_id");
+        if ($checkRowsPrice == (-1)) {
+            redirect(base_url("price_create"));
+        } else {
+            $this->load->view("admin/price/Edit");
+        }
+    }
+
+    public function xlb_admin_price_edit_action()
+    {
+
+    }
+
+    public function xlb_admin_price_delete()
+    {
+
+    }
 }
