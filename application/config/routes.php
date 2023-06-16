@@ -104,6 +104,13 @@ $route["header_lending_edit"]           = "AdminController/xlb_admin_header_lend
 $route["header_lending_edit_action"]    = "AdminController/xlb_admin_header_lending_edit_action";
 $route["header_lending_delete"]         = "AdminController/xlb_admin_header_lending_delete";
 
+/*PRICE BLOCK*/
+$route["price_create"]                  = "AdminController/xlb_admin_price_create";
+$route["price_create_action"]           = "AdminController/xlb_admin_price_create_action";
+$route["price_edit"]                    = "AdminController/xlb_admin_price_edit";
+$route["price_edit_action"]             = "AdminController/xlb_admin_price_edit_action";
+$route["price_delete"]                  = "AdminController/xlb_admin_price_delete";
+
 //OTHER
 $route["404_override"]                  = "";
 $route["translate_uri_dashes"]          = FALSE;

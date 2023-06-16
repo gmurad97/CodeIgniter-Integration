@@ -21,24 +21,24 @@ class UserController extends CI_Controller
     public function xlb_user_service()
     {
         $data["logo_get_db"]            = $this->UserModel->logo_get_db();
-        $this->load->view("user/Service",$data);
+        $this->load->view("user/Service", $data);
     }
 
     public function xlb_user_gallery()
     {
         $data["logo_get_db"]            = $this->UserModel->logo_get_db();
-        $this->load->view("user/Gallery",$data);
+        $this->load->view("user/Gallery", $data);
     }
 
     public function xlb_user_contact()
     {
         $data["logo_get_db"]            = $this->UserModel->logo_get_db();
-        $this->load->view("user/Contact",$data);
+        $this->load->view("user/Contact", $data);
     }
 
     public function xlb_user_about()
     {
         $data["logo_get_db"]            = $this->UserModel->logo_get_db();
-        $this->load->view("user/About",$data);
+        $this->load->view("user/About", $data);
     }
 }

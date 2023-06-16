@@ -76,6 +76,15 @@
             </div>
         </div>
     </li>
+
+    <!-- LOGO -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('price_create'); ?>">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Price</span>
+        </a>
+    </li>
+
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- SIDEBAR TOGGLE -->
