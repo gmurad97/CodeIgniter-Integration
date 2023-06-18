@@ -1,9 +1,12 @@
 <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard'); ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-grin-beam"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin</div>
+        <div class="sidebar-brand-text mx-3">XL Admin</div>
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-grin-beam"></i>
+        </div>
     </a>
     <hr class="sidebar-divider my-0">
 
@@ -77,7 +80,7 @@
         </div>
     </li>
 
-    <!-- LOGO -->
+    <!-- PRICE -->
     <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('price_create'); ?>">
             <i class="fas fa-money-bill-wave"></i>

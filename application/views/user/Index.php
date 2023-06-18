@@ -103,7 +103,7 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
+                <div class="bg-secondary h-100 d-flex flex-column justify-content-start p-5">
                     <p style="color: #D7B56D !important" class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">Qiymətlər</p>
                     <h2 class="mb-4">Qiymətlərimizlə tanış olun</h2>
                     <div>
