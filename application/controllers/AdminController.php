@@ -603,7 +603,45 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_price_create_action()
     {
-        
+        //implode -> JS join() -> Array->toString();
+        //explode -> JS split() -> toString(); -> Array;
+        $price_base_h1_text  = $_POST["input_price_base_h1_text"];
+        $price_arr_text      = implode("[price_separator_text]", $_POST["input_price_text"]);
+        $price_arr_value     = implode("[price_separator_value]", $_POST["input_price_value"]);
+        $price_arr_currency  = implode("[price_separator_currency]", $_POST["input_currency"]);
+
+        $price_file_config["upload_path"]       = "./file_manager/price";
+        $price_file_config["allowed_types"]     = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $price_file_config["file_ext_tolower"]  = true;
+        $price_file_config["remove_spaces"]     = true;
+        $price_file_config["encrypt_name"]      = true;
+
+        $this->load->library("upload", $price_file_config);
+
+        if ($this->upload->do_upload("input_price_lending_img")) {
+            $price_img = $this->upload->data();
+
+            $data = [
+                "p_base_h1_text" =>     $price_base_h1_text,
+                "p_arr_text" =>         $price_arr_text,
+                "p_arr_value" =>        $price_arr_value,
+                "p_arr_currency" =>     $price_arr_currency,
+                "p_img" =>              $price_img["file_name"]
+            ];
+
+            $this->AdminModel->price_create($data);
+            redirect(base_url("price_edit"));
+        } else {
+            $data = [
+                "p_base_h1_text" =>     $price_base_h1_text,
+                "p_arr_text" =>         $price_arr_text,
+                "p_arr_value" =>        $price_arr_value,
+                "p_arr_currency" =>     $price_arr_currency
+            ];
+
+            $this->AdminModel->price_create($data);
+            redirect(base_url("price_edit"));
+        }
     }
 
     public function xlb_admin_price_edit()
@@ -612,17 +650,57 @@ class AdminController extends CI_Controller
         if ($checkRowsPrice == (-1)) {
             redirect(base_url("price_create"));
         } else {
-            $this->load->view("admin/price/Edit");
+            $data["price_data"] = $this->AdminModel->price_get($this->AdminModel->xl_rows_control("price", "p_id"));
+            $this->load->view("admin/price/Edit", $data);
         }
     }
 
     public function xlb_admin_price_edit_action()
     {
+        //implode -> JS join() -> Array->toString();
+        //explode -> JS split() -> toString(); -> Array;
+        $price_base_h1_text  = $_POST["input_price_base_h1_text"];
+        $price_arr_text      = implode("[price_separator_text]", $_POST["input_price_text"]);
+        $price_arr_value     = implode("[price_separator_value]", $_POST["input_price_value"]);
+        $price_arr_currency  = implode("[price_separator_currency]", $_POST["input_currency"]);
 
+        $price_file_config["upload_path"]       = "./file_manager/price";
+        $price_file_config["allowed_types"]     = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $price_file_config["file_ext_tolower"]  = true;
+        $price_file_config["remove_spaces"]     = true;
+        $price_file_config["encrypt_name"]      = true;
+
+        $this->load->library("upload", $price_file_config);
+
+        if ($this->upload->do_upload("input_price_lending_img")) {
+            $price_img = $this->upload->data();
+
+            $data = [
+                "p_base_h1_text" =>     $price_base_h1_text,
+                "p_arr_text" =>         $price_arr_text,
+                "p_arr_value" =>        $price_arr_value,
+                "p_arr_currency" =>     $price_arr_currency,
+                "p_img" =>              $price_img["file_name"]
+            ];
+
+            $this->AdminModel->price_edit($this->AdminModel->xl_rows_control("price", "p_id"), $data);
+            redirect(base_url("price_edit"));
+        } else {
+            $data = [
+                "p_base_h1_text" =>     $price_base_h1_text,
+                "p_arr_text" =>         $price_arr_text,
+                "p_arr_value" =>        $price_arr_value,
+                "p_arr_currency" =>     $price_arr_currency
+            ];
+
+            $this->AdminModel->price_edit($this->AdminModel->xl_rows_control("price", "p_id"), $data);
+            redirect(base_url("price_edit"));
+        }
     }
 
     public function xlb_admin_price_delete()
     {
-
+        $this->AdminModel->price_delete($this->AdminModel->xl_rows_control("price", "p_id"));
+        redirect(base_url("price_create"));
     }
 }

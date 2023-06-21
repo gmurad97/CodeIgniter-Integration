@@ -52,8 +52,8 @@
                 color: rgba(0, 106, 78, 1) !important;
             }
         </style>
-        <form>
-            <h3 class="bg-gradient-dark text-center text-white mb-3 py-2 rounded"><b>Price</b></h3>
+        <h3 class="bg-gradient-dark text-center text-white mb-3 py-2 rounded"><b>Price</b></h3>
+        <form action="<?php echo base_url('price_create_action'); ?>" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
@@ -65,19 +65,19 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="price_text"><b>Price text</b></label>
-                                    <input name="input_price_text" id="price_text" type="text" class="form-control">
+                                    <input name="input_price_text[]" id="price_text" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="price_value"><b>Price value</b></label>
-                                    <input name="input_price_value" id="price_value" type="number" class="form-control">
+                                    <input name="input_price_value[]" id="price_value" type="number" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="form-group">
                                     <label for="currency"><b>Currency</b></label>
-                                    <select name="input_currency" id="currency" class="form-control">
+                                    <select name="input_currency[]" id="currency" class="form-control">
                                         <option value="azn">AZN</option>
                                         <option value="eur">EUR</option>
                                         <option value="usd">USD</option>
@@ -122,7 +122,7 @@
                                 let newDynamicObject = document.createElement("div");
                                 newDynamicObject.classList.add("row");
                                 newDynamicObject.id = `dynamic-row-price-${generateDynamicUID}`;
-                                newDynamicObject.innerHTML += `<div class="col-sm-6"><div class="form-group"><label for="price_text_${generateDynamicUID}"><b>Price text</b></label><input name="input_price_text_${generateDynamicUID}" id="price_text_${generateDynamicUID}" type="text" class="form-control"></div></div><div class="col-sm-3"><div class="form-group"><label for="price_value_${generateDynamicUID}"><b>Price value</b></label><input name="input_price_value_${generateDynamicUID}" id="price_value_${generateDynamicUID}" type="number" class="form-control"></div></div><div class="col-sm-2"><div class="form-group"><label for="currency_${generateDynamicUID}"><b>Currency</b></label><select name="input_currency_${generateDynamicUID}" id="currency_${generateDynamicUID}" class="form-control"><option value="azn">AZN</option><option value="eur">EUR</option><option value="usd">USD</option><option value="rub">RUB</option></select></div></div><div class="col-sm-1"><div class="form-group d-flex flex-column"><label><b>Del</b></label><i class="fas fa-minus-circle fa-dynamic-price-del text-danger" onclick="deleteDI('dynamic-row-price-${generateDynamicUID}')"></i></div></div>`;
+                                newDynamicObject.innerHTML += `<div class="col-sm-6"><div class="form-group"><label for="price_text_${generateDynamicUID}"><b>Price text</b></label><input name="input_price_text[]" id="price_text_${generateDynamicUID}" type="text" class="form-control"></div></div><div class="col-sm-3"><div class="form-group"><label for="price_value_${generateDynamicUID}"><b>Price value</b></label><input name="input_price_value[]" id="price_value_${generateDynamicUID}" type="number" class="form-control"></div></div><div class="col-sm-2"><div class="form-group"><label for="currency_${generateDynamicUID}"><b>Currency</b></label><select name="input_currency[]" id="currency_${generateDynamicUID}" class="form-control"><option value="azn">AZN</option><option value="eur">EUR</option><option value="usd">USD</option><option value="rub">RUB</option></select></div></div><div class="col-sm-1"><div class="form-group d-flex flex-column"><label><b>Del</b></label><i class="fas fa-minus-circle fa-dynamic-price-del text-danger" onclick="deleteDI('dynamic-row-price-${generateDynamicUID}');"></i></div></div>`;
                                 dynamicParentPrice.appendChild(newDynamicObject);
                             }
                         });

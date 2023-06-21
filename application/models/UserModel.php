@@ -29,4 +29,9 @@ class UserModel extends CI_Model
     {
         return $this->db->order_by("hl_id", "DESC")->limit(1)->get("header_lending")->row_array();
     }
+
+    public function price_get_db()
+    {
+        return $this->db->order_by("p_id", "DESC")->limit(1)->get("price")->row_array();
+    }
 }

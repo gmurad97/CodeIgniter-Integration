@@ -8,7 +8,7 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <video autoplay muted loop id="myVideo" style="width:100%;" src="<?php echo base_url('file_manager/header_lending/').$header_lending_get_db["hl_video"]; ?>"></video>
+                    <video autoplay muted loop id="myVideo" style="width:100%;" src="<?php echo base_url('file_manager/header_lending/') . $header_lending_get_db["hl_video"]; ?>"></video>
                     <div class="carousel-caption d-flex align-items-center justify-content-center text-start">
                         <div class="mx-sm-5 px-5" style="max-width: 900px;">
                             <h1 style="color: #D7B56D !important" class="text-center mb-3"><?php echo $header_lending_get_db["hl_base_h1_text"]; ?></h1><br><br><br><br>
@@ -32,7 +32,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="d-flex flex-column">
-                        <img style="" class="img-fluid w-75 align-self-end" src="<?php echo base_url('file_manager/about_us/') . $about_us_get_db["au_img"]; ?>" alt="">
+                        <img style="height: 500px;object-fit: cover;" class="img-fluid w-75 align-self-end" src="<?php echo base_url('file_manager/about_us/') . $about_us_get_db["au_img"]; ?>" alt="">
                         <div class="w-50 bg-secondary p-5" style="margin-top: -25%;">
                             <div style="text-align:center;">
                                 <h1 style="color: #D7B56D !important;" class="text-primary mb-3"><?php echo $about_us_get_db["au_img_first_text"]; ?></h1>
@@ -91,61 +91,35 @@
 <?php } ?>
 <!-- Service End -->
 
-
-
-
-
-
-
-
 <!-- Price Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="bg-secondary h-100 d-flex flex-column justify-content-start p-5">
-                    <p style="color: #D7B56D !important" class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">Qiymətlər</p>
-                    <h2 class="mb-4">Qiymətlərimizlə tanış olun</h2>
-                    <div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Saç kəsimi</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">20 AZN</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Saqqal kəsimi</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">5-15 AZN</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Təraş</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">10-20 AZN</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Saç boyama</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">15-30 AZN</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Keratin + Perma</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">30-150 AZN</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Saç darama</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">5-15 AZN</span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <h6 class="mb-0">VİP saç kəsimi</h6>
-                            <span style="color: #D7B56D !important" class="text-primary">30-50 AZN</span>
+<?php if ($price_get_db) { ?>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="bg-secondary h-100 d-flex flex-column justify-content-start p-5">
+                        <p style="color: #D7B56D !important" class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">Qiymətlər</p>
+                        <h2 class="mb-4"><?php echo $price_get_db["p_base_h1_text"]; ?></h2>
+                        <div>
+                            <?php
+                            for ($price_index = 0; $price_index < count(explode("[price_separator_text]", $price_get_db["p_arr_text"])); $price_index++) { ?>
+                                <div class="d-flex justify-content-between border-bottom py-2">
+                                    <h6 class="mb-0"><?php echo explode("[price_separator_text]", $price_get_db["p_arr_text"])[$price_index]; ?></h6>
+                                    <span style="color: #D7B56D !important; text-transform:uppercase;" class="text-primary"><?php echo explode("[price_separator_value]", $price_get_db["p_arr_value"])[$price_index] . " " . explode("[price_separator_currency]", $price_get_db["p_arr_currency"])[$price_index]; ?></span>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <div class="h-100">
-                    <img class="img-fluid h-100" src="<?php echo base_url('public/user/assets/img/price.jpg'); ?>" alt="">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <img class="img-fluid h-100" src="<?php echo base_url('file_manager/price/') . $price_get_db["p_img"]; ?>" alt="">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 <!-- Price End -->
 
 

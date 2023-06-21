@@ -137,4 +137,24 @@ class AdminModel extends CI_Model
     {
         $this->db->where("hl_id", $id)->delete("header_lending");
     }
+
+    public function price_create($data)
+    {
+        $this->db->insert("price", $data);
+    }
+
+    public function price_get($id)
+    {
+        return $this->db->where("p_id", $id)->get("price")->row_array();
+    }
+
+    public function price_edit($id, $data)
+    {
+        $this->db->where("p_id", $id)->update("price", $data);
+    }
+
+    public function price_delete($id)
+    {
+        $this->db->where("p_id", $id)->delete("price");
+    }
 }
