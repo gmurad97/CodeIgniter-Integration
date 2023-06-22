@@ -66,14 +66,14 @@ $route["admin_auth_action"]             = "AdminController/xlb_admin_login_actio
 $route["dashboard"]                     = "AdminController/xlb_admin_dashboard";
 $route["admin_logout"]                  = "AdminController/xlb_admin_logout";
 
-/*ABOUT US CRUD*/
+/*ABOUT US*/
 $route["about_us_create"]               = "AdminController/xlb_admin_create_about_us";
 $route["about_us_create_action"]        = "AdminController/xlb_admin_create_about_us_action";
 $route["about_us_edit"]                 = "AdminController/xlb_admin_about_us_edit";
 $route["about_us_edit_action"]          = "AdminController/xlb_admin_about_us_edit_action";
 $route["about_us_delete"]               = "AdminController/xlb_admin_about_us_delete";
 
-/*TEAM CRUD*/
+/*TEAM*/
 $route["team_create"]                   = "AdminController/xlb_admin_team_create";
 $route["team_create_action"]            = "AdminController/xlb_admin_team_create_action";
 $route["team_list"]                     = "AdminController/xlb_admin_team_list";
@@ -82,7 +82,7 @@ $route["team_delete/(.*)"]              = "AdminController/xlb_admin_team_delete
 $route["team_edit/(.*)"]                = "AdminController/xlb_admin_team_edit/$1";
 $route["team_edit_action/(.*)"]         = "AdminController/xlb_admin_team_edit_action/$1";
 
-/*SERVICES CRUD*/
+/*SERVICES*/
 $route["services_create"]               = "AdminController/xlb_admin_services_create";
 $route["services_create_action"]        = "AdminController/xlb_admin_services_create_action";
 $route["services_list"]                 = "AdminController/xlb_admin_services_list";
@@ -90,7 +90,7 @@ $route["services_edit/(.*)"]            = "AdminController/xlb_admin_services_ed
 $route["services_edit_action/(.*)"]     = "AdminController/xlb_admin_services_edit_action/$1";
 $route["services_delete/(.*)"]          = "AdminController/xlb_admin_services_delete/$1";
 
-/*LOGO CRUD*/
+/*LOGO*/
 $route["logo_create"]                   = "AdminController/xlb_admin_logo_create";
 $route["logo_create_action"]            = "AdminController/xlb_admin_logo_create_action";
 $route["logo_edit"]                     = "AdminController/xlb_admin_logo_edit";
@@ -110,6 +110,14 @@ $route["price_create_action"]           = "AdminController/xlb_admin_price_creat
 $route["price_edit"]                    = "AdminController/xlb_admin_price_edit";
 $route["price_edit_action"]             = "AdminController/xlb_admin_price_edit_action";
 $route["price_delete"]                  = "AdminController/xlb_admin_price_delete";
+
+/*WORKING HOURS*/
+$route["working_hours_create"]          = "AdminController/xlb_admin_working_hours_create";
+$route["working_hours_create_action"]   = "AdminController/xlb_admin_working_hours_create_action";
+$route["working_hours_edit"]            = "AdminController/xlb_admin_working_hours_edit";
+$route["working_hours_edit_action"]     = "AdminController/xlb_admin_working_hours_edit_action";
+$route["working_hours_delete"]          = "AdminController/xlb_admin_working_hours_delete";
+
 
 //OTHER
 $route["404_override"]                  = "";

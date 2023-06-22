@@ -1,10 +1,10 @@
 <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard'); ?>">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-grin-beam"></i>
+            <i class="fas fa-grin-beam text-warning rotate-n-45"></i>
         </div>
         <div class="sidebar-brand-text mx-3">XL Admin</div>
-        <div class="sidebar-brand-icon">
+        <div class="sidebar-brand-icon text-warning rotate-45">
             <i class="fas fa-grin-beam"></i>
         </div>
     </a>
@@ -85,6 +85,14 @@
         <a class="nav-link" href="<?php echo base_url('price_create'); ?>">
             <i class="fas fa-money-bill-wave"></i>
             <span>Price</span>
+        </a>
+    </li>
+
+    <!-- WORKING HOURS -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('working_hours_create'); ?>">
+            <i class="fas fa-clock"></i>
+            <span>Working Hours</span>
         </a>
     </li>
 

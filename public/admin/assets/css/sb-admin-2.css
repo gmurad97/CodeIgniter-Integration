@@ -10108,12 +10108,12 @@ a:focus {
   height: .5rem;
 }
 
-.rotate-15 {
-  transform: rotate(15deg);
+.rotate-45 {
+  transform: rotate(45deg);
 }
 
-.rotate-n-15 {
-  transform: rotate(-15deg);
+.rotate-n-45 {
+  transform: rotate(-45deg);
 }
 
 .dropdown .dropdown-menu {

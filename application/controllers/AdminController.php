@@ -580,17 +580,6 @@ class AdminController extends CI_Controller
         redirect(base_url("header_lending_create"));
     }
 
-
-
-
-
-
-
-
-
-
-
-
     public function xlb_admin_price_create()
     {
         $checkRowsPrice = $this->AdminModel->xl_rows_control("price", "p_id");
@@ -702,5 +691,49 @@ class AdminController extends CI_Controller
     {
         $this->AdminModel->price_delete($this->AdminModel->xl_rows_control("price", "p_id"));
         redirect(base_url("price_create"));
+    }
+
+
+
+
+
+
+
+
+
+    public function xlb_admin_working_hours_create()
+    {
+        $checkRowsWorkingHours = $this->AdminModel->xl_rows_control("working_hours", "wh_id");
+        if ($checkRowsWorkingHours == (-1)) {
+            $this->load->view("admin/working_hours/Create");
+        } else {
+            redirect(base_url("working_hours_edit"));
+        }
+    }
+
+    public function xlb_admin_working_hours_create_action()
+    {
+
+    }
+
+    public function xlb_admin_working_hours_edit()
+    {
+        $checkRowsWorkingHours = $this->AdminModel->xl_rows_control("working_hours", "wh_id");
+        if ($checkRowsWorkingHours == (-1)) {
+            redirect(base_url("working_hours_create"));
+        } else {
+            $data["working_hours"] = $this->AdminModel->working_hours_get($this->AdminModel->xl_rows_control("working_hours", "wh_id"));
+            $this->load->view("admin/working_hours/Edit", $data);
+        }
+    }
+
+    public function xlb_admin_working_hours_edit_action()
+    {
+
+    }
+
+    public function xlb_admin_working_hours_delete()
+    {
+
     }
 }
