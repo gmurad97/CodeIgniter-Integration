@@ -57,6 +57,8 @@
 
 
 
+
+
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-sm-12">
@@ -67,17 +69,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-8">
                             <div class="form-group">
                                 <label for="firstname"><b>First Name</b></label>
                                 <input name="input_first_name" type="text" id="firstname" class="form-control" placeholder="Enter First Name...">
                             </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="firstname"><b>First Name</b></label>
                                 <input name="input_first_name" type="text" id="firstname" class="form-control" placeholder="Enter First Name...">
                             </div>
                         </div>
                     </div>
+
                 </div>
 
 
