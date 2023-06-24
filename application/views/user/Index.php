@@ -23,8 +23,6 @@
 <?php } ?>
 <!-- Carousel End -->
 
-
-
 <!-- About Start -->
 <?php if ($about_us_get_db) { ?>
     <div class="container-xxl py-5">
@@ -61,8 +59,6 @@
     </div>
 <?php } ?>
 <!-- About End -->
-
-
 
 <!-- Service Start -->
 <?php if ($services_get_db) { ?>
@@ -122,8 +118,6 @@
 <?php } ?>
 <!-- Price End -->
 
-
-
 <!-- Team Start -->
 <?php if ($team_get_db) { ?>
     <div class="container-xxl py-5">
@@ -175,53 +169,60 @@
 <?php } ?>
 <!-- Team End -->
 
-
-
 <!-- Working Hours Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="h-100">
-                    <img class="img-fluid h-100" src="<?php echo base_url('public/user/assets/img/open.jpg'); ?>" alt="">
+<?php if ($working_hours_get_db) { ?>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="h-100">
+                        <img style="height:555px !important; width:100% !important; object-fit: cover;" class="img-fluid h-100" src="<?php echo base_url("file_manager/working_hours/") . $working_hours_get_db["wh_img"]; ?>" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
-                    <p style="color: #D7B56D !important" class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">İş saatlarımız</p>
-                    <h2 class="mb-4">Ödənişsiz dayanacağımız mövcuddur</h2>
-                    <div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Bazar ertəsi</h6>
-                            <span>10:00-21:00</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Çərşəmbə axşamı</h6>
-                            <span>10:00-21:00</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Çərşəmbə</h6>
-                            <span>10:00-21:00</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Cümə axşamı</h6>
-                            <span>10:00-21:00</span>
-                        </div>
-                        <div class="d-flex justify-content-between border-bottom py-2">
-                            <h6 class="mb-0">Cümə</h6>
-                            <span>10:00-21:00</span>
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <h6 class="mb-0">Şənbə / Bazar</h6>
-                            <span>10:00-20:00</span>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="bg-secondary h-100 d-flex flex-column justify-content-center p-5">
+                        <p style="color: #D7B56D !important" class="d-inline-flex bg-dark text-primary py-1 px-4 me-auto">İş saatlarımız</p>
+                        <h2 class="mb-4"><?php echo $working_hours_get_db["wh_base_h1_text"]; ?></h2>
+                        <div>
+                            <div class="d-flex justify-content-between border-bottom py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_monday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_monday"]; ?></span>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_tuesday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_tuesday"]; ?></span>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_wednesday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_wednesday"]; ?></span>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_thursday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_thursday"]; ?></span>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_friday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_friday"]; ?></span>
+                            </div>
+                            <div class="d-flex justify-content-between border-bottom py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_saturday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_saturday"]; ?></span>
+                            </div>
+                            <div class="d-flex justify-content-between py-2">
+                                <h6 class="mb-0"><?php echo $working_hours_get_db["wh_week_sunday"]; ?></h6>
+                                <span><?php echo $working_hours_get_db["wh_time_sunday"]; ?></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 <!-- Working Hours End -->
+
+
+
 
 <!-- Testimonial Start -->
 <div class="container-xxl py-5">

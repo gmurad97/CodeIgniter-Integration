@@ -157,4 +157,27 @@ class AdminModel extends CI_Model
     {
         $this->db->where("p_id", $id)->delete("price");
     }
+
+
+
+
+
+    public function working_hours_create($data)
+    {
+        $this->db->insert("working_hours", $data);
+    }
+
+    public function working_hours_get($id)
+    {
+        return $this->db->where("wh_id", $id)->get("working_hours")->row_array();
+    }
+
+    public function working_hours_edit($id, $data)
+    {
+        $this->db->where("wh_id", $id)->update("working_hours", $data);
+    }
+
+    public function working_hours_delete($id){
+        $this->db->where("wh_id",$id)->delete("working_hours");
+    }
 }

@@ -35,62 +35,132 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="price_lending_img"><b>Image Upload</b></label>
-                        <input type="file" name="input_price_lending_img" id="price_lending_img" hidden>
+                        <label for="wh_lending_img"><b>Image Upload</b></label>
+                        <input type="file" name="input_wh_lending_img" id="wh_lending_img" hidden>
                         <div class="file_upload_block">
                             <i class="fas fa-plus-circle fas-js"></i>
                         </div>
                         <script>
-                            document.querySelector("#price_lending_img").addEventListener("change", function() {
+                            document.querySelector("#wh_lending_img").addEventListener("change", function() {
                                 document.querySelector(".fas-js").classList.replace("fa-plus-circle", "fa-pen");
-                                document.querySelector(".file_upload_block").style.backgroundImage = `url("${URL.createObjectURL(document.querySelector("#price_lending_img").files[0])}")`;
+                                document.querySelector(".file_upload_block").style.backgroundImage = `url("${URL.createObjectURL(document.querySelector("#wh_lending_img").files[0])}")`;
                                 document.querySelector(".file_upload_block").style.color = "#ffffff";
                             });
                             document.querySelector(".file_upload_block").addEventListener("click", function() {
-                                document.querySelector("#price_lending_img").click();
+                                document.querySelector("#wh_lending_img").click();
                             });
                         </script>
                     </div>
                 </div>
-
-
-
-
-
-
-
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="firstname"><b>First Name</b></label>
-                                <input name="input_first_name" type="text" id="firstname" class="form-control" placeholder="Enter First Name...">
+                                <label for="base_h1_text"><b>Base H1 Text</b></label>
+                                <input name="input_base_h1_text" type="text" id="base_h1_text" class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="form-group">
-                                <label for="firstname"><b>First Name</b></label>
-                                <input name="input_first_name" type="text" id="firstname" class="form-control" placeholder="Enter First Name...">
+                                <label for="monday_text"><b>Monday text</b></label>
+                                <input name="input_monday_text" type="text" id="monday_text" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="firstname"><b>First Name</b></label>
-                                <input name="input_first_name" type="text" id="firstname" class="form-control" placeholder="Enter First Name...">
+                                <label for="monday_time"><b>Monday Time</b></label>
+                                <input name="input_monday_time" type="text" id="monday_time" class="form-control">
                             </div>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="tuesday_text"><b>Tuesday text</b></label>
+                                <input name="input_tuesday_text" type="text" id="tuesday_text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="tuesday_time"><b>Tuesday Time</b></label>
+                                <input name="input_tuesday_time" type="text" id="tuesday_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="wednesday_text"><b>Wednesday text</b></label>
+                                <input name="input_wednesday_text" type="text" id="wednesday_text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="wednesday_time"><b>Wednesday Time</b></label>
+                                <input name="input_wednesday_time" type="text" id="wednesday_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="thursday_text"><b>Thursday text</b></label>
+                                <input name="input_thursday_text" type="text" id="thursday_text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="thursday_time"><b>Thursday Time</b></label>
+                                <input name="input_thursday_time" type="text" id="thursday_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="friday_text"><b>Friday text</b></label>
+                                <input name="input_friday_text" type="text" id="friday_text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="friday_time"><b>Friday Time</b></label>
+                                <input name="input_friday_time" type="text" id="friday_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="saturday_text"><b>Saturday text</b></label>
+                                <input name="input_saturday_text" type="text" id="saturday_text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="saturday_time"><b>Saturday Time</b></label>
+                                <input name="input_saturday_time" type="text" id="saturday_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="sunday_text"><b>Sunday text</b></label>
+                                <input name="input_sunday_text" type="text" id="sunday_text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="sunday_time"><b>Sunday Time</b></label>
+                                <input name="input_sunday_time" type="text" id="sunday_time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
-
-
-
             </div>
-
             <button type="submit" class="btn btn-block btn-success"><b>Create / Add</b></button>
         </form>
     </div>

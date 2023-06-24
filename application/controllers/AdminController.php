@@ -713,7 +713,75 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_working_hours_create_action()
     {
+        $input_base_h1_text     = $this->input->post("input_base_h1_text");
+        $input_week_monday      = $this->input->post("input_monday_text");
+        $input_time_monday      = $this->input->post("input_monday_time");
+        $input_week_tuesday     = $this->input->post("input_tuesday_text");
+        $input_time_tuesday     = $this->input->post("input_tuesday_time");
+        $input_week_wednesday   = $this->input->post("input_wednesday_text");
+        $input_time_wednesday   = $this->input->post("input_wednesday_time");
+        $input_week_thursday    = $this->input->post("input_thursday_text");
+        $input_time_thursday    = $this->input->post("input_thursday_time");
+        $input_week_friday      = $this->input->post("input_friday_text");
+        $input_time_friday      = $this->input->post("input_friday_time");
+        $input_week_saturday    = $this->input->post("input_saturday_text");
+        $input_time_saturday    = $this->input->post("input_saturday_time");
+        $input_week_sunday      = $this->input->post("input_sunday_text");
+        $input_time_sunday      = $this->input->post("input_sunday_time");
 
+        $wh_cfg_img["upload_path"]      = "./file_manager/working_hours";
+        $wh_cfg_img["allowed_types"]    = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $wh_cfg_img["file_ext_tolower"] = true;
+        $wh_cfg_img["remove_spaces"]    = true;
+        $wh_cfg_img["encrypt_name"]     = true;
+
+        $this->load->library("upload", $wh_cfg_img);
+
+        if ($this->upload->do_upload("input_wh_lending_img")) {
+            $wh_img = $this->upload->data();
+            $data = [
+                "wh_base_h1_text" => $input_base_h1_text,
+                "wh_week_monday" => $input_week_monday,
+                "wh_time_monday" => $input_time_monday,
+                "wh_week_tuesday" => $input_week_tuesday,
+                "wh_time_tuesday" => $input_time_tuesday,
+                "wh_week_wednesday" => $input_week_wednesday,
+                "wh_time_wednesday" => $input_time_wednesday,
+                "wh_week_thursday" => $input_week_thursday,
+                "wh_time_thursday" => $input_time_thursday,
+                "wh_week_friday" => $input_week_friday,
+                "wh_time_friday" => $input_time_friday,
+                "wh_week_saturday" => $input_week_saturday,
+                "wh_time_saturday" => $input_time_saturday,
+                "wh_week_sunday" => $input_week_sunday,
+                "wh_time_sunday" => $input_time_sunday,
+                "wh_img" => $wh_img["file_name"]
+            ];
+
+            $this->AdminModel->working_hours_create($data);
+            redirect(base_url('working_hours_edit'));
+        } else {
+            $data = [
+                "wh_base_h1_text" => $input_base_h1_text,
+                "wh_week_monday" => $input_week_monday,
+                "wh_time_monday" => $input_time_monday,
+                "wh_week_tuesday" => $input_week_tuesday,
+                "wh_time_tuesday" => $input_time_tuesday,
+                "wh_week_wednesday" => $input_week_wednesday,
+                "wh_time_wednesday" => $input_time_wednesday,
+                "wh_week_thursday" => $input_week_thursday,
+                "wh_time_thursday" => $input_time_thursday,
+                "wh_week_friday" => $input_week_friday,
+                "wh_time_friday" => $input_time_friday,
+                "wh_week_saturday" => $input_week_saturday,
+                "wh_time_saturday" => $input_time_saturday,
+                "wh_week_sunday" => $input_week_sunday,
+                "wh_time_sunday" => $input_time_sunday
+            ];
+
+            $this->AdminModel->working_hours_create($data);
+            redirect(base_url('working_hours_edit'));
+        }
     }
 
     public function xlb_admin_working_hours_edit()
@@ -722,18 +790,87 @@ class AdminController extends CI_Controller
         if ($checkRowsWorkingHours == (-1)) {
             redirect(base_url("working_hours_create"));
         } else {
-            $data["working_hours"] = $this->AdminModel->working_hours_get($this->AdminModel->xl_rows_control("working_hours", "wh_id"));
+            $data["working_hours_get_db"] = $this->AdminModel->working_hours_get($this->AdminModel->xl_rows_control("working_hours", "wh_id"));
             $this->load->view("admin/working_hours/Edit", $data);
         }
     }
 
     public function xlb_admin_working_hours_edit_action()
     {
+        $input_base_h1_text     = $this->input->post("input_base_h1_text");
+        $input_week_monday      = $this->input->post("input_monday_text");
+        $input_time_monday      = $this->input->post("input_monday_time");
+        $input_week_tuesday     = $this->input->post("input_tuesday_text");
+        $input_time_tuesday     = $this->input->post("input_tuesday_time");
+        $input_week_wednesday   = $this->input->post("input_wednesday_text");
+        $input_time_wednesday   = $this->input->post("input_wednesday_time");
+        $input_week_thursday    = $this->input->post("input_thursday_text");
+        $input_time_thursday    = $this->input->post("input_thursday_time");
+        $input_week_friday      = $this->input->post("input_friday_text");
+        $input_time_friday      = $this->input->post("input_friday_time");
+        $input_week_saturday    = $this->input->post("input_saturday_text");
+        $input_time_saturday    = $this->input->post("input_saturday_time");
+        $input_week_sunday      = $this->input->post("input_sunday_text");
+        $input_time_sunday      = $this->input->post("input_sunday_time");
 
+        $wh_cfg_img["upload_path"]      = "./file_manager/working_hours";
+        $wh_cfg_img["allowed_types"]    = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $wh_cfg_img["file_ext_tolower"] = true;
+        $wh_cfg_img["remove_spaces"]    = true;
+        $wh_cfg_img["encrypt_name"]     = true;
+
+        $this->load->library("upload", $wh_cfg_img);
+
+        if ($this->upload->do_upload("input_wh_lending_img")) {
+            $wh_img = $this->upload->data();
+            $data = [
+                "wh_base_h1_text" => $input_base_h1_text,
+                "wh_week_monday" => $input_week_monday,
+                "wh_time_monday" => $input_time_monday,
+                "wh_week_tuesday" => $input_week_tuesday,
+                "wh_time_tuesday" => $input_time_tuesday,
+                "wh_week_wednesday" => $input_week_wednesday,
+                "wh_time_wednesday" => $input_time_wednesday,
+                "wh_week_thursday" => $input_week_thursday,
+                "wh_time_thursday" => $input_time_thursday,
+                "wh_week_friday" => $input_week_friday,
+                "wh_time_friday" => $input_time_friday,
+                "wh_week_saturday" => $input_week_saturday,
+                "wh_time_saturday" => $input_time_saturday,
+                "wh_week_sunday" => $input_week_sunday,
+                "wh_time_sunday" => $input_time_sunday,
+                "wh_img" => $wh_img["file_name"]
+            ];
+
+            $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours","wh_id"),$data);
+            redirect(base_url('working_hours_edit'));
+        } else {
+            $data = [
+                "wh_base_h1_text" => $input_base_h1_text,
+                "wh_week_monday" => $input_week_monday,
+                "wh_time_monday" => $input_time_monday,
+                "wh_week_tuesday" => $input_week_tuesday,
+                "wh_time_tuesday" => $input_time_tuesday,
+                "wh_week_wednesday" => $input_week_wednesday,
+                "wh_time_wednesday" => $input_time_wednesday,
+                "wh_week_thursday" => $input_week_thursday,
+                "wh_time_thursday" => $input_time_thursday,
+                "wh_week_friday" => $input_week_friday,
+                "wh_time_friday" => $input_time_friday,
+                "wh_week_saturday" => $input_week_saturday,
+                "wh_time_saturday" => $input_time_saturday,
+                "wh_week_sunday" => $input_week_sunday,
+                "wh_time_sunday" => $input_time_sunday
+            ];
+
+            $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours","wh_id"),$data);
+            redirect(base_url('working_hours_edit'));
+        }
     }
 
     public function xlb_admin_working_hours_delete()
     {
-
+        $this->AdminModel->working_hours_delete($this->AdminModel->xl_rows_control("working_hours", "wh_id"));
+        redirect(base_url("working_hours_create"));
     }
 }
