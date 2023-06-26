@@ -17,6 +17,7 @@ class UserController extends CI_Controller
         $data["header_lending_get_db"]  = $this->UserModel->header_lending_get_db();
         $data["price_get_db"]           = $this->UserModel->price_get_db();
         $data["working_hours_get_db"]   = $this->UserModel->working_hours_get_db();
+        $data["testimonial_get_db"]     = $this->UserModel->testimonial_get_db();
         $this->load->view("user/Index", $data);
     }
 

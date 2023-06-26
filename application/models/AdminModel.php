@@ -158,10 +158,6 @@ class AdminModel extends CI_Model
         $this->db->where("p_id", $id)->delete("price");
     }
 
-
-
-
-
     public function working_hours_create($data)
     {
         $this->db->insert("working_hours", $data);
@@ -177,7 +173,33 @@ class AdminModel extends CI_Model
         $this->db->where("wh_id", $id)->update("working_hours", $data);
     }
 
-    public function working_hours_delete($id){
-        $this->db->where("wh_id",$id)->delete("working_hours");
+    public function working_hours_delete($id)
+    {
+        $this->db->where("wh_id", $id)->delete("working_hours");
+    }
+
+    public function testimonial_create($data)
+    {
+        $this->db->insert("testimonial", $data);
+    }
+
+    public function testimonial_get_all()
+    {
+        return $this->db->order_by("t_id", "DESC")->get("testimonial")->result_array();
+    }
+
+    public function testimonial_id_get($id)
+    {
+        return $this->db->where("t_id", $id)->get("testimonial")->row_array();
+    }
+
+    public function testimonial_id_update($id, $data)
+    {
+        $this->db->where("t_id", $id)->update("testimonial", $data);
+    }
+
+    public function testimonial_delete($id)
+    {
+        $this->db->where("t_id", $id)->delete("testimonial");
     }
 }

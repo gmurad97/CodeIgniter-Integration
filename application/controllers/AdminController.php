@@ -693,14 +693,6 @@ class AdminController extends CI_Controller
         redirect(base_url("price_create"));
     }
 
-
-
-
-
-
-
-
-
     public function xlb_admin_working_hours_create()
     {
         $checkRowsWorkingHours = $this->AdminModel->xl_rows_control("working_hours", "wh_id");
@@ -842,7 +834,7 @@ class AdminController extends CI_Controller
                 "wh_img" => $wh_img["file_name"]
             ];
 
-            $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours","wh_id"),$data);
+            $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours", "wh_id"), $data);
             redirect(base_url('working_hours_edit'));
         } else {
             $data = [
@@ -863,7 +855,7 @@ class AdminController extends CI_Controller
                 "wh_time_sunday" => $input_time_sunday
             ];
 
-            $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours","wh_id"),$data);
+            $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours", "wh_id"), $data);
             redirect(base_url('working_hours_edit'));
         }
     }
@@ -872,5 +864,116 @@ class AdminController extends CI_Controller
     {
         $this->AdminModel->working_hours_delete($this->AdminModel->xl_rows_control("working_hours", "wh_id"));
         redirect(base_url("working_hours_create"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function xlb_admin_testimonial_create()
+    {
+        $this->load->view("admin/testimonial/Create");
+    }
+
+    public function xlb_admin_testimonial_create_action()
+    {
+        $input_t_firstname          = $this->input->post("input_t_firstname");
+        $input_t_profession         = $this->input->post("input_t_profession");
+        $input_t_feedback           = $this->input->post("input_t_feedback");
+
+        $t_cfg_img["upload_path"]       = "./file_manager/testimonial";
+        $t_cfg_img["allowed_types"]     = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $t_cfg_img["file_ext_tolower"]  = true;
+        $t_cfg_img["remove_spaces"]     = true;
+        $t_cfg_img["encrypt_name"]      = true;
+
+        $this->load->library("upload", $t_cfg_img);
+
+        if ($this->upload->do_upload("input_t_img")) {
+            $t_img = $this->upload->data();
+
+            $data = [
+                "t_firstname"       => $input_t_firstname,
+                "t_profession"      => $input_t_profession,
+                "t_feedback"        => $input_t_feedback,
+                "t_img"             => $t_img["file_name"]
+            ];
+
+            $this->AdminModel->testimonial_create($data);
+            redirect(base_url("testimonial_list"));
+        } else {
+            $data = [
+                "t_firstname"       => $input_t_firstname,
+                "t_profession"      => $input_t_profession,
+                "t_feedback"        => $input_t_feedback
+            ];
+
+            $this->AdminModel->testimonial_create($data);
+            redirect(base_url("testimonial_list"));
+        }
+    }
+
+    public function xlb_admin_testimonial_list()
+    {
+        $data["testimonial_get_all"] = $this->AdminModel->testimonial_get_all();
+        $this->load->view("admin/testimonial/List", $data);
+    }
+
+    public function xlb_admin_testimonial_edit($id)
+    {
+        $data["testimonial_data"] = $this->AdminModel->testimonial_id_get($id);
+        $this->load->view("admin/testimonial/Edit", $data);
+    }
+
+    public function xlb_admin_testimonial_edit_action($id)
+    {
+        $input_t_firstname          = $this->input->post("input_t_firstname");
+        $input_t_profession         = $this->input->post("input_t_profession");
+        $input_t_feedback           = $this->input->post("input_t_feedback");
+
+        $t_cfg_img["upload_path"]       = "./file_manager/testimonial";
+        $t_cfg_img["allowed_types"]     = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $t_cfg_img["file_ext_tolower"]  = true;
+        $t_cfg_img["remove_spaces"]     = true;
+        $t_cfg_img["encrypt_name"]      = true;
+
+        $this->load->library("upload", $t_cfg_img);
+
+        if ($this->upload->do_upload("input_t_img")) {
+            $t_img = $this->upload->data();
+
+            $data = [
+                "t_firstname"       => $input_t_firstname,
+                "t_profession"      => $input_t_profession,
+                "t_feedback"        => $input_t_feedback,
+                "t_img"             => $t_img["file_name"]
+            ];
+
+            $this->AdminModel->testimonial_id_update($id, $data);
+            redirect(base_url("testimonial_list"));
+        } else {
+            $data = [
+                "t_firstname"       => $input_t_firstname,
+                "t_profession"      => $input_t_profession,
+                "t_feedback"        => $input_t_feedback
+            ];
+
+            $this->AdminModel->testimonial_id_update($id, $data);
+            redirect(base_url("testimonial_list"));
+        }
+    }
+
+    public function xlb_admin_testimonial_delete($id)
+    {
+        $this->AdminModel->testimonial_delete($id);
+        redirect(base_url("testimonial_list"));
     }
 }

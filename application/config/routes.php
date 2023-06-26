@@ -119,6 +119,15 @@ $route["working_hours_edit_action"]     = "AdminController/xlb_admin_working_hou
 $route["working_hours_delete"]          = "AdminController/xlb_admin_working_hours_delete";
 
 
+/*TESTIMONIAL*/
+$route["testimonial_create"]            = "AdminController/xlb_admin_testimonial_create";
+$route["testimonial_create_action"]     = "AdminController/xlb_admin_testimonial_create_action";
+$route["testimonial_list"]              = "AdminController/xlb_admin_testimonial_list";
+$route["testimonial_edit/(.*)"]         = "AdminController/xlb_admin_testimonial_edit/$1";
+$route["testimonial_edit_action/(.*)"]  = "AdminController/xlb_admin_testimonial_edit_action/$1";
+$route["testimonial_delete/(.*)"]       = "AdminController/xlb_admin_testimonial_delete/$1";
+
+
 //OTHER
 $route["404_override"]                  = "";
 $route["translate_uri_dashes"]          = FALSE;

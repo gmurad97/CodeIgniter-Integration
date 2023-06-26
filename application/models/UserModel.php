@@ -35,7 +35,13 @@ class UserModel extends CI_Model
         return $this->db->order_by("p_id", "DESC")->limit(1)->get("price")->row_array();
     }
 
-    public function working_hours_get_db(){
-        return $this->db->order_by("wh_id","DESC")->limit(1)->get("working_hours")->row_array();
+    public function working_hours_get_db()
+    {
+        return $this->db->order_by("wh_id", "DESC")->limit(1)->get("working_hours")->row_array();
+    }
+
+    public function testimonial_get_db()
+    {
+        return $this->db->order_by("t_id", "DESC")->limit(6)->get("testimonial")->result_array();
     }
 }
