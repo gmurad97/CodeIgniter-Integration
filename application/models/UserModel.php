@@ -44,4 +44,9 @@ class UserModel extends CI_Model
     {
         return $this->db->order_by("t_id", "DESC")->limit(6)->get("testimonial")->result_array();
     }
+
+    public function footer_get_db()
+    {
+        return $this->db->order_by("f_id", "DESC")->limit(1)->get("footer")->row_array();
+    }
 }

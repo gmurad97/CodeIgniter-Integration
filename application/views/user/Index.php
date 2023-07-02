@@ -221,12 +221,7 @@
 <?php } ?>
 <!-- Working Hours End -->
 
-
-
-
 <!-- Testimonial Start -->
-
-
 <?php if ($testimonial_get_db) { ?>
     <div class="container-xxl py-5">
         <div class="container">
@@ -246,8 +241,6 @@
         </div>
     </div>
 <?php } ?>
-
-
 <!-- Testimonial End -->
 
 <?php $this->load->view("user/includes/Footer"); ?>

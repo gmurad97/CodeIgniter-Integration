@@ -202,4 +202,24 @@ class AdminModel extends CI_Model
     {
         $this->db->where("t_id", $id)->delete("testimonial");
     }
+
+    public function footer_create($data)
+    {
+        $this->db->insert("footer", $data);
+    }
+
+    public function footer_id_get($id)
+    {
+        return $this->db->where("f_id", $id)->get("footer")->row_array();
+    }
+
+    public function footer_id_edit($id, $data)
+    {
+        $this->db->where("f_id", $id)->update("footer", $data);
+    }
+
+    public function footer_id_delete($id)
+    {
+        $this->db->where("f_id", $id)->delete("footer");
+    }
 }

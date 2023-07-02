@@ -965,39 +965,82 @@ class AdminController extends CI_Controller
         redirect(base_url("testimonial_list"));
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function xlb_admin_footer_create()
     {
-        $this->load->view("admin/footer/Create.php");
+        $checkRowFooter = $this->AdminModel->xl_rows_control("footer", "f_id");
+        if ($checkRowFooter == (-1)) {
+            $this->load->view("admin/footer/Create");
+        } else {
+            redirect(base_url("footer_edit"));
+        }
     }
 
     public function xlb_admin_footer_create_action()
     {
+        $input_f_location       = $this->input->post("input_f_location");
+        $input_f_phone          = $this->input->post("input_f_phone");
+        $input_f_email          = $this->input->post("input_f_email");
+        $input_f_twitter        = $this->input->post("input_f_twitter");
+        $input_f_facebook       = $this->input->post("input_f_facebook");
+        $input_f_youtube        = $this->input->post("input_f_youtube");
+        $input_f_instagram      = $this->input->post("input_f_instagram");
+        $input_f_copyright      = $this->input->post("input_f_copyright");
+
+        $data = [
+            "f_location_text"   => $input_f_location,
+            "f_phone_text"      => $input_f_phone,
+            "f_email_text"      => $input_f_email,
+            "f_twitter_link"    => $input_f_twitter,
+            "f_facebook_link"   => $input_f_facebook,
+            "f_youtube_link"    => $input_f_youtube,
+            "f_instagram_link"  => $input_f_instagram,
+            "f_copyright"       => $input_f_copyright
+        ];
+
+        $this->AdminModel->footer_create($data);
+        redirect(base_url('footer_edit'));
     }
 
     public function xlb_admin_footer_edit()
     {
+        $checkRowFooter = $this->AdminModel->xl_rows_control("footer", "f_id");
+        if ($checkRowFooter == (-1)) {
+            redirect(base_url("footer_create"));
+        } else {
+            $data["footer_editable_data"] = $this->AdminModel->footer_id_get($this->AdminModel->xl_rows_control("footer", "f_id"));
+            $this->load->view("admin/footer/Edit", $data);
+        }
     }
 
     public function xlb_admin_footer_edit_action()
     {
+        $input_f_location       = $this->input->post("input_f_location");
+        $input_f_phone          = $this->input->post("input_f_phone");
+        $input_f_email          = $this->input->post("input_f_email");
+        $input_f_twitter        = $this->input->post("input_f_twitter");
+        $input_f_facebook       = $this->input->post("input_f_facebook");
+        $input_f_youtube        = $this->input->post("input_f_youtube");
+        $input_f_instagram      = $this->input->post("input_f_instagram");
+        $input_f_copyright      = $this->input->post("input_f_copyright");
+
+        $data = [
+            "f_location_text"   => $input_f_location,
+            "f_phone_text"      => $input_f_phone,
+            "f_email_text"      => $input_f_email,
+            "f_twitter_link"    => $input_f_twitter,
+            "f_facebook_link"   => $input_f_facebook,
+            "f_youtube_link"    => $input_f_youtube,
+            "f_instagram_link"  => $input_f_instagram,
+            "f_copyright"       => $input_f_copyright
+        ];
+
+        $this->AdminModel->footer_id_edit($this->AdminModel->xl_rows_control("footer", "f_id"), $data);
+        redirect(base_url('footer_edit'));
     }
 
     public function xlb_admin_footer_delete()
     {
+        $this->AdminModel->footer_id_delete($this->AdminModel->xl_rows_control("footer", "f_id"));
+        redirect(base_url("footer_create"));
     }
-
-    
 }
