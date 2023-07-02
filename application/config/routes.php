@@ -127,6 +127,12 @@ $route["testimonial_edit/(.*)"]         = "AdminController/xlb_admin_testimonial
 $route["testimonial_edit_action/(.*)"]  = "AdminController/xlb_admin_testimonial_edit_action/$1";
 $route["testimonial_delete/(.*)"]       = "AdminController/xlb_admin_testimonial_delete/$1";
 
+/*FOOTER*/
+$route["footer_create"]                 = "AdminController/xlb_admin_footer_create";
+$route["footer_create_action"]          = "AdminController/xlb_admin_footer_create_action";
+$route["footer_edit"]                   = "AdminController/xlb_admin_footer_edit";
+$route["footer_edit_action"]            = "AdminController/xlb_admin_footer_edit_action";
+$route["footer_delete"]                 = "AdminController/xlb_admin_footer_delete";
 
 //OTHER
 $route["404_override"]                  = "";

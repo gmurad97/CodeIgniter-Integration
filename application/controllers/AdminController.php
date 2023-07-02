@@ -866,18 +866,6 @@ class AdminController extends CI_Controller
         redirect(base_url("working_hours_create"));
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public function xlb_admin_testimonial_create()
     {
         $this->load->view("admin/testimonial/Create");
@@ -976,4 +964,40 @@ class AdminController extends CI_Controller
         $this->AdminModel->testimonial_delete($id);
         redirect(base_url("testimonial_list"));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function xlb_admin_footer_create()
+    {
+        $this->load->view("admin/footer/Create.php");
+    }
+
+    public function xlb_admin_footer_create_action()
+    {
+    }
+
+    public function xlb_admin_footer_edit()
+    {
+    }
+
+    public function xlb_admin_footer_edit_action()
+    {
+    }
+
+    public function xlb_admin_footer_delete()
+    {
+    }
+
+    
 }

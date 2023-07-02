@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('dashboard'); ?>">
-        <div class="sidebar-brand-icon">
-            <i class="fas fa-grin-beam text-warning rotate-n-45"></i>
+        <div class="sidebar-brand-icon text-warning rotate-n-45">
+            <i class="fas fa-crown"></i>
         </div>
         <div class="sidebar-brand-text mx-3">XL Admin</div>
         <div class="sidebar-brand-icon text-warning rotate-45">
-            <i class="fas fa-grin-beam"></i>
+            <i class="fas fa-crown"></i>
         </div>
     </a>
     <hr class="sidebar-divider my-0">
@@ -45,6 +45,10 @@
 
         .xl-text-testimonial {
             color: #b8e994 !important;
+        }
+
+        .xl-text-footer{
+            color: #F79F1F !important;
         }
     </style>
 
@@ -150,6 +154,14 @@
                 </a>
             </div>
         </div>
+    </li>
+
+    <!-- FOOTER -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('footer_create'); ?>">
+            <i class="fas fa-gopuram xl-text-footer"></i>
+            <span>Footer</span>
+        </a>
     </li>
 
     <hr class="sidebar-divider d-none d-md-block">
