@@ -118,6 +118,18 @@ $route["working_hours_edit"]            = "AdminController/xlb_admin_working_hou
 $route["working_hours_edit_action"]     = "AdminController/xlb_admin_working_hours_edit_action";
 $route["working_hours_delete"]          = "AdminController/xlb_admin_working_hours_delete";
 
+/*GOOGLE MAP - LOCATION*/
+$route["gmap_create"]                   = "AdminController/xlb_admin_gmap_create";
+$route["gmap_create_action"]            = "AdminController/xlb_admin_gmap_create_action";
+$route["gmap_edit"]                     = "AdminController/xlb_admin_gmap_edit";
+$route["gmap_edit_action"]              = "AdminController/xlb_admin_gmap_edit_action";
+$route["gmap_delete"]                   = "AdminController/xlb_admin_gmap_delete";
+
+/*GALLERY*/
+$route["gallery_create"]                = "AdminController/xlb_admin_gallery_create";
+$route["gallery_create_action"]         = "AdminController/xlb_admin_gallery_create_action";
+$route["gallery_list"]                  = "AdminController/xlb_admin_gallery_list";
+$route["gallery_delete/(.*)"]           = "AdminController/xlb_admin_gallery_delete/$1";
 
 /*TESTIMONIAL*/
 $route["testimonial_create"]            = "AdminController/xlb_admin_testimonial_create";
