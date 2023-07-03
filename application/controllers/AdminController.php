@@ -1087,30 +1087,50 @@ class AdminController extends CI_Controller
         redirect(base_url("gallery_list"));
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function xlb_admin_gmap_create()
     {
-        $this->load->view("admin/gmap/Create");
+        $checkRowGmap = $this->AdminModel->xl_rows_control("google_map", "g_id");
+        if ($checkRowGmap == (-1)) {
+            $this->load->view("admin/gmap/Create");
+        } else {
+            redirect(base_url("gmap_edit"));
+        }
+    }
+
+    public function xlb_admin_gmap_create_action()
+    {
+        $input_gmap_iframe_code = $this->input->post("input_gmap_iframe_code");
+        $data = [
+            "g_iframe" => $input_gmap_iframe_code
+        ];
+        $this->AdminModel->gmap_create_db($data);
+        redirect(base_url("gmap_edit"));
+    }
+
+    public function xlb_admin_gmap_edit()
+    {
+        $checkRowGmap = $this->AdminModel->xl_rows_control("google_map", "g_id");
+        if ($checkRowGmap == (-1)) {
+            redirect(base_url("gmap_create"));
+        } else {
+            $data["g_iframe_data"] = $this->AdminModel->gmap_id_get($this->AdminModel->xl_rows_control("google_map", "g_id"));
+            $this->load->view("admin/gmap/Edit", $data);
+        }
+    }
+
+    public function xlb_admin_gmap_edit_action()
+    {
+        $input_gmap_iframe_code = $this->input->post("input_gmap_iframe_code");
+        $data = [
+            "g_iframe" => $input_gmap_iframe_code
+        ];
+        $this->AdminModel->gmap_update_db($this->AdminModel->xl_rows_control("google_map", "g_id"), $data);
+        redirect(base_url("gmap_edit"));
+    }
+
+    public function xlb_admin_gmap_delete()
+    {
+        $this->AdminModel->gmap_delete($this->AdminModel->xl_rows_control("google_map", "g_id"));
+        redirect(base_url("gmap_create"));
     }
 }

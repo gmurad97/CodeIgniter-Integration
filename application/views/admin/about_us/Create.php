@@ -7,8 +7,6 @@
         <h6 class="m-0 font-weight-bold text-primary">About &RightArrow; Create</h6>
     </div>
 
-    
-
     <div class="card-body">
         <form action="<?php echo base_url('about_us_create_action'); ?>" method="POST" enctype="multipart/form-data">
             <h3 class="bg-gradient-dark text-center text-white mb-3 py-2 rounded"><b>About Us</b></h3>
@@ -68,13 +66,6 @@
                 <button type="submit" class="btn btn-block btn-success mt-3"><b>Create / Add</b></button>
         </form>
     </div>
-
-
-
-
-
-
-
 </div>
 
 <?php $this->load->view("admin/includes/Footer"); ?>

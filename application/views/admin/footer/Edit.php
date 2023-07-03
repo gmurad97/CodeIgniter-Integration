@@ -58,6 +58,18 @@
                         <label for="f_copyright"><b>Copyright</b></label>
                         <input value="<?= $footer_editable_data['f_copyright']; ?>" type="text" name="input_f_copyright" id="f_copyright" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="copyright-f_copyright">&copy;</button>
+                        <button type="button" class="btn btn-danger" id="copyright-f_clear">Clear</button>
+                    </div>
+                    <script>
+                        document.querySelector("#copyright-f_copyright").addEventListener("click", function() {
+                            document.querySelector("#f_copyright").value += "©";
+                        });
+                        document.querySelector("#copyright-f_clear").addEventListener("click", function() {
+                            document.querySelector("#f_copyright").value = null;
+                        });
+                    </script>
                 </div>
             </div>
             <button type="submit" class="btn btn-block btn-warning"><b>Edit</b></button>

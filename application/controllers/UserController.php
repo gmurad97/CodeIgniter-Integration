@@ -43,6 +43,7 @@ class UserController extends CI_Controller
     public function xlb_user_contact()
     {
         $data["logo_get_db"]            = $this->UserModel->logo_get_db();
+        $data["gmap_get_db"]            = $this->UserModel->gmap_get_db();
         $data["footer_get_db"]          = $this->UserModel->footer_get_db();
         $this->load->view("user/Contact", $data);
     }

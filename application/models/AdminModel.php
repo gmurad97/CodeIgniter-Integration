@@ -242,4 +242,24 @@ class AdminModel extends CI_Model
     {
         $this->db->where("g_id", $id)->delete("gallery");
     }
+
+    public function gmap_create_db($data)
+    {
+        $this->db->insert("google_map", $data);
+    }
+
+    public function gmap_update_db($id, $data)
+    {
+        $this->db->where("g_id", $id)->update("google_map", $data);
+    }
+
+    public function gmap_id_get($id)
+    {
+        return $this->db->where("g_id", $id)->get("google_map")->row_array();
+    }
+
+    public function gmap_delete($id)
+    {
+        $this->db->where("g_id", $id)->delete("google_map");
+    }
 }

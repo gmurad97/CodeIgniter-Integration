@@ -13,7 +13,7 @@
         </a>
     </div>
     <div class="card-body">
-        <form action="<?php echo base_url('services_edit_action/').$services_get_db_row["s_id"]; ?>" method="POST" enctype="application/x-www-form-urlencoded">
+        <form action="<?php echo base_url('services_edit_action/') . $services_get_db_row["s_id"]; ?>" method="POST" enctype="application/x-www-form-urlencoded">
             <h3 class="bg-gradient-dark text-center text-white mb-3 py-2 rounded"><b>Services</b></h3>
             <div class="row">
                 <div class="col-sm-12">

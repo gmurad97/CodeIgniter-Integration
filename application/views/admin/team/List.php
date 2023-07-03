@@ -54,7 +54,7 @@
                                         <i class="fas fa-pen"></i>
                                     </button>
                                 </a>
-                                <a onclick="return confirm('Are you sure you want to delete the user -> <?php echo $get_db_team_key['t_firstname'].' '.$get_db_team_key['t_lastname']; ?>');" href="<?php echo base_url('team_delete/') . $get_db_team_key['t_uid']; ?>" style="text-decoration:none;">
+                                <a onclick="return confirm('Are you sure you want to delete the user -> <?php echo $get_db_team_key['t_firstname'] . ' ' . $get_db_team_key['t_lastname']; ?>');" href="<?php echo base_url('team_delete/') . $get_db_team_key['t_uid']; ?>" style="text-decoration:none;">
                                     <button type="button" class="btn btn-danger btn-circle">
                                         <i class="fas fa-trash"></i>
                                     </button>

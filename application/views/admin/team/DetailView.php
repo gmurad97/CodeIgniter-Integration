@@ -13,7 +13,6 @@
             <span class="text">Back to list</span>
         </a>
     </div>
-
     <div class="card-body">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <a target="_blank" href="<?php echo base_url('file_manager/team_profile_img/') . $get_db_team_row["t_img"]; ?>">

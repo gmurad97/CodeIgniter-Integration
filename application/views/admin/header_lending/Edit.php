@@ -29,10 +29,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <video autoplay muted loop controls
-                        style="border: 2px dashed orange"
-                        width="200" class="rounded"
-                        src="<?php echo base_url('file_manager/header_lending/') . $header_lending_db["hl_video"]; ?>">
+                    <video autoplay muted loop controls style="border: 2px dashed orange" width="200" class="rounded" src="<?php echo base_url('file_manager/header_lending/') . $header_lending_db["hl_video"]; ?>">
                     </video>
                 </div>
             </div>

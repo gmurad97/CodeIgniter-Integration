@@ -54,4 +54,9 @@ class UserModel extends CI_Model
     {
         return $this->db->order_by("g_id", "DESC")->get("gallery")->result_array();
     }
+
+    public function gmap_get_db()
+    {
+        return $this->db->order_by("g_id", "DESC")->limit(1)->get("google_map")->row_array();
+    }
 }
