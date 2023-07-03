@@ -8,7 +8,7 @@
             <i class="fas fa-crown"></i>
         </div>
     </a>
-    
+
     <hr class="sidebar-divider my-0">
 
     <style>
@@ -89,10 +89,10 @@
         <div id="collapseTeam" class="collapse" aria-labelledby="headingTeam" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a href="<?php echo base_url('team_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
+                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Add Employee
                 </a>
                 <a href="<?php echo base_url('team_list'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>List
+                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>Employee List
                 </a>
             </div>
         </div>
@@ -117,10 +117,10 @@
         <div id="collapseServices" class="collapse" aria-labelledby="headingServices" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a href="<?php echo base_url('services_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
+                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Add Service
                 </a>
                 <a href="<?php echo base_url('services_list'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>List
+                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>Service List
                 </a>
             </div>
         </div>
@@ -155,11 +155,11 @@
         </a>
         <div id="collapseGallery" class="collapse" aria-labelledby="headingGallery" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a href="#" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
+                <a href="<?= base_url('gallery_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
+                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Add Image
                 </a>
-                <a href="#" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>List
+                <a href="<?= base_url('gallery_list'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
+                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>Image List
                 </a>
             </div>
         </div>
@@ -168,13 +168,13 @@
 
     <!-- GOOGLE MAP START -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('gmap_create'); ?>">
             <i class="fas fa-map-marked-alt xl-text-working-hours"></i>
             <span>Google Map</span>
         </a>
     </li>
     <!-- GOOGLE MAP END -->
-    
+
 
 
 
@@ -189,10 +189,10 @@
         <div id="collapseTestimonial" class="collapse" aria-labelledby="headingTestimonial" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a href="<?php echo base_url('testimonial_create'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Create
+                    <i style="font-size:16px;" class="fas fa-fw fa-plus mr-3"></i>Add Testimonial
                 </a>
                 <a href="<?php echo base_url('testimonial_list'); ?>" style="font-size:14px; font-weight:bold;" class="collapse-item d-flex flex-row justify-content-start align-items-center">
-                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>List
+                    <i style="font-size:16px;" class="fas fa-fw fa-list mr-3"></i>Testimonial List
                 </a>
             </div>
         </div>

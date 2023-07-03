@@ -35,6 +35,7 @@ class UserController extends CI_Controller
     public function xlb_user_gallery()
     {
         $data["logo_get_db"]            = $this->UserModel->logo_get_db();
+        $data["gallery_get_db"]         = $this->UserModel->gallery_get_db();
         $data["footer_get_db"]          = $this->UserModel->footer_get_db();
         $this->load->view("user/Gallery", $data);
     }

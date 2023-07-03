@@ -49,4 +49,9 @@ class UserModel extends CI_Model
     {
         return $this->db->order_by("f_id", "DESC")->limit(1)->get("footer")->row_array();
     }
+
+    public function gallery_get_db()
+    {
+        return $this->db->order_by("g_id", "DESC")->get("gallery")->result_array();
+    }
 }

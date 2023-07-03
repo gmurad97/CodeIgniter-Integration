@@ -222,4 +222,24 @@ class AdminModel extends CI_Model
     {
         $this->db->where("f_id", $id)->delete("footer");
     }
+
+    public function gallery_create($data)
+    {
+        $this->db->insert("gallery", $data);
+    }
+
+    public function gallery_get_db()
+    {
+        return $this->db->order_by("g_id", "DESC")->get("gallery")->result_array();
+    }
+
+    public function gallery_get_id_db($id)
+    {
+        return $this->db->where("g_id", $id)->get("gallery")->row_array();
+    }
+
+    public function gallery_id_delete($id)
+    {
+        $this->db->where("g_id", $id)->delete("gallery");
+    }
 }

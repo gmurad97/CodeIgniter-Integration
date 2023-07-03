@@ -1043,4 +1043,74 @@ class AdminController extends CI_Controller
         $this->AdminModel->footer_id_delete($this->AdminModel->xl_rows_control("footer", "f_id"));
         redirect(base_url("footer_create"));
     }
+
+    public function xlb_admin_gallery_create()
+    {
+        $this->load->view("admin/gallery/Create");
+    }
+
+    public function xlb_admin_gallery_create_action()
+    {
+        $g_cfg_img["upload_path"]       = "./file_manager/gallery";
+        $g_cfg_img["allowed_types"]     = "jpg|jpeg|png|svg|JPG|JPEG|PNG|SVG";
+        $g_cfg_img["file_ext_tolower"]  = true;
+        $g_cfg_img["remove_spaces"]     = true;
+        $g_cfg_img["encrypt_name"]      = true;
+
+        $this->load->library("upload", $g_cfg_img);
+
+        if ($this->upload->do_upload("input_gallery_img")) {
+            $gallery_img = $this->upload->data();
+            $data = [
+                "g_img" => $gallery_img["file_name"]
+            ];
+            $this->AdminModel->gallery_create($data);
+            redirect(base_url("gallery_list"));
+        } else {
+            $this->session->set_flashdata("gallery_img_unupload", "Error! Image not uploaded.");
+            redirect(base_url("gallery_create"));
+        }
+    }
+
+    public function xlb_admin_gallery_list()
+    {
+        $data["gallery_get_db"] = $this->AdminModel->gallery_get_db();
+        $this->load->view("admin/gallery/List", $data);
+    }
+
+    public function xlb_admin_gallery_delete($id)
+    {
+        if (file_exists("./file_manager/gallery/" . $this->AdminModel->gallery_get_id_db($id)["g_img"])) {
+            unlink("./file_manager/gallery/" . $this->AdminModel->gallery_get_id_db($id)["g_img"]);
+        }
+        $this->AdminModel->gallery_id_delete($id);
+        redirect(base_url("gallery_list"));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function xlb_admin_gmap_create()
+    {
+        $this->load->view("admin/gmap/Create");
+    }
 }

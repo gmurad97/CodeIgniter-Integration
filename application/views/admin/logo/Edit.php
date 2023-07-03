@@ -26,13 +26,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="logo_img"><b>Logo</b></label>
+                        <label for="logo_img"><b>Logo</b> &RightArrow; <span class="text-danger font-weight-bold">Allowed types: (JPG; JPEG; PNG; SVG)</span></label>
                         <input type="file" name="input_logo_img" id="logo_img" class="form-control m-0 p-1">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group d-flex flex-row justify-content-center align-items-center">
-                        <img width="80" height="80" style="object-fit: cover;" src="<?php echo base_url('file_manager/logo/').$logo_db["logo_img"]; ?>" alt="">
+                        <img width="80" height="80" style="object-fit: cover;" src="<?php echo base_url('file_manager/logo/') . $logo_db["logo_img"]; ?>" alt="">
                     </div>
                 </div>
             </div>

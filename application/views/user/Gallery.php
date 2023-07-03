@@ -21,42 +21,11 @@
 </div>
 <div class="container-fluid">
     <div class="row port-page">
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-            <img src="<?php echo base_url('public/user/assets/img/bir.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-            <img src="<?php echo base_url('public/user/assets/img/iki.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-            <img src="<?php echo base_url('public/user/assets/img/dord.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/alti.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-            <img src="<?php echo base_url('public/user/assets/img/doqquz.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/onbir.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/yeddi.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/oniki.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/onuch.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/otuz.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/otuzbir.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-            <img src="<?php echo base_url('public/user/assets/img/otuziki.jpg'); ?>" class="img-responsive center-block port-image">
-        </div>
+        <?php foreach ($gallery_get_db as $gallery_get_db_item) { ?>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                <img width="100%" height="536px" style="object-fit: cover;" src="<?= base_url('file_manager/gallery/') . $gallery_get_db_item['g_img']; ?>" class="img-responsive center-block port-image">
+            </div>
+        <?php } ?>
     </div>
 </div>
 
