@@ -15,13 +15,14 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_login_action()
     {
-        $input_admin_username = $_POST["input_admin_username"];
-        $input_admin_password = $_POST["input_admin_password"];
+        $input_admin_username = strip_tags($_POST["input_admin_username"]);
+        $input_admin_password = strip_tags($_POST["input_admin_password"]);
         if (!empty($input_admin_username) && !empty($input_admin_password)) {
             $data = [
                 "a_username" => $input_admin_username,
                 "a_password" => hash("SHA256", hash("MD5", $input_admin_password))
             ];
+            $data = $this->security->xss_clean($data);
             $admin_db_row = $this->AdminModel->admin_get_db_row($data);
             if ($admin_db_row) {
                 $this->session->set_userdata("adm_login", $admin_db_row);
@@ -61,19 +62,19 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_team_create_action()
     {
-        $input_firstName        = $_POST["input_first_name"];
-        $input_lastName         = $_POST["input_last_name"];
-        $input_email            = $_POST["input_email"];
-        $input_description      = $_POST["input_description"];
-        $input_position         = $_POST["input_position"];
-        $input_mobile           = $_POST["input_mobile"];
-        $input_whatsapp         = $_POST["input_whatsapp"];
-        $input_facebook         = $_POST["input_facebook"];
-        $input_instagram        = $_POST["input_instagram"];
-        $input_telegram         = $_POST["input_telegram"];
-        $input_youtube          = $_POST["input_youtube"];
-        $input_experience       = $_POST["input_experience"];
-        $input_status           = $_POST["input_status"];
+        $input_firstName        = strip_tags($_POST["input_first_name"]);
+        $input_lastName         = strip_tags($_POST["input_last_name"]);
+        $input_email            = strip_tags($_POST["input_email"]);
+        $input_description      = strip_tags($_POST["input_description"]);
+        $input_position         = strip_tags($_POST["input_position"]);
+        $input_mobile           = strip_tags($_POST["input_mobile"]);
+        $input_whatsapp         = strip_tags($_POST["input_whatsapp"]);
+        $input_facebook         = strip_tags($_POST["input_facebook"]);
+        $input_instagram        = strip_tags($_POST["input_instagram"]);
+        $input_telegram         = strip_tags($_POST["input_telegram"]);
+        $input_youtube          = strip_tags($_POST["input_youtube"]);
+        $input_experience       = strip_tags($_POST["input_experience"]);
+        $input_status           = strip_tags();
         $input_created_date     = date("Y-m-d // H:i:s");
 
         $file_custom_config["upload_path"]          = "./file_manager/team_profile_img";
@@ -102,6 +103,7 @@ class AdminController extends CI_Controller
                 "t_img"             => $input_file_array["file_name"],
                 "t_created_date"    => $input_created_date
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->team_insert_db($data);
             redirect(base_url("team_list"));
         } else {
@@ -121,6 +123,7 @@ class AdminController extends CI_Controller
                 "t_status"          => $input_status,
                 "t_created_date"    => $input_created_date
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->team_insert_db($data);
             redirect(base_url("team_list"));
         }
@@ -187,7 +190,7 @@ class AdminController extends CI_Controller
                 "t_img"             => $input_file_array["file_name"],
                 "t_created_date"    => $input_created_date
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->team_edit_db_row($t_uid, $data);
             redirect(base_url("team_list"));
         } else {
@@ -207,6 +210,7 @@ class AdminController extends CI_Controller
                 "t_status"          => $input_status,
                 "t_created_date"    => $input_created_date
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->team_edit_db_row($t_uid, $data);
             redirect(base_url("team_list"));
         }
@@ -254,7 +258,7 @@ class AdminController extends CI_Controller
                 "au_desc_right_h1_text"     => $input_au_desc_right_h1_text,
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->about_us_insert_db($data);
             redirect(base_url("about_us_edit"));
         } else {
@@ -268,7 +272,7 @@ class AdminController extends CI_Controller
                 "au_desc_right_h1_text"     => $input_au_desc_right_h1_text,
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->about_us_insert_db($data);
             redirect(base_url("about_us_edit"));
         }
@@ -317,7 +321,7 @@ class AdminController extends CI_Controller
                 "au_desc_right_h1_text"     => $input_au_desc_right_h1_text,
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->about_us_update_db($data, $this->AdminModel->xl_rows_control("about_us", "au_id"));
             redirect(base_url("about_us_edit"));
         } else {
@@ -331,7 +335,7 @@ class AdminController extends CI_Controller
                 "au_desc_right_h1_text"     => $input_au_desc_right_h1_text,
                 "au_desc_right_p_text"      => $input_au_desc_right_p_text
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->about_us_update_db($data, $this->AdminModel->xl_rows_control("about_us", "au_id"));
             redirect(base_url("about_us_edit"));
         }
@@ -352,12 +356,11 @@ class AdminController extends CI_Controller
     {
         $input_services_h1_text = $_POST["input_services_h1_text"];
         $input_services_p_text = $_POST["input_services_p_text"];
-
         $data = [
             "s_h1_text"     => $input_services_h1_text,
             "s_p_text"      => $input_services_p_text
         ];
-
+        $data = $this->security->xss_clean($data);
         $this->AdminModel->services_insert_db($data);
         redirect(base_url("services_list"));
     }
@@ -378,12 +381,11 @@ class AdminController extends CI_Controller
     {
         $input_services_h1_text = $_POST["input_services_h1_text"];
         $input_services_p_text = $_POST["input_services_p_text"];
-
         $data = [
             "s_h1_text" => $input_services_h1_text,
             "s_p_text" => $input_services_p_text
         ];
-
+        $data = $this->security->xss_clean($data);
         $this->AdminModel->services_update_db($s_id, $data);
         redirect(base_url("services_list"));
     }
@@ -419,6 +421,7 @@ class AdminController extends CI_Controller
             $data = [
                 "logo_img" => $logo_img["file_name"]
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->logo_insert_db($data);
             redirect(base_url('logo_edit'));
         } else {
@@ -453,6 +456,7 @@ class AdminController extends CI_Controller
             $data = [
                 "logo_img" => $logo_img["file_name"]
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->logo_update_db($this->AdminModel->xl_rows_control("logo", "l_id"), $data);
             redirect(base_url('logo_edit'));
         } else {
@@ -495,7 +499,6 @@ class AdminController extends CI_Controller
 
         if ($this->upload->do_upload("input_hl_video")) {
             $videoName = $this->upload->data();
-
             $data = [
                 "hl_video"              => $videoName["file_name"],
                 "hl_base_h1_text"       => $input_hl_base_h1_text,
@@ -504,7 +507,7 @@ class AdminController extends CI_Controller
                 "hl_second_select_icon" => $input_hl_second_select_icon,
                 "hl_second_p_text"      => $input_hl_second_p_text
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->header_lending_create_db($data);
             redirect(base_url('header_lending_edit'));
         } else {
@@ -515,6 +518,7 @@ class AdminController extends CI_Controller
                 "hl_second_select_icon" => $input_hl_second_select_icon,
                 "hl_second_p_text"      => $input_hl_second_p_text
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->header_lending_create_db($data);
             redirect(base_url('header_lending_edit'));
         }
@@ -549,7 +553,6 @@ class AdminController extends CI_Controller
 
         if ($this->upload->do_upload("input_hl_video")) {
             $videoName = $this->upload->data();
-
             $data = [
                 "hl_video"              => $videoName["file_name"],
                 "hl_base_h1_text"       => $input_hl_base_h1_text,
@@ -558,7 +561,7 @@ class AdminController extends CI_Controller
                 "hl_second_select_icon" => $input_hl_second_select_icon,
                 "hl_second_p_text"      => $input_hl_second_p_text
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
             redirect(base_url('header_lending_edit'));
         } else {
@@ -569,6 +572,7 @@ class AdminController extends CI_Controller
                 "hl_second_select_icon" => $input_hl_second_select_icon,
                 "hl_second_p_text"      => $input_hl_second_p_text
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
             redirect(base_url('header_lending_edit'));
         }
@@ -609,7 +613,6 @@ class AdminController extends CI_Controller
 
         if ($this->upload->do_upload("input_price_lending_img")) {
             $price_img = $this->upload->data();
-
             $data = [
                 "p_base_h1_text" =>     $price_base_h1_text,
                 "p_arr_text" =>         $price_arr_text,
@@ -617,7 +620,7 @@ class AdminController extends CI_Controller
                 "p_arr_currency" =>     $price_arr_currency,
                 "p_img" =>              $price_img["file_name"]
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->price_create($data);
             redirect(base_url("price_edit"));
         } else {
@@ -627,7 +630,7 @@ class AdminController extends CI_Controller
                 "p_arr_value" =>        $price_arr_value,
                 "p_arr_currency" =>     $price_arr_currency
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->price_create($data);
             redirect(base_url("price_edit"));
         }
@@ -663,7 +666,6 @@ class AdminController extends CI_Controller
 
         if ($this->upload->do_upload("input_price_lending_img")) {
             $price_img = $this->upload->data();
-
             $data = [
                 "p_base_h1_text" =>     $price_base_h1_text,
                 "p_arr_text" =>         $price_arr_text,
@@ -671,7 +673,7 @@ class AdminController extends CI_Controller
                 "p_arr_currency" =>     $price_arr_currency,
                 "p_img" =>              $price_img["file_name"]
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->price_edit($this->AdminModel->xl_rows_control("price", "p_id"), $data);
             redirect(base_url("price_edit"));
         } else {
@@ -681,7 +683,7 @@ class AdminController extends CI_Controller
                 "p_arr_value" =>        $price_arr_value,
                 "p_arr_currency" =>     $price_arr_currency
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->price_edit($this->AdminModel->xl_rows_control("price", "p_id"), $data);
             redirect(base_url("price_edit"));
         }
@@ -749,7 +751,7 @@ class AdminController extends CI_Controller
                 "wh_time_sunday" => $input_time_sunday,
                 "wh_img" => $wh_img["file_name"]
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->working_hours_create($data);
             redirect(base_url('working_hours_edit'));
         } else {
@@ -770,7 +772,7 @@ class AdminController extends CI_Controller
                 "wh_week_sunday" => $input_week_sunday,
                 "wh_time_sunday" => $input_time_sunday
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->working_hours_create($data);
             redirect(base_url('working_hours_edit'));
         }
@@ -833,7 +835,7 @@ class AdminController extends CI_Controller
                 "wh_time_sunday" => $input_time_sunday,
                 "wh_img" => $wh_img["file_name"]
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours", "wh_id"), $data);
             redirect(base_url('working_hours_edit'));
         } else {
@@ -854,7 +856,7 @@ class AdminController extends CI_Controller
                 "wh_week_sunday" => $input_week_sunday,
                 "wh_time_sunday" => $input_time_sunday
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->working_hours_edit($this->AdminModel->xl_rows_control("working_hours", "wh_id"), $data);
             redirect(base_url('working_hours_edit'));
         }
@@ -887,14 +889,13 @@ class AdminController extends CI_Controller
 
         if ($this->upload->do_upload("input_t_img")) {
             $t_img = $this->upload->data();
-
             $data = [
                 "t_firstname"       => $input_t_firstname,
                 "t_profession"      => $input_t_profession,
                 "t_feedback"        => $input_t_feedback,
                 "t_img"             => $t_img["file_name"]
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->testimonial_create($data);
             redirect(base_url("testimonial_list"));
         } else {
@@ -903,7 +904,7 @@ class AdminController extends CI_Controller
                 "t_profession"      => $input_t_profession,
                 "t_feedback"        => $input_t_feedback
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->testimonial_create($data);
             redirect(base_url("testimonial_list"));
         }
@@ -937,14 +938,13 @@ class AdminController extends CI_Controller
 
         if ($this->upload->do_upload("input_t_img")) {
             $t_img = $this->upload->data();
-
             $data = [
                 "t_firstname"       => $input_t_firstname,
                 "t_profession"      => $input_t_profession,
                 "t_feedback"        => $input_t_feedback,
                 "t_img"             => $t_img["file_name"]
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->testimonial_id_update($id, $data);
             redirect(base_url("testimonial_list"));
         } else {
@@ -953,7 +953,7 @@ class AdminController extends CI_Controller
                 "t_profession"      => $input_t_profession,
                 "t_feedback"        => $input_t_feedback
             ];
-
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->testimonial_id_update($id, $data);
             redirect(base_url("testimonial_list"));
         }
@@ -985,7 +985,6 @@ class AdminController extends CI_Controller
         $input_f_youtube        = $this->input->post("input_f_youtube");
         $input_f_instagram      = $this->input->post("input_f_instagram");
         $input_f_copyright      = $this->input->post("input_f_copyright");
-
         $data = [
             "f_location_text"   => $input_f_location,
             "f_phone_text"      => $input_f_phone,
@@ -996,7 +995,7 @@ class AdminController extends CI_Controller
             "f_instagram_link"  => $input_f_instagram,
             "f_copyright"       => $input_f_copyright
         ];
-
+        $data = $this->security->xss_clean($data);
         $this->AdminModel->footer_create($data);
         redirect(base_url('footer_edit'));
     }
@@ -1022,7 +1021,6 @@ class AdminController extends CI_Controller
         $input_f_youtube        = $this->input->post("input_f_youtube");
         $input_f_instagram      = $this->input->post("input_f_instagram");
         $input_f_copyright      = $this->input->post("input_f_copyright");
-
         $data = [
             "f_location_text"   => $input_f_location,
             "f_phone_text"      => $input_f_phone,
@@ -1033,7 +1031,7 @@ class AdminController extends CI_Controller
             "f_instagram_link"  => $input_f_instagram,
             "f_copyright"       => $input_f_copyright
         ];
-
+        $data = $this->security->xss_clean($data);
         $this->AdminModel->footer_id_edit($this->AdminModel->xl_rows_control("footer", "f_id"), $data);
         redirect(base_url('footer_edit'));
     }
@@ -1064,6 +1062,7 @@ class AdminController extends CI_Controller
             $data = [
                 "g_img" => $gallery_img["file_name"]
             ];
+            $data = $this->security->xss_clean($data);
             $this->AdminModel->gallery_create($data);
             redirect(base_url("gallery_list"));
         } else {
