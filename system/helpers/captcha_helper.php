@@ -284,7 +284,7 @@ if ( ! function_exists('create_captcha'))
 			$rad1 = $radius * (($i + 1) / $points);
 			$x1 = ($rad1 * cos($theta)) + $x_axis;
 			$y1 = ($rad1 * sin($theta)) + $y_axis;
-			imageline($im, $x, $y, $x1, $y1, $colors['grid']);
+			imageline($im, (int)$x, (int)$y, (int)$x1, (int)$y1, $colors['grid']);
 			$theta -= $thetac;
 		}
 
@@ -302,7 +302,7 @@ if ( ! function_exists('create_captcha'))
 		else
 		{
 			($font_size > 30) && $font_size = 30;
-			$x = mt_rand(0, $img_width / ($length / 1.5));
+			$x = mt_rand(0, (int)($img_width / ($length / 1.5)));
 			$y = $font_size + 2;
 		}
 
