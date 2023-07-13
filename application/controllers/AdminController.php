@@ -15,8 +15,8 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_login_action()
     {
-        $input_admin_username = strip_tags($_POST["input_admin_username"]);
-        $input_admin_password = strip_tags($_POST["input_admin_password"]);
+        $input_admin_username = $_POST["input_admin_username"];
+        $input_admin_password = $_POST["input_admin_password"];
         if (!empty($input_admin_username) && !empty($input_admin_password)) {
             $data = [
                 "a_username" => $input_admin_username,
@@ -62,19 +62,19 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_team_create_action()
     {
-        $input_firstName        = strip_tags($_POST["input_first_name"]);
-        $input_lastName         = strip_tags($_POST["input_last_name"]);
-        $input_email            = strip_tags($_POST["input_email"]);
-        $input_description      = strip_tags($_POST["input_description"]);
-        $input_position         = strip_tags($_POST["input_position"]);
-        $input_mobile           = strip_tags($_POST["input_mobile"]);
-        $input_whatsapp         = strip_tags($_POST["input_whatsapp"]);
-        $input_facebook         = strip_tags($_POST["input_facebook"]);
-        $input_instagram        = strip_tags($_POST["input_instagram"]);
-        $input_telegram         = strip_tags($_POST["input_telegram"]);
-        $input_youtube          = strip_tags($_POST["input_youtube"]);
-        $input_experience       = strip_tags($_POST["input_experience"]);
-        $input_status           = strip_tags();
+        $input_firstName        = $_POST["input_first_name"];
+        $input_lastName         = $_POST["input_last_name"];
+        $input_email            = $_POST["input_email"];
+        $input_description      = $_POST["input_description"];
+        $input_position         = $_POST["input_position"];
+        $input_mobile           = $_POST["input_mobile"];
+        $input_whatsapp         = $_POST["input_whatsapp"];
+        $input_facebook         = $_POST["input_facebook"];
+        $input_instagram        = $_POST["input_instagram"];
+        $input_telegram         = $_POST["input_telegram"];
+        $input_youtube          = $_POST["input_youtube"];
+        $input_experience       = $_POST["input_experience"];
+        $input_status           = $_POST["input_status"];
         $input_created_date     = date("Y-m-d // H:i:s");
 
         $file_custom_config["upload_path"]          = "./file_manager/team_profile_img";
@@ -398,6 +398,34 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_logo_create()
     {
+        $this->load->helper("captcha");
+        $vals = array(
+            'img_path'      => './upload/captcha/',
+            'img_url'       => base_url('/upload/captcha/'),
+            'font_path'     => './system/fonts/texb.ttf',
+            'img_width'     => 500,
+            'img_height'    => 500,
+            'word_length'   => 8,
+            'font_size'     => 16,
+            'pool'          => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+
+            // White background and border, black text and red grid
+            'colors'        => array(
+                'background' => array(255, 255, 255),
+                'border' => array(255, 255, 255),
+                'text' => array(0, 0, 0),
+                'grid' => array(255, 40, 40)
+            )
+        );
+
+        $cap = create_captcha($vals);
+
+        print_r($cap);
+        die();
+
+
+
+        $this->load->view("admin/logo/Create");
         $checkRowsLogo = $this->AdminModel->xl_rows_control("logo", "l_id");
         if ($checkRowsLogo == (-1)) {
             $this->load->view("admin/logo/Create");
