@@ -398,33 +398,6 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_logo_create()
     {
-        $this->load->helper("captcha");
-        $vals = array(
-            'img_path'      => './upload/captcha/',
-            'img_url'       => base_url('/upload/captcha/'),
-            'font_path'     => './system/fonts/texb.ttf',
-            'img_width'     => 500,
-            'img_height'    => 500,
-            'word_length'   => 8,
-            'font_size'     => 16,
-            'pool'          => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
-
-            // White background and border, black text and red grid
-            'colors'        => array(
-                'background' => array(255, 255, 255),
-                'border' => array(255, 255, 255),
-                'text' => array(0, 0, 0),
-                'grid' => array(255, 40, 40)
-            )
-        );
-
-        $cap = create_captcha($vals);
-
-        print_r($cap);
-        die();
-
-
-
         $this->load->view("admin/logo/Create");
         $checkRowsLogo = $this->AdminModel->xl_rows_control("logo", "l_id");
         if ($checkRowsLogo == (-1)) {
