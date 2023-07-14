@@ -1,0 +1,21 @@
+ERROR - 2023-07-14 08:47:55 --> Severity: Warning --> Undefined variable $GLOBAL_SELECT_OPTION_HEADER_LENDING C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:47:56 --> Severity: Warning --> Undefined variable $GLOBAL_SELECT_OPTION_HEADER_LENDING C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:48:10 --> Severity: error --> Exception: Access to undeclared static property CI_Loader::$GLOBAL_SELECT_OPTION_HEADER_LENDING C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:48:19 --> Severity: error --> Exception: Access to undeclared static property AdminController::$GLOBAL_SELECT_OPTION_HEADER_LENDING C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 17
+ERROR - 2023-07-14 08:48:20 --> Severity: error --> Exception: Access to undeclared static property AdminController::$GLOBAL_SELECT_OPTION_HEADER_LENDING C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 17
+ERROR - 2023-07-14 08:48:24 --> Severity: error --> Exception: Access to undeclared static property CI_Loader::$GLOBAL_SELECT_OPTION_HEADER_LENDING C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:51:01 --> Severity: Warning --> Undefined property: CI_Loader::$error C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:51:01 --> Severity: Warning --> Undefined property: CI_Loader::$error C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:51:58 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:51:58 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:52:23 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 08:52:28 --> Severity: Warning --> Array to string conversion C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:15:24 --> Severity: Warning --> Undefined property: AdminController::$error C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 48
+ERROR - 2023-07-14 09:15:37 --> Severity: Warning --> Undefined property: AdminController::$error C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 48
+ERROR - 2023-07-14 09:19:13 --> Severity: Warning --> Undefined variable $HL C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:19:32 --> Severity: Warning --> Undefined variable $SO_VALID_VALUE C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:19:37 --> Severity: error --> Exception: Undefined constant "SO_VALID_VALUE" C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:19:48 --> Severity: Warning --> Undefined property: CI_Loader::$SO_VALID_VALUE C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:19:49 --> Severity: Warning --> Undefined property: CI_Loader::$SO_VALID_VALUE C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:20:24 --> Severity: Warning --> Array to string conversion C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1
+ERROR - 2023-07-14 09:20:47 --> Severity: Warning --> Undefined array key "HEADER_LENDING" C:\xampp\htdocs\xlbarbershop\application\views\admin\Login.php 1

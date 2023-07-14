@@ -15,6 +15,14 @@
                     font-weight: 900 !important;
                 }
             </style>
+            <?php if ($this->session->flashdata("so_validate_error")) { ?>
+                <style>
+                    .bg-error-message {
+                        background-color: rgba(255, 0, 0, 0.16);
+                    }
+                </style>
+                <h1 class="bg-error-message h6 text-center rounded p-3 mt-4"><?php echo $this->session->flashdata("so_validate_error"); ?></h1>
+            <?php } ?>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
@@ -36,7 +44,6 @@
                     <div class="form-group">
                         <label for="hl_first_select_icon"><b>First icon</b></label>
                         <select name="input_hl_first_select_icon" id="hl_first_select_icon" class="fa fix_fa_select_glyph form-control">
-                            <option value="none_icon">***</option>
                             <option value="fas fa-fw fa-map-marker-alt">&#xf3c5;</option>
                             <option value="fas fa-fw fa-phone-alt">&#xf879;</option>
                             <option value="fas fa-fw fa-star">&#xf005;</option>
@@ -56,7 +63,6 @@
                     <div class="form-group">
                         <label for="hl_second_select_icon"><b>Second icon</b></label>
                         <select name="input_hl_second_select_icon" id="hl_second_select_icon" class="fa fix_fa_select_glyph form-control">
-                            <option value="none_icon">***</option>
                             <option value="fas fa-fw fa-map-marker-alt">&#xf3c5;</option>
                             <option value="fas fa-fw fa-phone-alt">&#xf879;</option>
                             <option value="fas fa-fw fa-star">&#xf005;</option>

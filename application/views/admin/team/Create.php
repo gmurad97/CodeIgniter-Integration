@@ -13,6 +13,14 @@
         </a>
     </div>
     <div class="card-body">
+        <?php if ($this->session->flashdata("so_validate_error")) { ?>
+            <style>
+                .bg-error-message {
+                    background-color: rgba(255, 0, 0, 0.16);
+                }
+            </style>
+            <h1 class="bg-error-message h6 text-center rounded p-3 mt-4"><?php echo $this->session->flashdata("so_validate_error"); ?></h1>
+        <?php } ?>
         <form action="<?php echo base_url('team_create_action'); ?>" method="POST" enctype="multipart/form-data">
             <h3 class="bg-gradient-dark text-center text-white mb-3 py-2 rounded"><b>Personal Information</b></h3>
             <div class="row">

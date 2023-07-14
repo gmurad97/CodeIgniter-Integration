@@ -13,6 +13,14 @@
         </a>
     </div>
     <div class="card-body">
+        <?php if ($this->session->flashdata("so_validate_error")) { ?>
+            <style>
+                .bg-error-message {
+                    background-color: rgba(255, 0, 0, 0.16);
+                }
+            </style>
+            <h1 class="bg-error-message h6 text-center rounded p-3 mt-4"><?php echo $this->session->flashdata("so_validate_error"); ?></h1>
+        <?php } ?>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <a target="_blank" href="<?php echo base_url('file_manager/team_profile_img/') . $get_db_team_row["t_img"]; ?>">
                 <?php if ($get_db_team_row['t_img']) { ?>

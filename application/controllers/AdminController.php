@@ -8,9 +8,17 @@ class AdminController extends CI_Controller
         $this->load->model("AdminModel");
     }
 
+    private $SO_VALID_VALUE = [
+        "HEADER_LENDING"    => array("fas fa-fw fa-map-marker-alt", "fas fa-fw fa-phone-alt", "fas fa-fw fa-star", "fas fa-fw fa-rocket"),
+        "TEAM_POSITION"     => array("director", "manager", "master", "asistent", "other"),
+        "TEAM_STATUS"       => array("active", "deactive"),
+        "PRICE_CURRENCY"    => array("azn", "eur", "usd", "rub")
+    ];
+
     public function xlb_admin_login()
     {
-        $this->load->view("admin/Login");
+        $data["lolka"] = $this->SO_VALID_VALUE;
+        $this->load->view("admin/Login", $data);
     }
 
     public function xlb_admin_login_action()
@@ -84,48 +92,53 @@ class AdminController extends CI_Controller
         $file_custom_config["encrypt_name"]         = true;
         $this->load->library("upload", $file_custom_config);
 
-        if ($this->upload->do_upload("input_img")) {
-            $input_file_array = $this->upload->data();
-            $data = [
-                "t_firstname"       => $input_firstName,
-                "t_lastname"        => $input_lastName,
-                "t_description"     => $input_description,
-                "t_position"        => $input_position,
-                "t_experience"      => $input_experience,
-                "t_email"           => $input_email,
-                "t_mobile"          => $input_mobile,
-                "t_whatsapp"        => $input_whatsapp,
-                "t_facebook"        => $input_facebook,
-                "t_instagram"       => $input_instagram,
-                "t_telegram"        => $input_telegram,
-                "t_youtube"         => $input_youtube,
-                "t_status"          => $input_status,
-                "t_img"             => $input_file_array["file_name"],
-                "t_created_date"    => $input_created_date
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->team_insert_db($data);
-            redirect(base_url("team_list"));
+        if (in_array($input_position, $this->SO_VALID_VALUE["TEAM_POSITION"], TRUE) && in_array($input_status, $this->SO_VALID_VALUE["TEAM_STATUS"], TRUE)) {
+            if ($this->upload->do_upload("input_img")) {
+                $input_file_array = $this->upload->data();
+                $data = [
+                    "t_firstname"       => $input_firstName,
+                    "t_lastname"        => $input_lastName,
+                    "t_description"     => $input_description,
+                    "t_position"        => $input_position,
+                    "t_experience"      => $input_experience,
+                    "t_email"           => $input_email,
+                    "t_mobile"          => $input_mobile,
+                    "t_whatsapp"        => $input_whatsapp,
+                    "t_facebook"        => $input_facebook,
+                    "t_instagram"       => $input_instagram,
+                    "t_telegram"        => $input_telegram,
+                    "t_youtube"         => $input_youtube,
+                    "t_status"          => $input_status,
+                    "t_img"             => $input_file_array["file_name"],
+                    "t_created_date"    => $input_created_date
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->team_insert_db($data);
+                redirect(base_url("team_list"));
+            } else {
+                $data = [
+                    "t_firstname"       => $input_firstName,
+                    "t_lastname"        => $input_lastName,
+                    "t_description"     => $input_description,
+                    "t_position"        => $input_position,
+                    "t_experience"      => $input_experience,
+                    "t_email"           => $input_email,
+                    "t_mobile"          => $input_mobile,
+                    "t_whatsapp"        => $input_whatsapp,
+                    "t_facebook"        => $input_facebook,
+                    "t_instagram"       => $input_instagram,
+                    "t_telegram"        => $input_telegram,
+                    "t_youtube"         => $input_youtube,
+                    "t_status"          => $input_status,
+                    "t_created_date"    => $input_created_date
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->team_insert_db($data);
+                redirect(base_url("team_list"));
+            }
         } else {
-            $data = [
-                "t_firstname"       => $input_firstName,
-                "t_lastname"        => $input_lastName,
-                "t_description"     => $input_description,
-                "t_position"        => $input_position,
-                "t_experience"      => $input_experience,
-                "t_email"           => $input_email,
-                "t_mobile"          => $input_mobile,
-                "t_whatsapp"        => $input_whatsapp,
-                "t_facebook"        => $input_facebook,
-                "t_instagram"       => $input_instagram,
-                "t_telegram"        => $input_telegram,
-                "t_youtube"         => $input_youtube,
-                "t_status"          => $input_status,
-                "t_created_date"    => $input_created_date
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->team_insert_db($data);
-            redirect(base_url("team_list"));
+            $this->session->set_flashdata("so_validate_error", "Sorry! You don't have enough rights.");
+            redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
@@ -171,48 +184,53 @@ class AdminController extends CI_Controller
         $file_custom_config["encrypt_name"]         = true;
         $this->load->library("upload", $file_custom_config);
 
-        if ($this->upload->do_upload("input_img")) {
-            $input_file_array = $this->upload->data();
-            $data = [
-                "t_firstname"       => $input_firstName,
-                "t_lastname"        => $input_lastName,
-                "t_description"     => $input_description,
-                "t_position"        => $input_position,
-                "t_experience"      => $input_experience,
-                "t_email"           => $input_email,
-                "t_mobile"          => $input_mobile,
-                "t_whatsapp"        => $input_whatsapp,
-                "t_facebook"        => $input_facebook,
-                "t_instagram"       => $input_instagram,
-                "t_telegram"        => $input_telegram,
-                "t_youtube"         => $input_youtube,
-                "t_status"          => $input_status,
-                "t_img"             => $input_file_array["file_name"],
-                "t_created_date"    => $input_created_date
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->team_edit_db_row($t_uid, $data);
-            redirect(base_url("team_list"));
+        if (in_array($input_position, $this->SO_VALID_VALUE["TEAM_POSITION"], TRUE) && in_array($input_status, $this->SO_VALID_VALUE["TEAM_STATUS"], TRUE)) {
+            if ($this->upload->do_upload("input_img")) {
+                $input_file_array = $this->upload->data();
+                $data = [
+                    "t_firstname"       => $input_firstName,
+                    "t_lastname"        => $input_lastName,
+                    "t_description"     => $input_description,
+                    "t_position"        => $input_position,
+                    "t_experience"      => $input_experience,
+                    "t_email"           => $input_email,
+                    "t_mobile"          => $input_mobile,
+                    "t_whatsapp"        => $input_whatsapp,
+                    "t_facebook"        => $input_facebook,
+                    "t_instagram"       => $input_instagram,
+                    "t_telegram"        => $input_telegram,
+                    "t_youtube"         => $input_youtube,
+                    "t_status"          => $input_status,
+                    "t_img"             => $input_file_array["file_name"],
+                    "t_created_date"    => $input_created_date
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->team_edit_db_row($t_uid, $data);
+                redirect(base_url("team_list"));
+            } else {
+                $data = [
+                    "t_firstname"       => $input_firstName,
+                    "t_lastname"        => $input_lastName,
+                    "t_description"     => $input_description,
+                    "t_position"        => $input_position,
+                    "t_experience"      => $input_experience,
+                    "t_email"           => $input_email,
+                    "t_mobile"          => $input_mobile,
+                    "t_whatsapp"        => $input_whatsapp,
+                    "t_facebook"        => $input_facebook,
+                    "t_instagram"       => $input_instagram,
+                    "t_telegram"        => $input_telegram,
+                    "t_youtube"         => $input_youtube,
+                    "t_status"          => $input_status,
+                    "t_created_date"    => $input_created_date
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->team_edit_db_row($t_uid, $data);
+                redirect(base_url("team_list"));
+            }
         } else {
-            $data = [
-                "t_firstname"       => $input_firstName,
-                "t_lastname"        => $input_lastName,
-                "t_description"     => $input_description,
-                "t_position"        => $input_position,
-                "t_experience"      => $input_experience,
-                "t_email"           => $input_email,
-                "t_mobile"          => $input_mobile,
-                "t_whatsapp"        => $input_whatsapp,
-                "t_facebook"        => $input_facebook,
-                "t_instagram"       => $input_instagram,
-                "t_telegram"        => $input_telegram,
-                "t_youtube"         => $input_youtube,
-                "t_status"          => $input_status,
-                "t_created_date"    => $input_created_date
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->team_edit_db_row($t_uid, $data);
-            redirect(base_url("team_list"));
+            $this->session->set_flashdata("so_validate_error", "Sorry! You don't have enough rights.");
+            redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
@@ -498,30 +516,35 @@ class AdminController extends CI_Controller
 
         $this->load->library("upload", $videoConfig);
 
-        if ($this->upload->do_upload("input_hl_video")) {
-            $videoName = $this->upload->data();
-            $data = [
-                "hl_video"              => $videoName["file_name"],
-                "hl_base_h1_text"       => $input_hl_base_h1_text,
-                "hl_first_select_icon"  => $input_hl_first_select_icon,
-                "hl_first_p_text"       => $input_hl_first_p_text,
-                "hl_second_select_icon" => $input_hl_second_select_icon,
-                "hl_second_p_text"      => $input_hl_second_p_text
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->header_lending_create_db($data);
-            redirect(base_url('header_lending_edit'));
+        if (in_array($input_hl_first_select_icon, $this->SO_VALID_VALUE["HEADER_LENDING"], TRUE) && in_array($input_hl_first_select_icon, $this->SO_VALID_VALUE["HEADER_LENDING"], TRUE)) {
+            if ($this->upload->do_upload("input_hl_video")) {
+                $videoName = $this->upload->data();
+                $data = [
+                    "hl_video"              => $videoName["file_name"],
+                    "hl_base_h1_text"       => $input_hl_base_h1_text,
+                    "hl_first_select_icon"  => $input_hl_first_select_icon,
+                    "hl_first_p_text"       => $input_hl_first_p_text,
+                    "hl_second_select_icon" => $input_hl_second_select_icon,
+                    "hl_second_p_text"      => $input_hl_second_p_text
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->header_lending_create_db($data);
+                redirect(base_url('header_lending_edit'));
+            } else {
+                $data = [
+                    "hl_base_h1_text"       => $input_hl_base_h1_text,
+                    "hl_first_select_icon"  => $input_hl_first_select_icon,
+                    "hl_first_p_text"       => $input_hl_first_p_text,
+                    "hl_second_select_icon" => $input_hl_second_select_icon,
+                    "hl_second_p_text"      => $input_hl_second_p_text
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->header_lending_create_db($data);
+                redirect(base_url('header_lending_edit'));
+            }
         } else {
-            $data = [
-                "hl_base_h1_text"       => $input_hl_base_h1_text,
-                "hl_first_select_icon"  => $input_hl_first_select_icon,
-                "hl_first_p_text"       => $input_hl_first_p_text,
-                "hl_second_select_icon" => $input_hl_second_select_icon,
-                "hl_second_p_text"      => $input_hl_second_p_text
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->header_lending_create_db($data);
-            redirect(base_url('header_lending_edit'));
+            $this->session->set_flashdata("so_validate_error", "Sorry! You don't have enough rights.");
+            redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
@@ -552,30 +575,35 @@ class AdminController extends CI_Controller
 
         $this->load->library("upload", $videoConfig);
 
-        if ($this->upload->do_upload("input_hl_video")) {
-            $videoName = $this->upload->data();
-            $data = [
-                "hl_video"              => $videoName["file_name"],
-                "hl_base_h1_text"       => $input_hl_base_h1_text,
-                "hl_first_select_icon"  => $input_hl_first_select_icon,
-                "hl_first_p_text"       => $input_hl_first_p_text,
-                "hl_second_select_icon" => $input_hl_second_select_icon,
-                "hl_second_p_text"      => $input_hl_second_p_text
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
-            redirect(base_url('header_lending_edit'));
+        if (in_array($input_hl_first_select_icon, $this->SO_VALID_VALUE["HEADER_LENDING"], TRUE) && in_array($input_hl_first_select_icon, $this->SO_VALID_VALUE["HEADER_LENDING"], TRUE)) {
+            if ($this->upload->do_upload("input_hl_video")) {
+                $videoName = $this->upload->data();
+                $data = [
+                    "hl_video"              => $videoName["file_name"],
+                    "hl_base_h1_text"       => $input_hl_base_h1_text,
+                    "hl_first_select_icon"  => $input_hl_first_select_icon,
+                    "hl_first_p_text"       => $input_hl_first_p_text,
+                    "hl_second_select_icon" => $input_hl_second_select_icon,
+                    "hl_second_p_text"      => $input_hl_second_p_text
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
+                redirect(base_url('header_lending_edit'));
+            } else {
+                $data = [
+                    "hl_base_h1_text"       => $input_hl_base_h1_text,
+                    "hl_first_select_icon"  => $input_hl_first_select_icon,
+                    "hl_first_p_text"       => $input_hl_first_p_text,
+                    "hl_second_select_icon" => $input_hl_second_select_icon,
+                    "hl_second_p_text"      => $input_hl_second_p_text
+                ];
+                $data = $this->security->xss_clean($data);
+                $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
+                redirect(base_url('header_lending_edit'));
+            }
         } else {
-            $data = [
-                "hl_base_h1_text"       => $input_hl_base_h1_text,
-                "hl_first_select_icon"  => $input_hl_first_select_icon,
-                "hl_first_p_text"       => $input_hl_first_p_text,
-                "hl_second_select_icon" => $input_hl_second_select_icon,
-                "hl_second_p_text"      => $input_hl_second_p_text
-            ];
-            $data = $this->security->xss_clean($data);
-            $this->AdminModel->header_lending_update_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"), $data);
-            redirect(base_url('header_lending_edit'));
+            $this->session->set_flashdata("so_validate_error", "Sorry!  You don't have enough rights.");
+            redirect($_SERVER["HTTP_REFERER"]);
         }
     }
 
@@ -611,7 +639,6 @@ class AdminController extends CI_Controller
         $price_file_config["encrypt_name"]      = true;
 
         $this->load->library("upload", $price_file_config);
-
         if ($this->upload->do_upload("input_price_lending_img")) {
             $price_img = $this->upload->data();
             $data = [
