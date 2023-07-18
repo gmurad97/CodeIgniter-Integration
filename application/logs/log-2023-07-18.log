@@ -1,0 +1,7 @@
+ERROR - 2023-07-18 08:10:29 --> 404 Page Not Found: Adm_create/index
+ERROR - 2023-07-18 08:19:51 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 508
+ERROR - 2023-07-18 08:19:51 --> Severity: Warning --> Undefined variable $lolkek C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 8
+ERROR - 2023-07-18 08:21:05 --> Severity: Warning --> Undefined variable $item C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11
+ERROR - 2023-07-18 08:21:05 --> Severity: error --> Exception: Attempt to assign property "" on null C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11
+ERROR - 2023-07-18 08:21:06 --> Severity: Warning --> Undefined variable $item C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11
+ERROR - 2023-07-18 08:21:06 --> Severity: error --> Exception: Attempt to assign property "" on null C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11

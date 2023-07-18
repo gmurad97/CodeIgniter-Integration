@@ -9,16 +9,34 @@ class AdminController extends CI_Controller
     }
 
     private $SO_VALID_VALUE = [
-        "HEADER_LENDING"    => array("fas fa-fw fa-map-marker-alt", "fas fa-fw fa-phone-alt", "fas fa-fw fa-star", "fas fa-fw fa-rocket"),
-        "TEAM_POSITION"     => array("director", "manager", "master", "asistent", "other"),
-        "TEAM_STATUS"       => array("active", "deactive"),
-        "PRICE_CURRENCY"    => array("azn", "eur", "usd", "rub")
+        "HEADER_LENDING" => array(
+            "&#xf3c5;" => "fas fa-fw fa-map-marker-alt",
+            "&#xf879;" => "fas fa-fw fa-phone-alt",
+            "&#xf005;" => "fas fa-fw fa-star",
+            "&#xf135;" => "fas fa-fw fa-rocket"
+        ),
+        "TEAM_POSITION" => array(
+            "Director"  => "director",
+            "Manager"   => "manager",
+            "Master"    => "master",
+            "Asistent"  => "asistent",
+            "Other"     => "other"
+        ),
+        "TEAM_STATUS" => array(
+            "Active"    => "active",
+            "Deactive"  => "deactive"
+        ),
+        "PRICE_CURRENCY" => array(
+            "AZN" => "azn",
+            "EUR" => "eur",
+            "USD" => "usd",
+            "RUB" => "rub"
+        )
     ];
 
     public function xlb_admin_login()
     {
-        $data["lolka"] = $this->SO_VALID_VALUE;
-        $this->load->view("admin/Login", $data);
+        $this->load->view("admin/Login");
     }
 
     public function xlb_admin_login_action()
@@ -494,7 +512,8 @@ class AdminController extends CI_Controller
     {
         $checkRowsHeaderLending = $this->AdminModel->xl_rows_control("header_lending", "hl_id");
         if ($checkRowsHeaderLending == (-1)) {
-            $this->load->view("admin/header_lending/Create");
+            $data["select_option_value"] = $this->SO_VALID_VALUE["HEADER_LENDING"];
+            $this->load->view("admin/header_lending/Create", $data);
         } else {
             redirect(base_url("header_lending_edit"));
         }
