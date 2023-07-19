@@ -54,12 +54,9 @@
                     <div class="form-group">
                         <label for="position"><b>Position</b></label>
                         <select name="input_position" id="position" class="form-control">
-                            <option value="">--SELECT--</option>
-                            <option value="director">Director</option>
-                            <option value="manager">Manager</option>
-                            <option value="master">Master</option>
-                            <option value="asistent">Asistent</option>
-                            <option value="other">Other</option>
+                            <?php foreach ($t_position_select_option as $t_position_select_option_key => $t_position_select_option_value) { ?>
+                                <option value="<?php echo $t_position_select_option_value; ?>"><?php echo $t_position_select_option_key; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -117,9 +114,9 @@
                     <div class="form-group">
                         <label for="status"><b>Account Status</b></label>
                         <select name="input_status" id="status" class="form-control">
-                            <option value="">--SELECT--</option>
-                            <option value="active">Active</option>
-                            <option value="deactive">Deactive</option>
+                            <?php foreach($t_status_select_option as $t_status_select_option_key=>$t_status_select_option_value){ ?>
+                            <option value="<?php echo $t_status_select_option_value; ?>"><?php echo $t_status_select_option_key; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>

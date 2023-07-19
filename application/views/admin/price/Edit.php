@@ -84,10 +84,12 @@
                                 <div class="form-group">
                                     <label for="currency"><b>Currency</b></label>
                                     <select name="input_currency[]" id="currency" class="form-control">
-                                        <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[0] == 'azn') { ?> selected <?php } ?> value="azn">AZN</option>
-                                        <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[0] == 'eur') { ?> selected <?php } ?> value="eur">EUR</option>
-                                        <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[0] == 'usd') { ?> selected <?php } ?> value="usd">USD</option>
-                                        <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[0] == 'rub') { ?> selected <?php } ?> value="rub">RUB</option>
+
+                                        <?php foreach ($p_select_option as $p_select_option_key => $p_select_option_value) { ?>
+                                            <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[0] == $p_select_option_value) { ?> selected <?php } ?> value="<?php echo $p_select_option_value; ?>"><?php echo $p_select_option_key; ?></option>
+                                        <?php } ?>
+
+
                                     </select>
                                 </div>
                             </div>
@@ -120,10 +122,9 @@
                                     <div class="form-group">
                                         <label for="currency_<?php echo $price_counter; ?>"><b>Currency</b></label>
                                         <select name="input_currency[]" id="currency_<?php echo $price_counter; ?>" class="form-control">
-                                            <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[$price_arr_index] == 'azn') { ?> selected <?php } ?> value="azn">AZN</option>
-                                            <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[$price_arr_index] == 'eur') { ?> selected <?php } ?> value="eur">EUR</option>
-                                            <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[$price_arr_index] == 'usd') { ?> selected <?php } ?> value="usd">USD</option>
-                                            <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[$price_arr_index] == 'rub') { ?> selected <?php } ?> value="rub">RUB</option>
+                                            <?php foreach ($p_select_option as $p_select_option_key => $p_select_option_value) { ?>
+                                                <option <?php if (explode('[price_separator_currency]', $price_data["p_arr_currency"])[$price_arr_index] == $p_select_option_value) { ?> selected <?php } ?> value="<?php echo $p_select_option_value; ?>"><?php echo $p_select_option_key; ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -167,7 +168,7 @@
                                 let newDynamicObject = document.createElement("div");
                                 newDynamicObject.classList.add("row");
                                 newDynamicObject.id = `dynamic-row-price-${generateDynamicUID}`;
-                                newDynamicObject.innerHTML += `<div class="col-sm-6"><div class="form-group"><label for="price_text_${generateDynamicUID}"><b>Price text</b></label><input name="input_price_text[]" id="price_text_${generateDynamicUID}" type="text" class="form-control"></div></div><div class="col-sm-3"><div class="form-group"><label for="price_value_${generateDynamicUID}"><b>Price value</b></label><input name="input_price_value[]" id="price_value_${generateDynamicUID}" type="number" class="form-control"></div></div><div class="col-sm-2"><div class="form-group"><label for="currency_${generateDynamicUID}"><b>Currency</b></label><select name="input_currency[]" id="currency_${generateDynamicUID}" class="form-control"><option value="azn">AZN</option><option value="eur">EUR</option><option value="usd">USD</option><option value="rub">RUB</option></select></div></div><div class="col-sm-1"><div class="form-group d-flex flex-column"><label><b>Del</b></label><i class="fas fa-minus-circle fa-dynamic-price-del text-danger" onclick="deleteDI('dynamic-row-price-${generateDynamicUID}');"></i></div></div>`;
+                                newDynamicObject.innerHTML += `<div class="col-sm-6"><div class="form-group"><label for="price_text_${generateDynamicUID}"><b>Price text</b></label><input name="input_price_text[]" id="price_text_${generateDynamicUID}" class="form-control"></div></div><div class="col-sm-3"><div class="form-group"><label for="price_value_${generateDynamicUID}"><b>Price value</b></label><input name="input_price_value[]" id="price_value_${generateDynamicUID}" type="number" class="form-control"></div></div><div class="col-sm-2"><div class="form-group"><label for="currency_${generateDynamicUID}"><b>Currency</b></label><select name="input_currency[]" id="currency_${generateDynamicUID}" class="form-control"><?php foreach ($p_select_option as $p_select_option_key => $p_select_option_value) { ?><option value="<?php echo $p_select_option_value; ?>"><?php echo $p_select_option_key; ?></option><?php } ?></select></div></div><div class="col-sm-1"><div class="form-group d-flex flex-column"><label><b>Del</b></label><i class="fas fa-minus-circle fa-dynamic-price-del text-danger" onclick="deleteDI(&quot;dynamic-row-price-${generateDynamicUID}&quot;)"></i></div></div>`;
                                 dynamicParentPrice.appendChild(newDynamicObject);
                             }
                         });

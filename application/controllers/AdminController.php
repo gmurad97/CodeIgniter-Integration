@@ -83,7 +83,9 @@ class AdminController extends CI_Controller
 
     public function xlb_admin_team_create()
     {
-        $this->load->view("admin/team/Create");
+        $data["t_position_select_option"] = $this->SO_VALID_VALUE["TEAM_POSITION"];
+        $data["t_status_select_option"] = $this->SO_VALID_VALUE["TEAM_STATUS"];
+        $this->load->view("admin/team/Create", $data);
     }
 
     public function xlb_admin_team_create_action()
@@ -175,6 +177,8 @@ class AdminController extends CI_Controller
     public function xlb_admin_team_edit($t_uid)
     {
         $data["get_db_team_row"] = $this->AdminModel->team_get_db_row($t_uid);
+        $data["t_position_select_option"] = $this->SO_VALID_VALUE["TEAM_POSITION"];
+        $data["t_status_select_option"] = $this->SO_VALID_VALUE["TEAM_STATUS"];
         $this->load->view("admin/team/Edit", $data);
     }
 
@@ -512,7 +516,7 @@ class AdminController extends CI_Controller
     {
         $checkRowsHeaderLending = $this->AdminModel->xl_rows_control("header_lending", "hl_id");
         if ($checkRowsHeaderLending == (-1)) {
-            $data["select_option_value"] = $this->SO_VALID_VALUE["HEADER_LENDING"];
+            $data["hl_select_option"] = $this->SO_VALID_VALUE["HEADER_LENDING"];
             $this->load->view("admin/header_lending/Create", $data);
         } else {
             redirect(base_url("header_lending_edit"));
@@ -574,6 +578,7 @@ class AdminController extends CI_Controller
             redirect(base_url("header_lending_create"));
         } else {
             $data["header_lending_db"] = $this->AdminModel->header_lending_get_db($this->AdminModel->xl_rows_control("header_lending", "hl_id"));
+            $data["hl_select_option"] = $this->SO_VALID_VALUE["HEADER_LENDING"];
             $this->load->view("admin/header_lending/Edit", $data);
         }
     }
@@ -636,7 +641,8 @@ class AdminController extends CI_Controller
     {
         $checkRowsPrice = $this->AdminModel->xl_rows_control("price", "p_id");
         if ($checkRowsPrice == (-1)) {
-            $this->load->view("admin/price/Create");
+            $data["p_select_option"] = $this->SO_VALID_VALUE["PRICE_CURRENCY"];
+            $this->load->view("admin/price/Create", $data);
         } else {
             redirect(base_url("price_edit"));
         }
@@ -689,6 +695,7 @@ class AdminController extends CI_Controller
         if ($checkRowsPrice == (-1)) {
             redirect(base_url("price_create"));
         } else {
+            $data["p_select_option"] = $this->SO_VALID_VALUE["PRICE_CURRENCY"];
             $data["price_data"] = $this->AdminModel->price_get($this->AdminModel->xl_rows_control("price", "p_id"));
             $this->load->view("admin/price/Edit", $data);
         }

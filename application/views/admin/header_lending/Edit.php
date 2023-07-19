@@ -54,10 +54,9 @@
                     <div class="form-group">
                         <label for="hl_first_select_icon"><b>First icon</b></label>
                         <select name="input_hl_first_select_icon" id="hl_first_select_icon" class="fa fix_fa_select_glyph form-control">
-                            <option <?php if ($header_lending_db['hl_first_select_icon'] == "fas fa-fw fa-map-marker-alt") { ?> selected <?php } ?> value="fas fa-fw fa-map-marker-alt">&#xf3c5;</option>
-                            <option <?php if ($header_lending_db['hl_first_select_icon'] == "fas fa-fw fa-phone-alt") { ?> selected <?php } ?> value="fas fa-fw fa-phone-alt">&#xf879;</option>
-                            <option <?php if ($header_lending_db['hl_first_select_icon'] == "fas fa-fw fa-star") { ?> selected <?php } ?> value="fas fa-fw fa-star">&#xf005;</option>
-                            <option <?php if ($header_lending_db['hl_first_select_icon'] == "fas fa-fw fa-rocket") { ?> selected <?php } ?> value="fas fa-fw fa-rocket">&#xf135;</option>
+                            <?php foreach ($hl_select_option as $hl_select_option_key => $hl_select_option_value) { ?>
+                                <option <?php if ($header_lending_db['hl_first_select_icon'] == $hl_select_option_value) { ?> selected <?php } ?> value="<?php echo $hl_select_option_value; ?>"><?php echo $hl_select_option_key; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -73,10 +72,9 @@
                     <div class="form-group">
                         <label for="hl_second_select_icon"><b>Second icon</b></label>
                         <select name="input_hl_second_select_icon" id="hl_second_select_icon" class="fa fix_fa_select_glyph form-control">
-                            <option <?php if ($header_lending_db['hl_second_select_icon'] == "fas fa-fw fa-map-marker-alt") { ?> selected <?php } ?> value="fas fa-fw fa-map-marker-alt">&#xf3c5;</option>
-                            <option <?php if ($header_lending_db['hl_second_select_icon'] == "fas fa-fw fa-phone-alt") { ?> selected <?php } ?> value="fas fa-fw fa-phone-alt">&#xf879;</option>
-                            <option <?php if ($header_lending_db['hl_second_select_icon'] == "fas fa-fw fa-star") { ?> selected <?php } ?> value="fas fa-fw fa-star">&#xf005;</option>
-                            <option <?php if ($header_lending_db['hl_second_select_icon'] == "fas fa-fw fa-rocket") { ?> selected <?php } ?> value="fas fa-fw fa-rocket">&#xf135;</option>
+                            <?php foreach ($hl_select_option as $hl_select_option_key => $hl_select_option_value) { ?>
+                                <option <?php if ($header_lending_db['hl_second_select_icon'] == $hl_select_option_value) { ?> selected <?php } ?> value="<?php echo $hl_select_option_value; ?>"><?php echo $hl_select_option_key; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>

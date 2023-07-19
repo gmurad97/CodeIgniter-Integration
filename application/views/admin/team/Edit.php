@@ -63,12 +63,9 @@
                     <div class="form-group">
                         <label for="position"><b>Position</b></label>
                         <select name="input_position" id="position" class="form-control">
-                            <option <?php if ($get_db_team_row["t_position"] == "") { ?> selected <?php } ?> value="">--SELECT--</option>
-                            <option <?php if ($get_db_team_row["t_position"] == "director") { ?> selected <?php } ?> value="director">Director</option>
-                            <option <?php if ($get_db_team_row["t_position"] == "manager") { ?> selected <?php } ?> value="manager">Manager</option>
-                            <option <?php if ($get_db_team_row["t_position"] == "master") { ?> selected <?php } ?> value="master">Master</option>
-                            <option <?php if ($get_db_team_row["t_position"] == "asistent") { ?> selected <?php } ?> value="asistent">Asistent</option>
-                            <option <?php if ($get_db_team_row["t_position"] == "other") { ?> selected <?php } ?> value="other">Other</option>
+                            <?php foreach ($t_position_select_option as $t_position_select_option_key => $t_position_select_option_value) { ?>
+                                <option <?php if ($get_db_team_row["t_position"] == "$t_position_select_option_value") { ?> selected <?php } ?> value="<?php echo $t_position_select_option_value; ?>"><?php echo $t_position_select_option_key; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -126,9 +123,9 @@
                     <div class="form-group">
                         <label for="status"><b>Account Status</b></label>
                         <select name="input_status" id="status" class="form-control">
-                            <option <?php if ($get_db_team_row["t_status"] == "") { ?> selected <?php } ?> value="">--SELECT--</option>
-                            <option <?php if ($get_db_team_row["t_status"] == "active") { ?> selected <?php } ?> value="active">Active</option>
-                            <option <?php if ($get_db_team_row["t_status"] == "deactive") { ?> selected <?php } ?> value="deactive">Deactive</option>
+                            <?php foreach ($t_status_select_option as $t_status_select_option_key => $t_status_select_option_value) { ?>
+                                <option <?php if ($get_db_team_row["t_status"] == "$t_status_select_option_value") { ?> selected <?php } ?> value="<?php echo $t_status_select_option_value; ?>"><?php echo $t_status_select_option_key; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>

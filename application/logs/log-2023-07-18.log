@@ -5,3 +5,8 @@ ERROR - 2023-07-18 08:21:05 --> Severity: Warning --> Undefined variable $item C
 ERROR - 2023-07-18 08:21:05 --> Severity: error --> Exception: Attempt to assign property "" on null C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11
 ERROR - 2023-07-18 08:21:06 --> Severity: Warning --> Undefined variable $item C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11
 ERROR - 2023-07-18 08:21:06 --> Severity: error --> Exception: Attempt to assign property "" on null C:\xampp\htdocs\xlbarbershop\application\views\admin\header_lending\Create.php 11
+ERROR - 2023-07-18 21:08:51 --> Severity: Warning --> unlink(./file_manager/gallery/): Is a directory C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 1135
+ERROR - 2023-07-18 21:13:26 --> Severity: Warning --> unlink(./file_manager/gallery/): Is a directory C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 1135
+ERROR - 2023-07-18 21:28:12 --> Severity: error --> Exception: Call to undefined method CI_Upload::file_type() C:\xampp\htdocs\xlbarbershop\application\controllers\AdminController.php 1122
+ERROR - 2023-07-18 21:53:24 --> Severity: Warning --> Undefined variable $p_se1lect_option C:\xampp\htdocs\xlbarbershop\application\views\admin\price\Create.php 82
+ERROR - 2023-07-18 21:53:24 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\xlbarbershop\application\views\admin\price\Create.php 82
