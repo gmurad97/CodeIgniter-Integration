@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/xlbarbershop';
+$config['base_url'] = 'http://xlbarbershop';
 
 /*
 |--------------------------------------------------------------------------
@@ -457,10 +457,10 @@ $config['global_xss_filtering'] = TRUE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
-$config['csrf_expire'] = 7200;
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'csrf_xl_token';
+$config['csrf_cookie_name'] = 'csrf_xl_cookie';
+$config['csrf_expire'] = 1920;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
 

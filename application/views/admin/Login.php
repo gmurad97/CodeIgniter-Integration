@@ -29,6 +29,7 @@
                                             <h1 class="h3 text-uppercase text-gray-800 mb-4">XLBarbeshop Admin Panel</h1>
                                         </div>
                                         <form class="user" action="<?php echo base_url('admin_auth_action'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
+                                        
                                             <div class="form-group">
                                                 <label for="label_admin_username">Username</label>
                                                 <input type="text" name="input_admin_username" class="form-control" id="label_admin_username" placeholder="Enter username...">

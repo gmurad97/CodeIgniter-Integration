@@ -14,6 +14,7 @@
     </div>
     <div class="card-body">
         <form action="<?php echo base_url('header_lending_edit_action'); ?>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <h3 class="bg-gradient-warning text-center text-white mb-3 py-2 rounded"><b>Header Lending</b></h3>
             <style>
                 .fix_fa_select_glyph,

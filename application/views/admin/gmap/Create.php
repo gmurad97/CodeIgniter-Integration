@@ -8,6 +8,7 @@
     </div>
     <div class="card-body">
         <form action="<?= base_url('gmap_create_action'); ?>" method="POST" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <h3 class="bg-gradient-dark text-center text-white py-2 rounded"><b>Google Map</b></h3>
             <div class="row">
                 <div class="col-sm-12">

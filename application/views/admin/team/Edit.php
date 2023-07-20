@@ -31,6 +31,7 @@
             </a>
         </div>
         <form action="<?php echo base_url('team_edit_action/') . $get_db_team_row["t_uid"]; ?>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
             <h3 class="bg-gradient-warning text-center text-white mb-3 py-2 rounded"><b>Personal Information</b></h3>
             <div class="row">
                 <div class="col-sm-4">
